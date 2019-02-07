@@ -3,6 +3,10 @@ body {
 	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
+.su_block {
+	width: 856px;
+}
+
 #tab {
 	width:auto;
 	margin: 20px;
@@ -10,7 +14,37 @@ body {
 	float: left;
 }
 
+#more_actions {
+	font-size: 16px;
+	width: 411px;
+	margin: 0;
+	position: absolute;
+    top: 16px;
+    left: 915px;
+    cursor: pointer;
 
+
+}
+
+.appointment__hr {
+	width: 800px;
+    margin-right: 1000px;
+}
+
+.ma_paragraph {
+	background-color: #f5f5f5;    
+    background-image: linear-gradient(to bottom,#f5f5f5 0,#e8e8e8 100%);
+    background-repeat: repeat-x;
+    width: 411px;
+    height: 38px;
+        border-top-right-radius: 3px;
+    border-top-left-radius: 3px;
+    margin: 0;
+    border: 1px solid;
+    border-color: #ddd;	
+        display: table-cell;
+    vertical-align: middle;
+}
 
 #tab > input {
 	display: none;
@@ -301,6 +335,7 @@ input[type="text"] {
 	float: left;
 	margin: 14px 0;
 	display: none;
+	width: 856px;
 }
 
 #n1:checked ~ #table > div:nth-of-type(1) {

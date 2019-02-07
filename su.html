@@ -32,8 +32,10 @@
 2 часа 30 мин
 05.01
 2 часа
-06.02
+06.01 
 1 час 30 мин
+07.02
+2 часа
 
 -->
 <html lang="en">
@@ -632,6 +634,7 @@
 					У клиента есть неактивированная кредитная карта, которая будет заблокирована: <br>
 					УКБО подписано: При отправке почтой клиенту ничего не нужно отправлять обратно, картой можно пользоваться сразу. <br>
 					Очерёдность предложений: Единственное предложение <br>
+					Дебетовый клиент: Да <br>
 				</p>
 			</div>
 		</div>	
@@ -640,7 +643,6 @@
 			<hr>
 			<form class="SU__form">
 	               	<p><input id="form__SU1" type="radio" name="c" value="a" checked onclick="function__hide_cl_count()">Кредитная карта Tinkoff Platinum TFPV7.27, кредитный лимит 140 000 рублей</p>
-	                <p><input id="form__SU2" type="radio" name="c" value="d" onclick="function__hide_cl_count()">Кредитная карта Tinkoff Platinum TFPV7.22, кредитный лимит 10 000 рублей</p>
 	                <p><input id="form__SU3" type="radio" name="c" value="d" onclick="function_form_SU3()">Кредит наличными с пересчетом ставки: 200 000 на 36 месяцев (10 000 в месяц, присутствует страховка)</p>
 	                <p id="su3-1"><input id="form__SU3-1" type="radio" name="c" value="d" onclick="function_cl_count1()">Собственный расчет</p>
 	                <p><input id="form__SU4" type="radio" name="c" value="d" onclick="function_form_SU4()">Кредит наличными: 99 000 на 36 месяцев (4 000 в месяц, присутствует страховка, кредитные каникулы отсутсвуют)</p>
@@ -696,7 +698,7 @@
 	        <input type="button" value="Назначить встречу" id="appointment" onclick="function_appointment_show()">
 	        <div id="appointment__ops">
 	        	<h2 class="appointment__header">Встреча</h2>
-	        	<hr>
+	        	<hr class="appointment__hr">
 	        	<p class="appointment__address_kind"><span class="span-red"><b>Рабочий адрес </b></span>Нет встречи по адресу</p>
 	        	<p class="appointment__address">Костромская обл., Кострома, Васильковая ул., д. 4321.</p><br>
 	        	<p class="appointment__address"><b>Удобный адрес для встречи</b><br>Костромская обл., Кострома, Васильковая ул., д. 12. кв. 1432</p>
@@ -705,7 +707,7 @@
 	        	<p><b>Комментарий для представителя</b></p>
 	        	<textarea name="comment" cols="50" rows="10"></textarea>
 	        	<div class="appointment__buttons">
-	        <input type="button" value="Назначить встречу" id="appointment__confirm" onclick="function_appointment__confirm()">
+	        <input type="button" value="Назначить встречу" id="appointment__confirm" onclick="function_confirm_meet()">
 	        <input type="button" value="Другое место/время" id="appointment__another_time_or_place" onclick="function_appointment__another_time_or_place()">
 	        	</div>
 	        </div>
@@ -828,6 +830,25 @@
            	</div>
 		</div>
 	</div>
+	<div id="more_actions">
+    	<div id="m_a__more_actions" onclick="m_a__more_actions()">
+    		<p class="ma_paragraph">&#9658;   Дополнительные действия</p>
+    	</div>
+    	<div id="m_a__more_actions_open">
+    		<div id="change_data" onclick="change_data()"><p><input type="checkbox">Изменение данных</p>
+    			<div><p><b>Дата обработки:</b><input type="datetime"></p></div>
+    			<div><p><b>Комментарий: <span class="span-red"></span></b></p></div>
+    			<div><textarea rows="3" cols="45" maxlength="300"></textarea></div>
+    		</div>
+    		<div><p><input type="checkbox">Претензия</p></div>
+    	</div>
+    	<div id="m_a__claim_register" onclick="m_a__claim_register()">
+    		<p class="ma_paragraph">&#9658;   Зарегистрировать претензию</p>
+    	</div>
+    	<div id="m_a__map" onclick="m_a__map()">
+    		<p class="ma_paragraph">&#9658;   Карта</p>
+    	</div>	        	
+    </div>
 </div>
 <script src="su.js"></script>
 </body>

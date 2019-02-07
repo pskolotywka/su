@@ -1,3 +1,13 @@
+function m_a__more_actions {
+		{
+		if (document.getElementById("m_a__more_actions").click) 
+			{
+			document.getElementById("").style.display = 'block'; 	 
+			} 
+	};	
+}
+
+
 function take_a_credit() {
 	{
 		if (document.getElementById("take_a_credit_activate" || "take_a_credit_email" || "take_a_credit_guy").click) 
@@ -58,7 +68,7 @@ function function_form_SU3()
 
 function function__hide_cl_count()
 	{
-		if (document.getElementById("form__SU1" , "form__SU2").click) 
+		if (document.getElementById("form__SU1").click) 
 			{
 			document.getElementById("su4-1").style.display = 'none'; 	 
 			document.getElementById("my_cl_count1").style.display = 'none'; 	 
