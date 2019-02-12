@@ -36,6 +36,8 @@
 1 час 30 мин
 07.02
 2 часа
+12.02
+2 часа 30 мин
 
 -->
 <html lang="en">
@@ -831,23 +833,36 @@
 		</div>
 	</div>
 	<div id="more_actions">
-    	<div id="m_a__more_actions" onclick="m_a__more_actions()">
-    		<p class="ma_paragraph">&#9658;   Дополнительные действия</p>
-    	</div>
-    	<div id="m_a__more_actions_open">
-    		<div id="change_data" onclick="change_data()"><p><input type="checkbox">Изменение данных</p>
-    			<div><p><b>Дата обработки:</b><input type="datetime"></p></div>
-    			<div><p><b>Комментарий: <span class="span-red"></span></b></p></div>
-    			<div><textarea rows="3" cols="45" maxlength="300"></textarea></div>
-    		</div>
-    		<div><p><input type="checkbox">Претензия</p></div>
-    	</div>
-    	<div id="m_a__claim_register" onclick="m_a__claim_register()">
+		<div id="m_a__more_actions1" onclick="m_a__more_actions1()"></div>
+    	<div id="m_a__more_actions" onclick="m_a__more_actions()">		
+    		<p class="ma_paragraph">&#9658;   Дополнительные действия
+    		</p>    	
+    	</div>	
+	    	<div id="m_a__more_actions_open" onclick="m_a__more_actions_open()">
+	    		<div>
+	    			<p><input type="checkbox" id="change_data" onclick="change_data()">Изменение данных</p>
+	    			<div id="change_data__wrap">
+		    			<div class="datetime"><p><b>Дата обработки:</b><input type="datetime"></p></div>
+		    			<div><p><b>Комментарий: <span class="span-red"></span></b></p></div>
+		    			<div><textarea rows="3" cols="45" maxlength="300"></textarea></div>
+	    			</div>
+	    		</div>
+	    		<div><p><input type="checkbox">Претензия</p>
+	    			<div id="m_a_comliance">
+		    			<div class="datetime"><p><b>Дата обработки:</b><input type="datetime"></p></div>
+		    			<div><p><b>Комментарий: <span class="span-red"></span></b></p></div>
+		    			<div><textarea rows="3" cols="45" maxlength="300"></textarea></div>
+	    			</div>
+	    		</div>
+				<button type="submit" class="save">Сохранить</button>		
+	    	</div>	    	
+    	 
+		<div id="m_a__claim_register" onclick="m_a__claim_register()">
     		<p class="ma_paragraph">&#9658;   Зарегистрировать претензию</p>
     	</div>
     	<div id="m_a__map" onclick="m_a__map()">
     		<p class="ma_paragraph">&#9658;   Карта</p>
-    	</div>	        	
+    	</div>	       	
     </div>
 </div>
 <script src="su.js"></script>

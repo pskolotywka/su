@@ -1,11 +1,49 @@
-function m_a__more_actions {
+function change_data() {
+	{
+	if 
+		(document.getElementById("change_data").checked) 
 		{
-		if (document.getElementById("m_a__more_actions").click) 
-			{
-			document.getElementById("").style.display = 'block'; 	 
-			} 
-	};	
+		document.getElementById("change_data__wrap").style.display = 'block';
+			} 	else {
+			document.getElementById("change_data__wrap").style.display = 'none';
+		
+		} 
+	};
 }
+
+
+function m_a__more_actions1() {
+	{
+		if 
+			(document.getElementById("m_a__more_actions1").click) 
+			{
+			document.getElementById("m_a__more_actions").style.display = 'block';
+			document.getElementById("m_a__more_actions_open").style.display = 'block';
+			document.getElementById("m_a__more_actions1").style.display = 'none';
+
+
+			} 
+		};
+}
+
+function m_a__more_actions() {
+	{
+		if 
+			(document.getElementById("m_a__more_actions").click) 
+			{
+			document.getElementById("m_a__more_actions1").style.display = 'block';
+			document.getElementById("m_a__more_actions_open").style.display = 'none';
+
+			} 
+		};
+}
+
+
+		
+
+
+
+
 
 
 function take_a_credit() {

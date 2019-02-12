@@ -26,6 +26,54 @@ body {
 
 }
 
+#m_a__more_actions1 {
+	height: 40px;
+	width: 411px;
+	position: relative;
+	top: 40px;
+}
+
+
+
+
+#change_data__wrap, #m_a__more_actions_open, #m_a_comliance {
+	display: none;
+}
+
+#m_a__more_actions_open {
+	border: 1px solid #cccccc;
+	border-radius: 5px;
+}
+
+.button_wrap {
+	display: flex;
+}
+
+.datetime input, textarea {
+	padding: 5px;
+	margin: 10px;
+	border: 1px solid #cccccc;
+	border-radius: 5px;
+}
+
+
+.save {
+	padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    border-radius: 4px;
+    background-color: #E5E5E5;
+    color: #333;
+    touch-action: manipulation;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
 .appointment__hr {
 	width: 800px;
     margin-right: 1000px;
