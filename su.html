@@ -36,6 +36,12 @@
 1 час 30 мин
 07.02
 2 часа
+12.02
+2 часа 30 мин
+13.02
+2 часа
+14.02
+2 часа
 
 -->
 <html lang="en">
@@ -43,6 +49,7 @@
 	<meta charset="UTF-8">
 	<title>Document</title>
 	<link rel="stylesheet" href="su.css">
+	<style></style>
 </head>
 <body>
 
@@ -643,9 +650,9 @@
 			<hr>
 			<form class="SU__form">
 	               	<p><input id="form__SU1" type="radio" name="c" value="a" checked onclick="function__hide_cl_count()">Кредитная карта Tinkoff Platinum TFPV7.27, кредитный лимит 140 000 рублей</p>
-	                <p><input id="form__SU3" type="radio" name="c" value="d" onclick="function_form_SU3()">Кредит наличными с пересчетом ставки: 200 000 на 36 месяцев (10 000 в месяц, присутствует страховка)</p>
-	                <p id="su3-1"><input id="form__SU3-1" type="radio" name="c" value="d" onclick="function_cl_count1()">Собственный расчет</p>
+	                <p><input id="form__SU3" type="radio" name="c" value="d" onclick="function_form_SU3()">Кредит наличными с пересчетом ставки: 200 000 на 36 месяцев (10 000 в месяц, присутствует страховка)</p>	                
 	                <p><input id="form__SU4" type="radio" name="c" value="d" onclick="function_form_SU4()">Кредит наличными: 99 000 на 36 месяцев (4 000 в месяц, присутствует страховка, кредитные каникулы отсутсвуют)</p>
+	                <p id="su3-1"><input id="form__SU3-1" type="radio" name="c" value="d" onclick="function_cl_count1()">Собственный расчет</p>
 	                <p id="su4-1"><input id="form__SU4-1" type="radio" name="c" value="d" onclick="function_cl_count2()">Собственный расчет</p>
 	        </form>
 	    </div>   
@@ -720,7 +727,7 @@
 	        		<h2>Удобный адрес для встречи</h2>
 	        		<hr>
 	        		<div id="appointment__nice_address">
-	        			<input type="radio" name="ee3" id="change_p4" onclick="function_change_p4()">Башкортостан Республика, Туймазы, 70 Лет Октября, 6 (Автовокзал)
+	        			<input type="radio" name="ee3" id="change_p4">Башкортостан Республика, Туймазы, 70 Лет Октября, 6 (Автовокзал)
 	        		</div>
 	        		<div id="appointment__new_address">
 	        			<p><b>Адрес<span class="span-red">*</span></b></p>
@@ -735,7 +742,7 @@
 					<h2>Дата и время</h2>
 					<hr>
 					<div id="set_time_and_date__block">
-						<p><b>Дата</b><span class="span-red">*</span></p><input type="text" size="40">
+						<p><b>Дата</b><span class="span-red">*</span></p><input type="date" class="form-control" id="date" name="date" placeholder="Дата" required>
 						<p><b>Временной интервал</b><span class="span-red">*</span></p><input type="text" size="40" placeholder="15:00 - 17:00">
 						<p><b>Комментарий <br>для представителя</b></p><textarea name="ff3"cols="40" rows="5" placeholder="Код домофона, подъезд, другое..."></textarea>
 					</div>
@@ -831,26 +838,71 @@
 		</div>
 	</div>
 	<div id="more_actions">
-    	<div id="m_a__more_actions" onclick="m_a__more_actions()">
-    		<p class="ma_paragraph">&#9658;   Дополнительные действия</p>
-    	</div>
+		<div id="m_a__more_actions1" onclick="m_a__more_actions1()">
+			<p class="ma_paragraph">&#9658;   Дополнительные действия
+    		</p> 
+		</div>
+    	<div id="m_a__more_actions" onclick="m_a__more_actions()">		
+    		<p class="ma_paragraph">&#9658;   Дополнительные действия
+    		</p>    	
+    	</div>	
     	<div id="m_a__more_actions_open">
-    		<div id="change_data" onclick="change_data()"><p><input type="checkbox">Изменение данных</p>
-    			<div><p><b>Дата обработки:</b><input type="datetime"></p></div>
-    			<div><p><b>Комментарий: <span class="span-red"></span></b></p></div>
-    			<div><textarea rows="3" cols="45" maxlength="300"></textarea></div>
+    		<div>
+    			<p><input type="checkbox" id="change_data" onclick="change_data()">Изменение данных</p>
+    			<div id="change_data__wrap">
+	    			<div class="datetime"><p><b>Дата обработки:</b><input type="datetime"></p></div>
+	    			<div><p><b>Комментарий: <span class="span-red"></span></b></p></div>
+	    			<div><textarea rows="3" cols="45" maxlength="300"></textarea></div>
+    			</div>
     		</div>
-    		<div><p><input type="checkbox">Претензия</p></div>
-    	</div>
-    	<div id="m_a__claim_register" onclick="m_a__claim_register()">
+    		<div>
+    			<p><input type="checkbox" id="ch_comliance" onclick="ch_comliance()">Претензия</p>
+    			<div id="m_a_comliance">
+	    			<div class="datetime"><p><b>Дата обработки:</b><input type="datetime"></p></div>
+	    			<div><p><b>Комментарий: <span class="span-red"></span></b></p></div>
+	    			<div><textarea rows="3" cols="45" maxlength="300"></textarea></div>
+    			</div>
+    		</div>
+			<button type="submit" class="save">Сохранить</button>		
+    	</div>  
+    	<div id="m_a__claim_register1" onclick="m_a__claim_register1()">
+    		<p class="ma_paragraph">&#9658;   Зарегистрировать претензию</p>
+    	</div>  	 
+		<div id="m_a__claim_register" onclick="m_a__claim_register()">
     		<p class="ma_paragraph">&#9658;   Зарегистрировать претензию</p>
     	</div>
+    	<div id="comliance__open">
+    		<p><b>Претензия<span class="span-red">*</span></b></p>
+    		<div id="comliance__select">
+    			<select name="comp" id="comp__sel" size="1">
+    				<option value=""></option>
+    				<option value="Оформление заявки">Оформление заявки</option>
+    				<option value="Доставка карты/документов">Доставка карты/документов</option>
+    			</select>
+    		</div>
+    		<br>
+    		<p><b>Описание со слов клиента<span class="span-red">*</span></b></p>
+			<div class="div_textarea_compl"><textarea rows="3" cols="45" maxlength="300"></textarea></div>
+			<p><b>Дата и время со слов клиента</b></p>
+			<div class="datetime"><p><b>Дата обработки:</b><input type="datetime"></p></div>
+			<p><input type="checkbox">Проинформировать клиента о рассмотрении</p>
+			<button type="submit" id="confirm_compliance">Отправить претензию</button>
+    	</div>
+    	<div id="m_a__map1" onclick="m_a__map1()">
+    		<p class="ma_paragraph">&#9658;   Карта</p>
+    	</div>	
     	<div id="m_a__map" onclick="m_a__map()">
     		<p class="ma_paragraph">&#9658;   Карта</p>
-    	</div>	        	
+    	</div>
+    	<div id="map__open">
+		<p>Скопируйте ссылку в новую вкладку и перейдите по ней.</p>
+		<br><br>
+		<p>https://weboffice.tinkoff.ru/rest/user-guide-files/5421.html</p>
+    	</div>      	
     </div>
 </div>
 <script src="su.js"></script>
+<script></script>
 </body>
 </html>
 
