@@ -1,11 +1,96 @@
-function m_a__more_actions {
-		{
-		if (document.getElementById("m_a__more_actions").click) 
-			{
-			document.getElementById("").style.display = 'block'; 	 
-			} 
-	};	
+function tooltip() {
+if (document.getElementById("span-tooltip").click) {
+	document.getElementById("tooltip_wrap").style.display = 'block';}
 }
+
+function m_a__claim_register() {
+	if (document.getElementById("m_a__claim_register").click)
+		{document.getElementById("comliance__open").style.display = 'block';
+		document.getElementById("m_a__claim_register1").style.display = 'block';
+		document.getElementById("m_a__claim_register").style.display = 'none';}
+}
+
+
+function m_a__claim_register1() {
+	if (document.getElementById("m_a__claim_register1").click)
+		{document.getElementById("comliance__open").style.display = 'none';
+		document.getElementById("m_a__claim_register1").style.display = 'none';
+		document.getElementById("m_a__claim_register").style.display = 'block';}
+}
+
+function m_a__more_actions() {
+	if (document.getElementById("m_a__more_actions").click)
+		{document.getElementById("m_a__more_actions_open").style.display = 'block';
+		document.getElementById("m_a__more_actions1").style.display = 'block';
+		document.getElementById("m_a__more_actions").style.display = 'none';}
+}
+
+function m_a__more_actions1() {
+	if (document.getElementById("m_a__more_actions1").click)
+		{document.getElementById("m_a__more_actions_open").style.display = 'none';
+		document.getElementById("m_a__more_actions1").style.display = 'none';
+		document.getElementById("m_a__more_actions").style.display = 'block';}
+}
+
+
+
+
+function m_a__map() {
+	if (document.getElementById("m_a__map").click)
+		{document.getElementById("map__open").style.display = 'block';
+		document.getElementById("m_a__map1").style.display = 'block';
+		document.getElementById("m_a__map").style.display = 'none';}
+}
+
+function m_a__map1() {
+	if (document.getElementById("m_a__map1").click)
+		{document.getElementById("map__open").style.display = 'none';
+		document.getElementById("m_a__map1").style.display = 'none';
+		document.getElementById("m_a__map").style.display = 'block';}
+}
+
+
+
+
+
+
+function ch_comliance() {
+		{
+	if 
+		(document.getElementById("ch_comliance").checked) 
+		{
+		document.getElementById("m_a_comliance").style.display = 'block';
+			} 	else {
+			document.getElementById("m_a_comliance").style.display = 'none';
+		
+		} 
+	};
+
+}
+
+
+function change_data() {
+	{
+	if 
+		(document.getElementById("change_data").checked) 
+		{
+		document.getElementById("change_data__wrap").style.display = 'block';
+			} 	else {
+			document.getElementById("change_data__wrap").style.display = 'none';
+		
+		} 
+	};
+}
+
+
+
+
+
+		
+
+
+
+
 
 
 function take_a_credit() {
