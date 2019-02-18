@@ -1,18 +1,122 @@
-function m_a__more_actions {
-		{
-		if (document.getElementById("m_a__more_actions").click) 
-			{
-			document.getElementById("").style.display = 'block'; 	 
-			} 
-	};	
+// appointment__ops form__SU3 
+
+function cl_count__button() {
+	if (document.getElementById("cl_count__button").click) {
+		document.getElementById("my_cl_count_result").style.display = "block"
+	}
 }
+
+function cl_count__button1() {
+	if (document.getElementById("cl_count__button1").click) {
+		document.getElementById("my_cl_count_result1").style.display = "block"
+	}
+}
+
+
+
+function tooltip() {
+if (document.getElementById("span-tooltip").click) {
+	document.getElementById("tooltip_wrap").style.display = 'block';}
+}
+
+function tooltip1() {
+if (document.getElementById("span-tooltip1").click) {
+	document.getElementById("tooltip_wrap1").style.display = 'block';}
+}
+
+function m_a__claim_register() {
+	if (document.getElementById("m_a__claim_register").click)
+		{document.getElementById("comliance__open").style.display = 'block';
+		document.getElementById("m_a__claim_register1").style.display = 'block';
+		document.getElementById("m_a__claim_register").style.display = 'none';}
+}
+
+
+function m_a__claim_register1() {
+	if (document.getElementById("m_a__claim_register1").click)
+		{document.getElementById("comliance__open").style.display = 'none';
+		document.getElementById("m_a__claim_register1").style.display = 'none';
+		document.getElementById("m_a__claim_register").style.display = 'block';}
+}
+
+function m_a__more_actions() {
+	if (document.getElementById("m_a__more_actions").click)
+		{document.getElementById("m_a__more_actions_open").style.display = 'block';
+		document.getElementById("m_a__more_actions1").style.display = 'block';
+		document.getElementById("m_a__more_actions").style.display = 'none';}
+}
+
+function m_a__more_actions1() {
+	if (document.getElementById("m_a__more_actions1").click)
+		{document.getElementById("m_a__more_actions_open").style.display = 'none';
+		document.getElementById("m_a__more_actions1").style.display = 'none';
+		document.getElementById("m_a__more_actions").style.display = 'block';}
+}
+
+
+
+
+function m_a__map() {
+	if (document.getElementById("m_a__map").click)
+		{document.getElementById("map__open").style.display = 'block';
+		document.getElementById("m_a__map1").style.display = 'block';
+		document.getElementById("m_a__map").style.display = 'none';}
+}
+
+function m_a__map1() {
+	if (document.getElementById("m_a__map1").click)
+		{document.getElementById("map__open").style.display = 'none';
+		document.getElementById("m_a__map1").style.display = 'none';
+		document.getElementById("m_a__map").style.display = 'block';}
+}
+
+
+
+
+
+
+function ch_comliance() {
+		{
+	if 
+		(document.getElementById("ch_comliance").checked) 
+		{
+		document.getElementById("m_a_comliance").style.display = 'block';
+			} 	else {
+			document.getElementById("m_a_comliance").style.display = 'none';
+		
+		} 
+	};
+
+}
+
+
+function change_data() {
+	{
+	if 
+		(document.getElementById("change_data").checked) 
+		{
+		document.getElementById("change_data__wrap").style.display = 'block';
+			} 	else {
+			document.getElementById("change_data__wrap").style.display = 'none';
+		
+		} 
+	};
+}
+
+
+
+
+
+		
 
 
 function take_a_credit() {
 	{
-		if (document.getElementById("take_a_credit_activate" || "take_a_credit_email" || "take_a_credit_guy").click) 
+		if (document.getElementById("take_a_credit_activate" || "take_a_credit_email").click) 
 			{
-			document.getElementById("end_task").style.display = 'block'; 	 
+			document.getElementById("end_task").style.display = 'block'; 	
+			document.getElementById("appointment__ops").style.display = 'none'; 	
+			document.getElementById("appointment").style.display = 'none'; 	
 			} 
 	};	
 }
@@ -26,6 +130,11 @@ function function_form_SU4() {
 			document.getElementById("take_a_credit").style.display = 'block'; 
 			document.getElementById("su4-1").style.display = 'block'; 	 
 			document.getElementById("su3-1").style.display = 'none'; 
+			document.getElementById("my_cl_count_result").style.display = 'none'; 
+			document.getElementById("tooltip_wrap").style.display = 'none';  
+			document.getElementById("appointment__ops").style.display = 'none';  
+			document.getElementById("my_cl_count_result1").style.display = 'none';  
+			document.getElementById("appointment").style.display = 'none';  
 			} 
 	};	
 }
@@ -62,6 +171,10 @@ function function_form_SU3()
 			document.getElementById("my_cl_count1").style.display = 'none'; 	 
 			document.getElementById("my_cl_count2").style.display = 'none'; 	 
 			document.getElementById("appointment").style.display = 'none'; 	 
+			document.getElementById("my_cl_count_result").style.display = 'none'; 	 
+			document.getElementById("tooltip_wrap").style.display = 'none'; 	  
+			document.getElementById("appointment__ops").style.display = 'none'; 	  
+			document.getElementById("my_cl_count_result1").style.display = 'none'; 	  
 			} 
 	};
 
@@ -76,6 +189,10 @@ function function__hide_cl_count()
 			document.getElementById("su3-1").style.display = 'none'; 
 			document.getElementById("appointment").style.display = 'block'; 
 			document.getElementById("take_a_credit").style.display = 'none'; 
+			document.getElementById("my_cl_count_result").style.display = 'none'; 
+			document.getElementById("tooltip_wrap").style.display = 'none';  
+			document.getElementById("appointment__ops").style.display = 'none';  
+			document.getElementById("my_cl_count_result1").style.display = 'none';  
 			} 
 	};	
 
@@ -158,6 +275,9 @@ function function_appointment_show()
 			document.getElementById("SU").style.display = 'none';
 			document.getElementById("credit_condition").style.display = 'none'; 
 			document.getElementById("appointment").style.display = 'none'; 
+			document.getElementById("appointment").style.display = 'none'; 
+			document.getElementById("end_task").style.display = 'none'; 
+			document.getElementById("take_a_credit").style.display = 'none'; 
 			} 
 	};
 
