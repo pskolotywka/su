@@ -36,6 +36,16 @@
 1 час 30 мин
 07.02
 2 часа
+12.02
+2 часа 30 мин
+13.02
+2 часа
+14.02
+2 часа
+15.02 
+2 часа
+18.02
+2 Часа
 
 -->
 <html lang="en">
@@ -43,6 +53,647 @@
 	<meta charset="UTF-8">
 	<title>Document</title>
 	<link rel="stylesheet" href="su.css">
+	<style>
+		body {
+	background: white;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.su_block {
+	width: 856px;
+}
+
+#tab {
+	width:auto;
+	margin: 20px;
+	display: block;
+	float: left;
+}
+
+#more_actions {
+	font-size: 16px;
+	width: 411px;
+	margin: 0;
+	position: absolute;
+    top: 16px;
+    left: 915px;
+    cursor: pointer;
+
+
+}
+
+#f5 {
+    position: absolute;
+    top: 5px;
+}
+
+.span-background {
+	color: white;
+	display: inline-block;
+	  width: 20px;
+  height: 20px;
+  line-height: 22px;
+  background: lightblue;
+  margin: 1em;
+  border-radius: 50%;
+  text-align: center;
+  cursor: pointer;
+
+}
+
+#tooltip_wrap, #my_cl_count_result, #my_cl_count_result1, #tooltip_wrap1 {
+	display: none;
+}
+
+#tooltip_count, #tooltip_count1 {
+	font-size: 12px;
+	border: 1px solid #ccc;
+    border-radius: 4px;
+	background-color: white;
+	width: 300px;
+	padding: 10px;
+	position: relative;
+}
+
+#tooltip_count:after, #tooltip_count1:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-bottom: 13px solid lightblue;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    bottom: 132px;
+    left: 265px;
+
+}
+
+#set_time_and_date__block input, textarea {
+		padding: 5px;
+	border: 1px solid #cccccc;
+	border-radius: 5px;
+	margin: 0;
+	height: 19px;
+}
+
+#map__open {
+	width: 409px;
+	height: 400px;
+	border: 1px solid #ccc;
+    border-radius: 4px;
+    display: none;
+}
+
+#m_a__more_actions1 {
+	height: 40px;
+	width: 411px;
+	position: relative;
+}
+
+#comp__sel {
+	width: 410px;
+	height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    text-transform: none;
+	overflow: visible;
+}
+
+.div_textarea_compl textarea {
+	margin: 0;
+}
+
+
+#change_data__wrap, #m_a__more_actions_open, #m_a_comliance {
+	display: none;
+}
+
+#m_a__more_actions_open, #comliance__open, #map__open {
+	border: 1px solid #cccccc;
+	border-radius: 5px;
+	cursor: default;
+	padding: 5px;
+
+}
+
+#confirm_compliance {
+	padding: 6px 12px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    vertical-align: middle;
+    border-radius: 4px;
+    background-color: #337ab7;
+    color: white;
+    background-image: linear-gradient(to bottom,#337ab7 0,#265a88 100%);
+    background-repeat: repeat-x;
+    border-color: #245580;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.15), 0 1px 1px rgba(0,0,0,.075);
+    text-shadow: 0 -1px 0 rgba(0,0,0,.2);
+    touch-action: manipulation;
+    cursor: pointer;
+}
+
+#comliance__open, #m_a__claim_register1, #m_a__more_actions1, #m_a__map1 {
+	display: none;
+}
+
+.button_wrap {
+	display: flex;
+}
+
+.datetime input, textarea {
+	padding: 5px;
+	border: 1px solid #cccccc;
+	border-radius: 5px;
+}
+
+
+.save {
+	padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    border-radius: 4px;
+    background-color: #E5E5E5;
+    color: #333;
+    touch-action: manipulation;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.appointment__hr {
+	width: 800px;
+    margin-right: 1000px;
+}
+
+.ma_paragraph {
+	background-color: #f5f5f5;    
+    background-image: linear-gradient(to bottom,#f5f5f5 0,#e8e8e8 100%);
+    background-repeat: repeat-x;
+    width: 411px;
+    height: 38px;
+        border-top-right-radius: 3px;
+    border-top-left-radius: 3px;
+    margin: 0;
+    border: 1px solid;
+    border-color: #ddd;	
+        display: table-cell;
+    vertical-align: middle;
+}
+
+#tab > input {
+	display: none;
+}
+
+#tab > label {
+	width: 100px;
+	height: 50px;
+	cursor: pointer;
+	background: #fbfbfb;
+	color: #337ab7;
+	padding: 15px 10px;
+	margin-right: 5px;
+	border-radius: 5px 5px 0 0;
+	transition: background-color 0.6s;
+	text-align: center;
+}
+
+#my_cl_count {
+	padding-top: 10px;
+}
+
+.counting__wrap {
+	width: 350px;
+	display: flex;
+	flex-direction: column;
+}
+
+.cl__counting1, .cl__counting2 {
+	display: flex;
+	justify-content: space-between;
+	padding: 10px;
+
+}
+
+#end_task, #cl_count__button, #cl_count__button1 {
+    padding: 6px 12px;
+    margin: 10px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    border-radius: 4px;
+    background-color: #337ab7;
+    color: white;
+    background-image: linear-gradient(to bottom,#337ab7 0,#265a88 100%);
+    background-repeat: repeat-x;
+    border-color: #245580;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.15), 0 1px 1px rgba(0,0,0,.075);
+    text-shadow: 0 -1px 0 rgba(0,0,0,.2);
+    touch-action: manipulation;
+}
+
+#cl_count_chex1, #cl_count_chex2 {
+	display: flex;
+	flex-direction: column;
+	margin: 20px;
+}
+
+.count_chebx {
+	margin: 5px 0 5px 60px;
+}
+
+.cl__counting1 input, .cl__counting2 input {
+	border-radius: 3px;
+	height: 23px;
+	padding-bottom: 2px;
+}
+
+#su3-1, #su4-1 {
+	margin-left: 20px;
+}
+
+.cl__counting1 label, .cl__counting2 label {
+	margin-top: 5px;
+}
+
+#su3-1, #su4-1, #my_cl_count1, #my_cl_count2, #take_a_credit, #end_task {
+	display: none; 	
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0; 
+    border-radius: 3px;
+    height: 24px;
+    margin-top: 12px;
+    margin-left: 20px;
+    padding: 0;}
+
+#table {
+	clear: both;
+	
+}
+
+#confirm_meet {
+	margin: 20px;
+}
+
+#mod_buttons_wrap {
+	padding: 10px;
+}
+
+.mod_ball {
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    box-sizing: border-box;
+    border-color: #9acfea;
+    color: #31708f;
+    background-color: #d9edf7;
+	padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #9acfea;
+    border-radius: 4px;
+    text-align: center;
+    max-width: 95%;
+    margin: auto;
+}
+
+.mod_par {
+	padding: 20px;
+	font-weight: 600
+}
+
+#mod_interaction {
+	margin: auto;
+	background-color: white;
+	max-width: 400px;
+	max-width: 600px;
+}
+
+#modal {
+    position: absolute;
+    width: 100%;
+    max-height: 100%;
+    top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+    background-color: rgba(0,0,0,0.6);
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+#appointment, #confirm_meet {
+
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    border-radius: 4px;
+    background-color: #337ab7;
+    color: white;
+    background-image: linear-gradient(to bottom,#337ab7 0,#265a88 100%);
+    background-repeat: repeat-x;
+    border-color: #245580;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.15), 0 1px 1px rgba(0,0,0,.075);
+    text-shadow: 0 -1px 0 rgba(0,0,0,.2);
+    touch-action: manipulation;
+}
+
+.appointment__address_kind, .appointment__address {
+	margin: 0;
+}
+
+.appointment__date, .appointment__time {
+	margin: 0;
+}
+
+.appointment__date {
+	padding-top: 20px;
+}
+
+#appointment__nice_address {
+	margin: 20px;
+}
+
+.confirmation__mail_and_time {
+	display: flex;
+	justify-content: flex-start;
+}
+
+#appointment__new_address {
+	display: flex;
+	justify-content: center;
+}
+
+
+
+input[type="text"] {
+	border-radius: 3px;
+	height: 24px;
+	margin-top: 12px;
+	margin-left: 20px;
+	padding: 0;
+}
+
+#appointment__ops, #change_place, #set_time_and_date, #confirm_with_mail, #appointment__new_address, #modal  {
+	display: none;
+}
+
+#set_time_and_date__block {
+	margin-left: 100px;
+	width: 600px;
+	display: flex;
+
+	justify-content: flex-end;
+	flex-direction: column;
+}
+
+#appointment__confirm, #confirm_day_and_time, #confirm_with_mail, #confirm_end {
+	padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    border-radius: 4px;
+    background-color: #337ab7;
+    color: white;
+    background-image: linear-gradient(to bottom,#337ab7 0,#265a88 100%);
+    background-repeat: repeat-x;
+    border-color: #245580;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.15), 0 1px 1px rgba(0,0,0,.075);
+    text-shadow: 0 -1px 0 rgba(0,0,0,.2);
+    touch-action: manipulation;
+}
+
+#confirm_cancel {
+	padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    border-radius: 4px;
+    background-color: #E5E5E5;
+    color: #333;
+    touch-action: manipulation;
+}
+
+#appointment__another_time_or_place {
+	padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    border-radius: 4px;
+    background-color: #E5E5E5;
+    color: #333;
+    touch-action: manipulation;
+}
+
+.appointment__buttons {
+	margin-top: 40px;
+}
+
+.appointment__header {
+	margin-bottom: 0;
+	margin-top: 20px;
+	padding-top: 20px;
+}
+
+#table > div {
+	background: #fff;
+	position: absolute;
+	min-width: 775px;
+	padding: 15px;
+	overflow: hidden;
+	height: auto;
+	border-radius: 0 5px 5px 5px;
+	opacity: 0;
+	transition: opacity 1s;
+	float: left;
+	margin: 14px 0;
+	display: none;
+	width: 856px;
+}
+
+#n1:checked ~ #table > div:nth-of-type(1) {
+	opacity: 1;
+	display: block;
+}
+#n2:checked ~ #table > div:nth-of-type(2) {
+	opacity: 1;
+	display: block;
+}
+#n3:checked ~ #table > div:nth-of-type(3) {
+	opacity: 1;
+	display: block;
+}
+#n4:checked ~ #table > div:nth-of-type(4) {
+	opacity: 1;
+	display: block;
+}
+#n5:checked ~ #table > div:nth-of-type(5) {
+	opacity: 1;
+	display: block;
+}
+#n6:checked ~ #table > div:nth-of-type(6) {
+	opacity: 1;
+	display: block;
+}
+
+#tab > input:checked + label {
+	color: #333;
+	background: #fff;
+}
+
+.input {
+	display: block;
+	width: 50px;
+	height: 50px;
+}
+
+
+.otkaz {
+	min-height: 700px;
+}
+
+.perezvon {
+	flex-direction: column;
+
+}
+
+.perezvon__paragraph__call_fail:checked + .perezvon__wrap__p {
+	display: none;
+}
+
+.perezvon__wrap__textarea {
+	margin: 20px;
+}
+
+.predstavlenie__table {
+	border: 1px solid #ddd;
+	margin-bottom: 20px;
+	background-color: transparent;
+	border-spacing: 0;
+    border-collapse: collapse;
+    box-sizing: border-box;
+    max-width: 900px;
+
+}
+
+.predstavlenie__table tr, th {
+	border: 1px solid black;
+
+}
+
+.table-zagolovok {
+	padding-left: 5px;
+}
+
+.cell-wrap {
+	padding: 5px 10px;
+	margin: 0;
+}
+
+th {
+font-weight: normal;
+text-align: left;
+	padding: 5px 10px;
+	margin: 0;
+}
+
+.th1 {
+	width: 200px;
+}
+
+.th2 {
+	max-width: 400px;
+}
+
+.th3 {
+	width: 200px;
+}
+
+.next_task2 {
+	font-size: 12px;
+	padding-left: 21px;
+}
+
+
+
+.span-grey {
+	color: grey;
+}
+
+.span-red {
+	color: #B22222;
+}
+
+.span-blue {
+	color: rgb(0, 0, 255);
+}
+
+.span-green {
+	color: #3c763d;
+}
+
+
+#row3_y, #row3_n, #row3_znakomy_yes,
+#row4_cl, #row4_cc, #row4_yes_no, #row4_otkaz_3lico, 
+#row5_tp_spereschetom, #row5_cc_advantages, #row5_cc_yes_neakt_cc, #row5_rsv_for_cc, #no4_row5_predlojenie_cl,
+#row6_perescherom-dalee, #row6_neakt_no_choose_cc, #row6_cc_to_offer_cl_yes_no, #no5_row6_choose_product_cc, #y5_r6_attention_cc, #next_r7_choose_product_cc, #next5_row6_count_for_cl,
+#row7_not_activated_cc2, #row7_no_offer_cl_from_cc_sorry, #row7_offer_cl_to_recount, #no6_rw7_1rsv_for_cl_and_cc, #y6_ro7_attention_cc,
+#row8_email_possible, #row8_offer_cl_tp_recount, #y7_r8_attention_cc2, #no7_r8_different_offer, #y7_r8_unactivated_cc2, #n7_r8_offer_cl_tp_recount, #y7_row8_offer_cl_tp_recount,
+#row9_choose_cl_offer, #row9_email_no, #row9_cl_count_rsv, #r8next_r9_can_get_on_email, #n8_r9_can_use_email, #y8_r9_attention_cc2, #no8_row9_no_offer, #y8_r9_second_offer, #y8_ro9_is_email_correct, 
+#row10_goodbye_no_offer, #row10_unactivated_cc3, #n9_r10_choose_offer_cl, #y9_r10_is_email_correct, #next9_r10_can_use_email, #n9_r10_is_email_correct,
+#row11_may_get_on_email, #n10_r11_requst_change_data, #y10_r11_confirm_condition_for_cl, #y10_r11_say_email_better,
+#row12_choose_offer_cl, #yes11_row12_offer_cl_email_is_correct,  #y11_r12_can_activate_now, #n11_r12_2rsv_cc_cl,
+#yes12_row13_offer_cl_can_send_on_email, #y12_r13_activation_on_formation, #n12_r13_activation_with_employee,
+#no13_row14_choose_offer_cl
+
+{
+	display: none;
+}
+
+#perezvon__wrap2 {
+	display: none;
+}
+
+
+	</style>
 </head>
 <body>
 
@@ -130,7 +781,7 @@
 						</th>
 					</tr>
 					<tr id="row5_tp_spereschetom">
-						<th class="cell-wrap">ТП с перечетом</th>
+						<th class="cell-wrap">ТП с переcчетом</th>
 						<th>
 							<p><span class="span-blue">
 							ФИО, ранее вы обсуждали с сотрудником возможность получения кредитной карты нашего банка. Сейчас банк одобрил Вам<span class="span-red"> кредит наличными</span> с максимальной суммой <span class="span-red"><максимальная сумма> </span> рублей и максимальным сроком погашения 36 месяцев. Регулярный платеж составит <span class="span-red"><назвать платеж> </span>рублей в месяц. 
@@ -643,16 +1294,16 @@
 			<hr>
 			<form class="SU__form">
 	               	<p><input id="form__SU1" type="radio" name="c" value="a" checked onclick="function__hide_cl_count()">Кредитная карта Tinkoff Platinum TFPV7.27, кредитный лимит 140 000 рублей</p>
-	                <p><input id="form__SU3" type="radio" name="c" value="d" onclick="function_form_SU3()">Кредит наличными с пересчетом ставки: 200 000 на 36 месяцев (10 000 в месяц, присутствует страховка)</p>
-	                <p id="su3-1"><input id="form__SU3-1" type="radio" name="c" value="d" onclick="function_cl_count1()">Собственный расчет</p>
+	                <p><input id="form__SU3" type="radio" name="c" value="d" onclick="function_form_SU3()">Кредит наличными с пересчетом ставки: 200 000 на 36 месяцев (10 000 в месяц, присутствует страховка)</p>	                
 	                <p><input id="form__SU4" type="radio" name="c" value="d" onclick="function_form_SU4()">Кредит наличными: 99 000 на 36 месяцев (4 000 в месяц, присутствует страховка, кредитные каникулы отсутсвуют)</p>
+	                <p id="su3-1"><input id="form__SU3-1" type="radio" name="c" value="d" onclick="function_cl_count1()">Собственный расчет</p>
 	                <p id="su4-1"><input id="form__SU4-1" type="radio" name="c" value="d" onclick="function_cl_count2()">Собственный расчет</p>
 	        </form>
 	    </div>   
 	    <div id="my_cl_count1">
 	    	<h2>Собственный расчет кредита</h2>
 	    	<hr>
-	    	<p class="span-grey">От 50000 до 20000 на сроки от 3 до 36 месяцев</p>
+	    	<p class="span-grey">От 50000 до 200000 на сроки от 3 до 36 месяцев</p>
 	    	<div class="counting__wrap">
 		    	<div class="cl__counting1">
 		    		<label>Сумма в рублях</label><input type="number" placeholder="  Сумма">
@@ -666,32 +1317,68 @@
 		    	<p class="count_chebx"><input type="checkbox" name="ggt2" id="count_chex_insur">Страховка</p>
 		    	<p class="count_chebx"><input type="checkbox" name="ggt2" id="count_chex_vacation">Кредитные каникулы</p>
 		    </div>
-		    <button id="cl_count__button">Рассчитать</button>
+		    <button id="cl_count__button1" onclick="cl_count__button1()">Рассчитать</button>
 	    </div> 
+	    <div id="my_cl_count_result1">
+	    		<div>
+	    			<span class="span-green">Одобрен: </span>Кредит наличными на *сумма* рублей на срок N месяцев (N рублей в месяц, присутствует страховка, кредитные каникулы отсутсвуют) <span class="span-background" id="span-tooltip" onclick="tooltip()">?</span>
+	    			<div id="tooltip_wrap">
+						<div id="tooltip_count">
+							<b>Полная стоимость кредита: </b>N % <br>
+							<b>Переплата общая: </b>N руб. <br>
+							<b>Общий процент платы за кредит: </b>N % <br>
+							<b>Переплата за год: </b>N руб. <br>
+							<b>Годовой процент платы за кредит: </b>N %<br>
+							<b>Плата за страховку: </b>N руб.<br>
+							<b>Плата за кредитные каникулы: </b>N руб.<br>
+							<b>Ставка: </b>N %<br>
+						</div>
+					</div>
+	    		</div>	    		
+	    	</div>
 	    <div id="my_cl_count2">
 	    	<h2>Собственный расчет кредита</h2>
-	    	<hr>
-	    	<p class="span-grey">От 50000 до 99000 на сроки от 3 до 36 месяцев</p>
-	    	<div class="counting__wrap">
-		    	<div class="cl__counting1">
-		    		<label>Сумма в рублях</label><input type="number" placeholder="  Сумма">
-		    	</div>
-				<div class="cl__counting2">
-		    		<label>Срок в месяцах</label><input type="number" placeholder="  Срок">
-		    	</div>
-		    </div>	
-			<div id="cl_count_chex2">				
-		    	<p class="count_chebx"><input type="checkbox" name="ggt2" id="count_chex_insur">Страховка</p>
+	    	<div id="my_counting">
+		    	<hr>
+		    	<p class="span-grey">От 50000 до 99000 на сроки от 3 до 36 месяцев</p>
+		    	<div class="counting__wrap">
+			    	<div class="cl__counting1">
+			    		<label>Сумма в рублях</label><input type="number" placeholder="  Сумма">
+			    	</div>
+					<div class="cl__counting2">
+			    		<label>Срок в месяцах</label><input type="number" placeholder="  Срок">
+			    	</div>
+			    </div>
+				<div id="cl_count_chex2">				
+			    	<p class="count_chebx"><input type="checkbox" name="ggt2" id="count_chex_insur">Страховка</p>
+			    </div>
+			    <button id="cl_count__button" onclick="cl_count__button()">Рассчитать</button>
 		    </div>
-		    <button id="cl_count__button">Рассчитать</button>
-	    </div> 
+			<div id="my_cl_count_result">
+	    		<div>
+	    			<span class="span-green">Одобрен: </span>Кредит наличными на *сумма* рублей на срок N месяцев (N рублей в месяц, присутствует страховка, кредитные каникулы отсутсвуют) <span class="span-background" id="span-tooltip1" onclick="tooltip1()">?</span>
+	    			<div id="tooltip_wrap1">
+						<div id="tooltip_count1">
+							<b>Полная стоимость кредита: </b>N % <br>
+							<b>Переплата общая: </b>N руб. <br>
+							<b>Общий процент платы за кредит: </b>N % <br>
+							<b>Переплата за год: </b>N руб. <br>
+							<b>Годовой процент платы за кредит: </b>N %<br>
+							<b>Плата за страховку: </b>N руб.<br>
+							<b>Плата за кредитные каникулы: </b>N руб.<br>
+							<b>Ставка: </b>N %<br>
+						</div>
+					</div>
+	    		</div>	    		
+	    	</div>
+	    </div>
 	    <div id="take_a_credit">
 	    	<h2>Получение кредита</h2>
 	    	<hr>
 	    	<form>
 	    		<p><input type="radio" name="c32" value="24g" id="take_a_credit_activate" onclick="take_a_credit()">Активировать кредит (Деньги будут зачислены на карту Tinkoff Black, документы на e-mail fakemailforspam@gmail.com)</p>
 	    		<p><input type="radio" name="c32" value="24g" id="take_a_credit_email" onclick="take_a_credit()">Отправить документы для активации на e-mail fakemailforspam@gmail.com</p>
-	    		<p><input type="radio" name="c32" value="24g" id="take_a_credit_guy" onclick="take_a_credit()">Назначить доставку представителем</p>
+	    		<p><input type="radio" name="c32" value="24g" id="take_a_credit_guy" onclick="function_appointment_show()">Назначить доставку представителем</p>
 	    	</form>
 	    	<button id="end_task">Завершить работу с заданием</button>
 	    </div>
@@ -714,13 +1401,13 @@
 	        <div id="change_place">
 	        		<h2>Адрес</h2>
 	        		<hr>
-	        		<p><input type="radio" name="ee3" id="change_p1" onclick="function_change_p1()"><b>Адрес регистрации</b> 111000, Г москва, Ш волоколамское, 1110а, кв. 07п7     (<span class="span-red"><b>КАК ПРИМЕР:</b></span> ЭТОТ АДРЕС НЕ В ЗОНЕ ДОСТАВКИ!!!)</p>
-	        		<p><input type="radio" name="ee3" id="change_p2" onclick="function_change_p2()"><b>Рабочий адрес</b> 888000, Г москва, Ул василия петушкова, 210, к. 018   		(<span class="span-red"><b>КАК ПРИМЕР:</b></span> А ЭТОТ АДРЕС В ЗОНЕ ДОСТАВКИ!) </p> 
+	        		<p><input type="radio" name="ee3" id="change_p1" onclick="function_change_p1()"><b>Адрес регистрации</b> 111000, Г москва, Ш волоколамское, 1110а, кв. 07п7    </p>
+	        		<p><input type="radio" name="ee3" id="change_p2" onclick="function_change_p2()"><b>Рабочий адрес</b> 888000, Г москва, Ул василия петушкова, 210, к. 018   	</p> 
 	        		<p><input type="radio" name="ee3" id="change_p3" onclick="function_change_p3()"><b>Новый адрес</b></p>
 	        		<h2>Удобный адрес для встречи</h2>
 	        		<hr>
 	        		<div id="appointment__nice_address">
-	        			<input type="radio" name="ee3" id="change_p4" onclick="function_change_p4()">Башкортостан Республика, Туймазы, 70 Лет Октября, 6 (Автовокзал)
+	        			<input type="radio" name="ee3" id="change_p4">Башкортостан Республика, Туймазы, 70 Лет Октября, 6 (Автовокзал)
 	        		</div>
 	        		<div id="appointment__new_address">
 	        			<p><b>Адрес<span class="span-red">*</span></b></p>
@@ -735,7 +1422,7 @@
 					<h2>Дата и время</h2>
 					<hr>
 					<div id="set_time_and_date__block">
-						<p><b>Дата</b><span class="span-red">*</span></p><input type="text" size="40">
+						<p><b>Дата</b><span class="span-red">*</span></p><input type="date" class="form-control" id="date" name="date" placeholder="Дата" required>
 						<p><b>Временной интервал</b><span class="span-red">*</span></p><input type="text" size="40" placeholder="15:00 - 17:00">
 						<p><b>Комментарий <br>для представителя</b></p><textarea name="ff3"cols="40" rows="5" placeholder="Код домофона, подъезд, другое..."></textarea>
 					</div>
@@ -831,26 +1518,1271 @@
 		</div>
 	</div>
 	<div id="more_actions">
-    	<div id="m_a__more_actions" onclick="m_a__more_actions()">
-    		<p class="ma_paragraph">&#9658;   Дополнительные действия</p>
-    	</div>
+		<div id="m_a__more_actions1" onclick="m_a__more_actions1()">
+			<p class="ma_paragraph">&#9658;   Дополнительные действия
+    		</p> 
+		</div>
+    	<div id="m_a__more_actions" onclick="m_a__more_actions()">		
+    		<p class="ma_paragraph">&#9658;   Дополнительные действия
+    		</p>    	
+    	</div>	
     	<div id="m_a__more_actions_open">
-    		<div id="change_data" onclick="change_data()"><p><input type="checkbox">Изменение данных</p>
-    			<div><p><b>Дата обработки:</b><input type="datetime"></p></div>
-    			<div><p><b>Комментарий: <span class="span-red"></span></b></p></div>
-    			<div><textarea rows="3" cols="45" maxlength="300"></textarea></div>
+    		<div>
+    			<p><input type="checkbox" id="change_data" onclick="change_data()">Изменение данных</p>
+    			<div id="change_data__wrap">
+	    			<div class="datetime"><p><b>Дата обработки:</b><input type="datetime"></p></div>
+	    			<div><p><b>Комментарий: <span class="span-red"></span></b></p></div>
+	    			<div><textarea rows="3" cols="45" maxlength="300"></textarea></div>
+    			</div>
     		</div>
-    		<div><p><input type="checkbox">Претензия</p></div>
-    	</div>
-    	<div id="m_a__claim_register" onclick="m_a__claim_register()">
+    		<div>
+    			<p><input type="checkbox" id="ch_comliance" onclick="ch_comliance()">Претензия</p>
+    			<div id="m_a_comliance">
+	    			<div class="datetime"><p><b>Дата обработки:</b><input type="datetime"></p></div>
+	    			<div><p><b>Комментарий: <span class="span-red"></span></b></p></div>
+	    			<div><textarea rows="3" cols="45" maxlength="300"></textarea></div>
+    			</div>
+    		</div>
+			<button type="submit" class="save">Сохранить</button>		
+    	</div>  
+    	<div id="m_a__claim_register1" onclick="m_a__claim_register1()">
+    		<p class="ma_paragraph">&#9658;   Зарегистрировать претензию</p>
+    	</div>  	 
+		<div id="m_a__claim_register" onclick="m_a__claim_register()">
     		<p class="ma_paragraph">&#9658;   Зарегистрировать претензию</p>
     	</div>
+    	<div id="comliance__open">
+    		<p><b>Претензия<span class="span-red">*</span></b></p>
+    		<div id="comliance__select">
+    			<select name="comp" id="comp__sel" size="1">
+    				<option value=""></option>
+    				<option value="Оформление заявки">Оформление заявки</option>
+    				<option value="Доставка карты/документов">Доставка карты/документов</option>
+    			</select>
+    		</div>
+    		<br>
+    		<p><b>Описание со слов клиента<span class="span-red">*</span></b></p>
+			<div class="div_textarea_compl"><textarea rows="3" cols="45" maxlength="300"></textarea></div>
+			<p><b>Дата и время со слов клиента</b></p>
+			<div class="datetime"><p><b>Дата обработки:</b><input type="datetime"></p></div>
+			<p><input type="checkbox">Проинформировать клиента о рассмотрении</p>
+			<button type="submit" id="confirm_compliance">Отправить претензию</button>
+    	</div>
+    	<div id="m_a__map1" onclick="m_a__map1()">
+    		<p class="ma_paragraph">&#9658;   Карта</p>
+    	</div>	
     	<div id="m_a__map" onclick="m_a__map()">
     		<p class="ma_paragraph">&#9658;   Карта</p>
-    	</div>	        	
+    	</div>
+    	<div id="map__open">
+		<p>
+			Чтобы проверить возможность доставки и перейти к карте <br> 
+			скопируйте ссылку ниже в новую вкладку и перейдите по ней.
+		</p>
+		<br><br>
+		<p>https://weboffice.tinkoff.ru/rest/user-guide-files/5421.html</p>
+    	</div>
+
     </div>
 </div>
+<div id="f5">Нажмите F5(обновить страницу), чтобы вернуться к началу</div>    
 <script src="su.js"></script>
+<script>
+	// appointment__ops form__SU3 
+
+function cl_count__button() {
+	if (document.getElementById("cl_count__button").click) {
+		document.getElementById("my_cl_count_result").style.display = "block"
+	}
+}
+
+function cl_count__button1() {
+	if (document.getElementById("cl_count__button1").click) {
+		document.getElementById("my_cl_count_result1").style.display = "block"
+	}
+}
+
+
+
+function tooltip() {
+if (document.getElementById("span-tooltip").click) {
+	document.getElementById("tooltip_wrap").style.display = 'block';}
+}
+
+function tooltip1() {
+if (document.getElementById("span-tooltip1").click) {
+	document.getElementById("tooltip_wrap1").style.display = 'block';}
+}
+
+function m_a__claim_register() {
+	if (document.getElementById("m_a__claim_register").click)
+		{document.getElementById("comliance__open").style.display = 'block';
+		document.getElementById("m_a__claim_register1").style.display = 'block';
+		document.getElementById("m_a__claim_register").style.display = 'none';}
+}
+
+
+function m_a__claim_register1() {
+	if (document.getElementById("m_a__claim_register1").click)
+		{document.getElementById("comliance__open").style.display = 'none';
+		document.getElementById("m_a__claim_register1").style.display = 'none';
+		document.getElementById("m_a__claim_register").style.display = 'block';}
+}
+
+function m_a__more_actions() {
+	if (document.getElementById("m_a__more_actions").click)
+		{document.getElementById("m_a__more_actions_open").style.display = 'block';
+		document.getElementById("m_a__more_actions1").style.display = 'block';
+		document.getElementById("m_a__more_actions").style.display = 'none';}
+}
+
+function m_a__more_actions1() {
+	if (document.getElementById("m_a__more_actions1").click)
+		{document.getElementById("m_a__more_actions_open").style.display = 'none';
+		document.getElementById("m_a__more_actions1").style.display = 'none';
+		document.getElementById("m_a__more_actions").style.display = 'block';}
+}
+
+
+
+
+function m_a__map() {
+	if (document.getElementById("m_a__map").click)
+		{document.getElementById("map__open").style.display = 'block';
+		document.getElementById("m_a__map1").style.display = 'block';
+		document.getElementById("m_a__map").style.display = 'none';}
+}
+
+function m_a__map1() {
+	if (document.getElementById("m_a__map1").click)
+		{document.getElementById("map__open").style.display = 'none';
+		document.getElementById("m_a__map1").style.display = 'none';
+		document.getElementById("m_a__map").style.display = 'block';}
+}
+
+
+
+
+
+
+function ch_comliance() {
+		{
+	if 
+		(document.getElementById("ch_comliance").checked) 
+		{
+		document.getElementById("m_a_comliance").style.display = 'block';
+			} 	else {
+			document.getElementById("m_a_comliance").style.display = 'none';
+		
+		} 
+	};
+
+}
+
+
+function change_data() {
+	{
+	if 
+		(document.getElementById("change_data").checked) 
+		{
+		document.getElementById("change_data__wrap").style.display = 'block';
+			} 	else {
+			document.getElementById("change_data__wrap").style.display = 'none';
+		
+		} 
+	};
+}
+
+
+
+
+
+		
+
+
+function take_a_credit() {
+	{
+		if (document.getElementById("take_a_credit_activate" || "take_a_credit_email").click) 
+			{
+			document.getElementById("end_task").style.display = 'block'; 	
+			document.getElementById("appointment__ops").style.display = 'none'; 	
+			document.getElementById("appointment").style.display = 'none'; 	
+			} 
+	};	
+}
+
+function function_form_SU4() {
+	{
+		if (document.getElementById("form__SU3" || "form__SU4").click) 
+			{
+			document.getElementById("my_cl_count1").style.display = 'none';
+			document.getElementById("my_cl_count2").style.display = 'none';
+			document.getElementById("take_a_credit").style.display = 'block'; 
+			document.getElementById("su4-1").style.display = 'block'; 	 
+			document.getElementById("su3-1").style.display = 'none'; 
+			document.getElementById("my_cl_count_result").style.display = 'none'; 
+			document.getElementById("tooltip_wrap").style.display = 'none';  
+			document.getElementById("appointment__ops").style.display = 'none';  
+			document.getElementById("my_cl_count_result1").style.display = 'none';  
+			document.getElementById("appointment").style.display = 'none';  
+			} 
+	};	
+}
+
+function function_cl_count1()
+	{
+		if (document.getElementById("form__SU3-1" || "form__SU4-1").click) 
+			{
+			document.getElementById("my_cl_count1").style.display = 'block'; 
+			document.getElementById("appointment").style.display = 'none'; 	 
+			document.getElementById("take_a_credit").style.display = 'none'; 	 
+			} 
+	};
+function function_cl_count2()
+	{
+		if (document.getElementById("form__SU3-1" || "form__SU4-1").click) 
+			{
+			document.getElementById("my_cl_count2").style.display = 'block'; 
+			document.getElementById("appointment").style.display = 'none'; 	 
+			document.getElementById("my_cl_count1").style.display = 'none'; 	 
+			document.getElementById("take_a_credit").style.display = 'none'; 
+
+			} 
+	};
+
+
+function function_form_SU3()
+	{
+		if (document.getElementById("form__SU3").click) 
+			{
+			document.getElementById("su3-1").style.display = 'block'; 
+			document.getElementById("take_a_credit").style.display = 'block'; 
+			document.getElementById("su4-1").style.display = 'none'; 	 
+			document.getElementById("my_cl_count1").style.display = 'none'; 	 
+			document.getElementById("my_cl_count2").style.display = 'none'; 	 
+			document.getElementById("appointment").style.display = 'none'; 	 
+			document.getElementById("my_cl_count_result").style.display = 'none'; 	 
+			document.getElementById("tooltip_wrap").style.display = 'none'; 	  
+			document.getElementById("appointment__ops").style.display = 'none'; 	  
+			document.getElementById("my_cl_count_result1").style.display = 'none'; 	  
+			} 
+	};
+
+
+function function__hide_cl_count()
+	{
+		if (document.getElementById("form__SU1").click) 
+			{
+			document.getElementById("su4-1").style.display = 'none'; 	 
+			document.getElementById("my_cl_count1").style.display = 'none'; 	 
+			document.getElementById("my_cl_count2").style.display = 'none'; 	 
+			document.getElementById("su3-1").style.display = 'none'; 
+			document.getElementById("appointment").style.display = 'block'; 
+			document.getElementById("take_a_credit").style.display = 'none'; 
+			document.getElementById("my_cl_count_result").style.display = 'none'; 
+			document.getElementById("tooltip_wrap").style.display = 'none';  
+			document.getElementById("appointment__ops").style.display = 'none';  
+			document.getElementById("my_cl_count_result1").style.display = 'none';  
+			} 
+	};	
+
+function function_confirm_cancel()
+	{
+		if (document.getElementById("confirm_cancel").click) 
+			{
+			document.getElementById("modal").style.display = 'none'; 	 
+			} 
+	};
+
+
+function function_confirm_meet()
+	{
+		if (document.getElementById("confirm_meet").click) 
+			{
+			document.getElementById("modal").style.display = 'block'; 	 
+			} 
+	};
+
+function function_confirm_day_and_time()
+	{
+		if (document.getElementById("confirm_day_and_time").click) 
+			{
+			document.getElementById("set_time_and_date").style.display = 'block'; 	 
+			document.getElementById("confirm_day_and_time").style.display = 'none'; 
+			} 
+	};
+
+
+function function_change_p2()
+	{
+		if (document.getElementById("change_p2").click) 
+			{ 
+			document.getElementById("confirm_with_mail").style.display = 'none'; 
+			document.getElementById("appointment__new_address").style.display = 'none';  
+			document.getElementById("set_time_and_date").style.display = 'none';  
+			document.getElementById("confirm_day_and_time").style.display = 'block';  
+			} 
+	};
+
+function function_change_p3()
+	{
+		if (document.getElementById("change_p3").click) 
+			{
+			document.getElementById("confirm_with_mail").style.display = 'none'; 
+			document.getElementById("appointment__new_address").style.display = 'flex'; 
+			document.getElementById("confirm_day_and_time").style.display = 'block';
+			document.getElementById("set_time_and_date").style.display = 'none';  
+			} 
+	};
+
+function function_change_p1()
+	{
+		if (document.getElementById("change_p1").click) 
+			{
+			document.getElementById("confirm_with_mail").style.display = 'block'; 
+			document.getElementById("appointment__new_address").style.display = 'none'; 
+			document.getElementById("confirm_day_and_time").style.display = 'block';
+			document.getElementById("set_time_and_date").style.display = 'none';  
+			} 
+	};
+
+function function_appointment__another_time_or_place()
+	{
+		if (document.getElementById("appointment__another_time_or_place").click) 
+			{
+			document.getElementById("change_place").style.display = 'block'; 
+			document.getElementById("appointment__ops").style.display = 'none'; 
+			document.getElementById("appointment").style.display = 'none'; 
+			} 
+	};
+
+
+function function_appointment_show()
+	{
+		if (document.getElementById("appointment").click) 
+			{
+			document.getElementById("appointment__ops").style.display = 'block';
+			document.getElementById("SU").style.display = 'none';
+			document.getElementById("credit_condition").style.display = 'none'; 
+			document.getElementById("appointment").style.display = 'none'; 
+			document.getElementById("appointment").style.display = 'none'; 
+			document.getElementById("end_task").style.display = 'none'; 
+			document.getElementById("take_a_credit").style.display = 'none'; 
+			} 
+	};
+
+
+
+function preparePage() 
+{
+	document.getElementById("perezvon__paragraph__checkbox_time_recall_selected").onclick = function() {
+		if (document.getElementById("perezvon__paragraph__checkbox_time_recall_selected").checked) 
+			{
+			document.getElementById("perezvon__wrap2").style.display = 'block';
+			} 
+		else {
+			document.getElementById("perezvon__wrap2").style.display = 'none';
+		} 
+	}; 
+}
+
+window.onload = function() {
+	preparePage();
+};
+
+
+
+
+function function_name1() 
+{
+		if (document.getElementById("row2_yes").checked) 
+			{
+			document.getElementById("row3_y").style.display = 'table-row';
+			document.getElementById("row3_n").style.display = 'none';
+			document.getElementById("row3_znakomy_yes").style.display = 'none';
+			document.getElementById("row4_otkaz_3lico").style.display = 'none';
+			} 
+		// else if (document.getElementById("row2_no").checked)
+		// 	{
+		// 	document.getElementById("row3_n").style.display = 'table-row';	
+
+		// 	document.getElementById("row3_y").style.display = 'none';
+		// 	document.getElementById("row4_cl").style.display = 'none';
+		// 	document.getElementById("row5_tp_spereschetom").style.display = 'none';
+		// 	document.getElementById("row7_not_activated_cc2").style.display = 'none';
+		// 	document.getElementById("row8_email_possible").style.display = 'none';
+		// 	document.getElementById("row9_email_no").style.display = 'none';
+		// 	document.getElementById("row5_rsv_for_cc").style.display = 'none';
+		// 	document.getElementById("row4_cc").style.display = 'none';
+		// 	document.getElementById("row5_cc_advantages").style.display = 'none';
+		// 	document.getElementById("row6_cc_to_offer_cl_yes_no").style.display = 'none'; 
+		// 	document.getElementById("no4_row5_predlojenie_cl").style.display = 'none'; 
+		// 	document.getElementById("next5_row6_count_for_cl").style.display = 'none'; 
+		// 	document.getElementById("y7_r8_attention_cc2").style.display = 'none'; 
+		// 	document.getElementById("r8next_r9_can_get_on_email").style.display = 'none'; 
+		// 	document.getElementById("y10_r11_confirm_condition_for_cl").style.display = 'none';
+		// 	document.getElementById("y11_r12_can_activate_now").style.display = 'none';
+		// 	document.getElementById("row7_offer_cl_to_recount").style.display = 'none';
+		// 	document.getElementById("y7_row8_offer_cl_tp_recount").style.display = 'none';
+		// 	document.getElementById("row9_cl_count_rsv").style.display = 'none';
+		// 	document.getElementById("y6_ro7_attention_cc").style.display = 'none';
+		// 	document.getElementById("row11_may_get_on_email").style.display = 'none';
+		// 	document.getElementById("yes11_row12_offer_cl_email_is_correct").style.display = 'none';
+		// 	document.getElementById("yes12_row13_offer_cl_can_send_on_email").style.display = 'none';
+		// 	document.getElementById("n9_r10_choose_offer_cl").style.display = 'none';   
+		// 	document.getElementById("function_r12_can_activate_now_no").style.display = 'none';   
+		// 	document.getElementById("row10_unactivated_cc3").style.display = 'none';    
+
+			}
+	// };
+
+
+
+function function_name2() 
+	{
+		if (document.getElementById("row2_no").checked) 
+			{
+			document.getElementById("row3_n").style.display = 'table-row';
+			document.getElementById("row3_y").style.display = 'none';  
+			document.getElementById("row3_znakomy_yes").style.display = 'none';  
+			document.getElementById("row4_cl").style.display = 'none';  
+			document.getElementById("row4_cc").style.display = 'none';  
+			document.getElementById("row4_otkaz_3lico").style.display = 'none';  
+			document.getElementById("row5_tp_spereschetom").style.display = 'none';  
+			document.getElementById("row5_cc_advantages").style.display = 'none';  
+			document.getElementById("row5_cc_yes_neakt_cc").style.display = 'none';  
+			document.getElementById("row5_rsv_for_cc").style.display = 'none';  
+			document.getElementById("no4_row5_predlojenie_cl").style.display = 'none';  
+			document.getElementById("row6_neakt_no_choose_cc").style.display = 'none';  
+			document.getElementById("row6_cc_to_offer_cl_yes_no").style.display = 'none';  
+			document.getElementById("no5_row6_choose_product_cc").style.display = 'none';  
+			document.getElementById("y5_r6_attention_cc").style.display = 'none';  
+			document.getElementById("next_r7_choose_product_cc").style.display = 'none';  
+			document.getElementById("next5_row6_count_for_cl").style.display = 'none';  
+			document.getElementById("row7_not_activated_cc2").style.display = 'none';  
+			document.getElementById("row7_no_offer_cl_from_cc_sorry").style.display = 'none';  
+			document.getElementById("row7_offer_cl_to_recount").style.display = 'none';  
+			document.getElementById("no6_rw7_1rsv_for_cl_and_cc").style.display = 'none';  
+			document.getElementById("y6_ro7_attention_cc").style.display = 'none';  
+			document.getElementById("row8_email_possible").style.display = 'none';  
+			document.getElementById("y7_r8_attention_cc2").style.display = 'none';  
+			document.getElementById("no7_r8_different_offer").style.display = 'none';  
+			document.getElementById("y7_r8_unactivated_cc2").style.display = 'none';  
+			document.getElementById("n7_r8_offer_cl_tp_recount").style.display = 'none';  
+			document.getElementById("y7_row8_offer_cl_tp_recount").style.display = 'none';  
+			document.getElementById("row9_choose_cl_offer").style.display = 'none';  
+			document.getElementById("row9_email_no").style.display = 'none';  
+			document.getElementById("row9_cl_count_rsv").style.display = 'none';  
+			document.getElementById("r8next_r9_can_get_on_email").style.display = 'none';  
+			document.getElementById("n8_r9_can_use_email").style.display = 'none';  
+			document.getElementById("y8_r9_attention_cc2").style.display = 'none';  
+			document.getElementById("no8_row9_no_offer").style.display = 'none';  
+			document.getElementById("y8_r9_second_offer").style.display = 'none';  
+			document.getElementById("y8_ro9_is_email_correct").style.display = 'none';  
+			document.getElementById("row10_goodbye_no_offer").style.display = 'none';  
+			document.getElementById("row10_unactivated_cc3").style.display = 'none';  
+			document.getElementById("n9_r10_choose_offer_cl").style.display = 'none';  
+			document.getElementById("y9_r10_is_email_correct").style.display = 'none';  
+			document.getElementById("next9_r10_can_use_email").style.display = 'none';  
+			document.getElementById("n9_r10_is_email_correct").style.display = 'none';  
+			document.getElementById("row11_may_get_on_email").style.display = 'none';  
+			document.getElementById("n10_r11_requst_change_data").style.display = 'none';  
+			document.getElementById("y10_r11_confirm_condition_for_cl").style.display = 'none';  
+			document.getElementById("y10_r11_say_email_better").style.display = 'none';  
+			document.getElementById("row12_choose_offer_cl").style.display = 'none';  
+			document.getElementById("yes11_row12_offer_cl_email_is_correct").style.display = 'none';  
+			document.getElementById("y11_r12_can_activate_now").style.display = 'none';  
+			document.getElementById("n11_r12_2rsv_cc_cl").style.display = 'none';  
+			document.getElementById("yes12_row13_offer_cl_can_send_on_email").style.display = 'none';  
+			document.getElementById("y12_r13_activation_on_formation").style.display = 'none';  
+			document.getElementById("n12_r13_activation_with_employee").style.display = 'none';  
+			document.getElementById("no13_row14_choose_offer_cl").style.display = 'none';  
+			} 
+	};
+
+
+function function_row3_cl_cc()  
+{
+		if (document.getElementById("row3_cl").checked) 
+			{
+		document.getElementById("row4_cc").style.display = 'none'; 		
+		document.getElementById("row4_cl").style.display = 'table-row'; 	
+			document.getElementById("row4_otkaz_3lico").style.display = 'none';  
+			document.getElementById("row5_tp_spereschetom").style.display = 'none';  
+			document.getElementById("row5_cc_advantages").style.display = 'none';  
+			document.getElementById("row5_cc_yes_neakt_cc").style.display = 'none';  
+			document.getElementById("row5_rsv_for_cc").style.display = 'none';  
+			document.getElementById("no4_row5_predlojenie_cl").style.display = 'none';  
+			document.getElementById("row6_neakt_no_choose_cc").style.display = 'none';  
+			document.getElementById("row6_cc_to_offer_cl_yes_no").style.display = 'none';  
+			document.getElementById("no5_row6_choose_product_cc").style.display = 'none';  
+			document.getElementById("y5_r6_attention_cc").style.display = 'none';  
+			document.getElementById("next_r7_choose_product_cc").style.display = 'none';  
+			document.getElementById("next5_row6_count_for_cl").style.display = 'none';  
+			document.getElementById("row7_not_activated_cc2").style.display = 'none';  
+			document.getElementById("row7_no_offer_cl_from_cc_sorry").style.display = 'none';  
+			document.getElementById("row7_offer_cl_to_recount").style.display = 'none';  
+			document.getElementById("no6_rw7_1rsv_for_cl_and_cc").style.display = 'none';  
+			document.getElementById("y6_ro7_attention_cc").style.display = 'none';  
+			document.getElementById("row8_email_possible").style.display = 'none';  
+			document.getElementById("y7_r8_attention_cc2").style.display = 'none';  
+			document.getElementById("no7_r8_different_offer").style.display = 'none';  
+			document.getElementById("y7_r8_unactivated_cc2").style.display = 'none';  
+			document.getElementById("n7_r8_offer_cl_tp_recount").style.display = 'none';  
+			document.getElementById("y7_row8_offer_cl_tp_recount").style.display = 'none';  
+			document.getElementById("row9_choose_cl_offer").style.display = 'none';  
+			document.getElementById("row9_email_no").style.display = 'none';  
+			document.getElementById("row9_cl_count_rsv").style.display = 'none';  
+			document.getElementById("r8next_r9_can_get_on_email").style.display = 'none';  
+			document.getElementById("n8_r9_can_use_email").style.display = 'none';  
+			document.getElementById("y8_r9_attention_cc2").style.display = 'none';  
+			document.getElementById("no8_row9_no_offer").style.display = 'none';  
+			document.getElementById("y8_r9_second_offer").style.display = 'none';  
+			document.getElementById("y8_ro9_is_email_correct").style.display = 'none';  
+			document.getElementById("row10_goodbye_no_offer").style.display = 'none';  
+			document.getElementById("row10_unactivated_cc3").style.display = 'none';  
+			document.getElementById("n9_r10_choose_offer_cl").style.display = 'none';  
+			document.getElementById("y9_r10_is_email_correct").style.display = 'none';  
+			document.getElementById("next9_r10_can_use_email").style.display = 'none';  
+			document.getElementById("n9_r10_is_email_correct").style.display = 'none';  
+			document.getElementById("row11_may_get_on_email").style.display = 'none';  
+			document.getElementById("n10_r11_requst_change_data").style.display = 'none';  
+			document.getElementById("y10_r11_confirm_condition_for_cl").style.display = 'none';  
+			document.getElementById("y10_r11_say_email_better").style.display = 'none';  
+			document.getElementById("row12_choose_offer_cl").style.display = 'none';  
+			document.getElementById("yes11_row12_offer_cl_email_is_correct").style.display = 'none';  
+			document.getElementById("y11_r12_can_activate_now").style.display = 'none';  
+			document.getElementById("n11_r12_2rsv_cc_cl").style.display = 'none';  
+			document.getElementById("yes12_row13_offer_cl_can_send_on_email").style.display = 'none';  
+			document.getElementById("y12_r13_activation_on_formation").style.display = 'none';  
+			document.getElementById("n12_r13_activation_with_employee").style.display = 'none';  
+			document.getElementById("no13_row14_choose_offer_cl").style.display = 'none';  
+			} 
+		else if (document.getElementById("row3_cc").checked)
+			{
+		document.getElementById("row4_cl").style.display = 'none'; 			
+		document.getElementById("row4_cc").style.display = 'table-row';  	
+			document.getElementById("row4_otkaz_3lico").style.display = 'none';  
+			document.getElementById("row5_tp_spereschetom").style.display = 'none';  
+			document.getElementById("row5_cc_advantages").style.display = 'none';  
+			document.getElementById("row5_cc_yes_neakt_cc").style.display = 'none';  
+			document.getElementById("row5_rsv_for_cc").style.display = 'none';  
+			document.getElementById("no4_row5_predlojenie_cl").style.display = 'none';  
+			document.getElementById("row6_neakt_no_choose_cc").style.display = 'none';  
+			document.getElementById("row6_cc_to_offer_cl_yes_no").style.display = 'none';  
+			document.getElementById("no5_row6_choose_product_cc").style.display = 'none';  
+			document.getElementById("y5_r6_attention_cc").style.display = 'none';  
+			document.getElementById("next_r7_choose_product_cc").style.display = 'none';  
+			document.getElementById("next5_row6_count_for_cl").style.display = 'none';  
+			document.getElementById("row7_not_activated_cc2").style.display = 'none';  
+			document.getElementById("row7_no_offer_cl_from_cc_sorry").style.display = 'none';  
+			document.getElementById("row7_offer_cl_to_recount").style.display = 'none';  
+			document.getElementById("no6_rw7_1rsv_for_cl_and_cc").style.display = 'none';  
+			document.getElementById("y6_ro7_attention_cc").style.display = 'none';  
+			document.getElementById("row8_email_possible").style.display = 'none';  
+			document.getElementById("y7_r8_attention_cc2").style.display = 'none';  
+			document.getElementById("no7_r8_different_offer").style.display = 'none';  
+			document.getElementById("y7_r8_unactivated_cc2").style.display = 'none';  
+			document.getElementById("n7_r8_offer_cl_tp_recount").style.display = 'none';  
+			document.getElementById("y7_row8_offer_cl_tp_recount").style.display = 'none';  
+			document.getElementById("row9_choose_cl_offer").style.display = 'none';  
+			document.getElementById("row9_email_no").style.display = 'none';  
+			document.getElementById("row9_cl_count_rsv").style.display = 'none';  
+			document.getElementById("r8next_r9_can_get_on_email").style.display = 'none';  
+			document.getElementById("n8_r9_can_use_email").style.display = 'none';  
+			document.getElementById("y8_r9_attention_cc2").style.display = 'none';  
+			document.getElementById("no8_row9_no_offer").style.display = 'none';  
+			document.getElementById("y8_r9_second_offer").style.display = 'none';  
+			document.getElementById("y8_ro9_is_email_correct").style.display = 'none';  
+			document.getElementById("row10_goodbye_no_offer").style.display = 'none';  
+			document.getElementById("row10_unactivated_cc3").style.display = 'none';  
+			document.getElementById("n9_r10_choose_offer_cl").style.display = 'none';  
+			document.getElementById("y9_r10_is_email_correct").style.display = 'none';  
+			document.getElementById("next9_r10_can_use_email").style.display = 'none';  
+			document.getElementById("n9_r10_is_email_correct").style.display = 'none';  
+			document.getElementById("row11_may_get_on_email").style.display = 'none';  
+			document.getElementById("n10_r11_requst_change_data").style.display = 'none';  
+			document.getElementById("y10_r11_confirm_condition_for_cl").style.display = 'none';  
+			document.getElementById("y10_r11_say_email_better").style.display = 'none';  
+			document.getElementById("row12_choose_offer_cl").style.display = 'none';  
+			document.getElementById("yes11_row12_offer_cl_email_is_correct").style.display = 'none';  
+			document.getElementById("y11_r12_can_activate_now").style.display = 'none';  
+			document.getElementById("n11_r12_2rsv_cc_cl").style.display = 'none';  
+			document.getElementById("yes12_row13_offer_cl_can_send_on_email").style.display = 'none';  
+			document.getElementById("y12_r13_activation_on_formation").style.display = 'none';  
+			document.getElementById("n12_r13_activation_with_employee").style.display = 'none';  
+			document.getElementById("no13_row14_choose_offer_cl").style.display = 'none';  
+			}
+	};
+
+
+function function_row4_cl_yes() 
+	{
+		if (document.getElementById("row4_tp_s_pereschetom_yes").checked) 
+			{
+			document.getElementById("row5_tp_spereschetom").style.display = 'table-row';  
+			document.getElementById("row7_not_activated_cc2").style.display = 'none'; 
+			document.getElementById("no4_row5_predlojenie_cl").style.display = 'none';    
+			document.getElementById("y7_r8_attention_cc2").style.display = 'none';
+			document.getElementById("r8next_r9_can_get_on_email").style.display = 'none';
+			document.getElementById("y9_r10_is_email_correct").style.display = 'none';
+			document.getElementById("row8_email_possible").style.display = 'none';
+			document.getElementById("y8_ro9_is_email_correct").style.display = 'none';
+			document.getElementById("n11_r12_2rsv_cc_cl").style.display = 'none';
+			document.getElementById("y10_r11_say_email_better").style.display = 'none';
+			document.getElementById("y10_r11_confirm_condition_for_cl").style.display = 'none';
+			document.getElementById("next5_row6_count_for_cl").style.display = 'none';
+			document.getElementById("n9_r10_choose_offer_cl").style.display = 'none';  
+			} 
+	};
+
+function function_row5_tp_spereschetom_next() 
+	{
+		if (document.getElementById("row5_tp_spereschetom_next").checked) 
+			{
+			document.getElementById("next5_row6_count_for_cl").style.display = 'table-row';
+			} 
+	};
+
+function function_row6_raschety_cl_yes()
+	{
+		if (document.getElementById("row6_raschety_cl_yes").checked)
+			{
+			document.getElementById("row7_not_activated_cc2").style.display = 'table-row'; 
+			document.getElementById("no6_rw7_1rsv_for_cl_and_cc").style.display = 'none';
+
+			}
+	};
+
+function function_row7_y_klienta_est_neact_cc_no()
+	{
+		if (document.getElementById("row7_y_klienta_est_neact_cc_no").checked)
+			{
+			document.getElementById("row8_email_possible").style.display = 'table-row';
+			document.getElementById("y7_r8_attention_cc2").style.display = 'none';
+			}
+	};
+
+function function_row8_email_no()	
+	{
+		if (document.getElementById("row8_email_no").checked)
+			{
+			document.getElementById("row9_email_no").style.display = 'table-row'; 
+			document.getElementById("y8_ro9_is_email_correct").style.display = 'none';
+			}
+	};
+
+function function_row3_znakomy_no() 
+	{
+		if (document.getElementById("row3_znakomy_no").checked) 
+			{
+			document.getElementById("row4_otkaz_3lico").style.display = 'table-row';
+			document.getElementById("row3_znakomy_yes").style.display = 'none';
+			document.getElementById("row5_rsv_for_cc").style.display = 'none';
+			document.getElementById("row4_cc").style.display = 'none';
+			document.getElementById("row5_cc_advantages").style.display = 'none';
+			}
+	};
+
+function function_row3_znakomy_yes()
+	{
+		if (document.getElementById("row3button_znakomy_yes").checked) 
+			{
+			document.getElementById("row3_znakomy_yes").style.display = 'table-row';
+			document.getElementById("row4_otkaz_3lico").style.display = 'none';
+			}
+	};
+	
+	
+function function_cc_advantages()
+	{
+		if (document.getElementById("row4_cc_advantages").checked) 
+			{
+			document.getElementById("row5_cc_advantages").style.display = 'table-row';
+			document.getElementById("row5_tp_spereschetom").style.display = 'none';
+			document.getElementById("row5_cc_yes_neakt_cc").style.display = 'none';
+			document.getElementById("row5_rsv_for_cc").style.display = 'none';
+			}
+	};	
+	
+function function_offer_cc_yes()
+	{
+		if (document.getElementById("row4_cc_yes").checked) 
+			{
+			document.getElementById("row5_cc_yes_neakt_cc").style.display = 'table-row';
+			document.getElementById("row5_cc_advantages").style.display = 'none';
+			document.getElementById("row5_rsv_for_cc").style.display = 'none';
+			document.getElementById("row7_offer_cl_to_recount").style.display = 'none';
+			document.getElementById("row9_cl_count_rsv").style.display = 'none';
+			document.getElementById("row10_unactivated_cc3").style.display = 'none';
+			document.getElementById("row11_may_get_on_email").style.display = 'none';
+			document.getElementById("row12_choose_offer_cl").style.display = 'none';
+			document.getElementById("row10_goodbye_no_offer").style.display = 'none';
+			document.getElementById("row7_no_offer_cl_from_cc_sorry").style.display = 'none';
+			document.getElementById("row6_cc_to_offer_cl_yes_no").style.display = 'none';
+			document.getElementById("no5_row6_choose_product_cc").style.display = 'none';
+			}
+	};	
+
+function function_offer_cc_no()
+	{
+		if (document.getElementById("row4_cc_no").checked) 
+			{
+			document.getElementById("row5_rsv_for_cc").style.display = 'table-row';
+			document.getElementById("row5_cc_advantages").style.display = 'none';
+			document.getElementById("row5_cc_yes_neakt_cc").style.display = 'none';
+			document.getElementById("no5_row6_choose_product_cc").style.display = 'none';
+			document.getElementById("y5_r6_attention_cc").style.display = 'none';
+			document.getElementById("next_r7_choose_product_cc").style.display = 'none';
+			
+			}
+	};		
+
+function function_row5_rsv_for_cc_no()
+	{
+		if (document.getElementById("row5_cc_no_rsv_no").checked) 
+			{
+			document.getElementById("row6_cc_to_offer_cl_yes_no").style.display = 'table-row'; 
+			document.getElementById("row10_unactivated_cc3").style.display = 'none';
+			}
+	};		
+
+function function_row6_cc_to_offer_cl_no()
+	{
+		if (document.getElementById("row6_cc_to_offer_cl_no").checked) 
+			{
+			document.getElementById("row7_no_offer_cl_from_cc_sorry").style.display = 'table-row'; 
+			document.getElementById("row7_offer_cl_to_recount").style.display = 'none';
+			}
+	};	
+
+function function_row6_cc_to_offer_cl_yes()
+	{
+		if (document.getElementById("row6_cc_to_offer_cl_yes").checked) 
+			{
+			document.getElementById("row7_offer_cl_to_recount").style.display = 'table-row'; 
+			document.getElementById("row7_no_offer_cl_from_cc_sorry").style.display = 'none';
+			}
+	};			
+
+function function_row7_offer_cl_to_recount_to_accept_offer()
+	{
+		if (document.getElementById("row7_offer_cl_to_recount_to_accept_offer").checked) 
+			{
+			document.getElementById("y7_row8_offer_cl_tp_recount").style.display = 'table-row';     
+
+			document.getElementById("n7_r8_offer_cl_tp_recount").style.display = 'none';
+			document.getElementById("row9_cl_count_rsv").style.display = 'none';
+			document.getElementById("row10_unactivated_cc3").style.display = 'none';
+			document.getElementById("row11_may_get_on_email").style.display = 'none';
+			document.getElementById("row10_goodbye_no_offer").style.display = 'none';
+			}
+	};		
+
+function function_row8_offer_cl_tp_recount_dalee()	
+	{
+		if (document.getElementById("row8_offer_cl_tp_recount_dalee").checked) 
+			{
+			document.getElementById("row9_cl_count_rsv").style.display = 'table-row';
+			}
+	};		
+
+function function_row9_cl_count_rsv_no()
+	{
+		if (document.getElementById("row9_cl_count_rsv_no").checked) 
+			{
+			document.getElementById("row10_goodbye_no_offer").style.display = 'table-row';
+			}
+	};	
+
+function function_row9_cl_count_rsv_yes()
+	{
+		if (document.getElementById("row9_cl_count_rsv_yes").checked) 
+			{
+			document.getElementById("row10_unactivated_cc3").style.display = 'table-row'; 
+			document.getElementById("row10_goodbye_no_offer").style.display = 'none';
+			}
+	};		
+
+function function_row10_unactivated_cc3_no()
+	{
+		if (document.getElementById("row10_unactivated_cc3_no").checked) 
+			{
+			document.getElementById("row11_may_get_on_email").style.display = 'table-row';
+			document.getElementById("y6_ro7_attention_cc").style.display = 'none';
+			}
+	};	
+
+function function_row11_may_get_on_email_no()
+	{
+		if (document.getElementById("row11_may_get_on_email_no").checked) 
+			{
+			document.getElementById("row12_choose_offer_cl").style.display = 'table-row';
+
+			document.getElementById("yes11_row12_offer_cl_email_is_correct").style.display = 'none';
+			}
+	};	
+
+function function_neakt_cc_no()
+	{
+		if (document.getElementById("row5_neakt_cc_no").checked) 
+			{
+			document.getElementById("no5_row6_choose_product_cc").style.display = 'table-row';
+			document.getElementById("row10_unactivated_cc3").style.display = 'none';
+			document.getElementById("y5_r6_attention_cc").style.display = 'none';
+			document.getElementById("next_r7_choose_product_cc").style.display = 'none';
+			}
+	};			
+
+function function_neakt_cc_yes()
+	{
+		if (document.getElementById("row5_neakt_cc_yes").checked) 
+			{
+			document.getElementById("y5_r6_attention_cc").style.display = 'table-row';
+			document.getElementById("no5_row6_choose_product_cc").style.display = 'none';
+			}
+	};	
+
+function function_r6_attention_cc_next()
+	{
+		if (document.getElementById("r6_attention_cc_next").checked) 
+			{
+			document.getElementById("next_r7_choose_product_cc").style.display = 'table-row';
+			}
+	};	
+
+function function_row5_rsv_for_cc_yes()
+	{
+		if (document.getElementById("row5_cc_no_rsv_yes").checked) 
+			{
+			document.getElementById("row10_unactivated_cc3").style.display = 'table-row';  
+			document.getElementById("row6_cc_to_offer_cl_yes_no").style.display = 'none';   
+
+			document.getElementById("row7_offer_cl_to_recount").style.display = 'none';
+			document.getElementById("n7_r8_offer_cl_tp_recount").style.display = 'none';
+			document.getElementById("row9_cl_count_rsv").style.display = 'none';
+			}
+	};	
+
+
+function function_row4_tp_s_pereschetom_no()
+	{
+		if (document.getElementById("row4_tp_s_pereschetom_no").checked) 
+			{
+			document.getElementById("no4_row5_predlojenie_cl").style.display = 'table-row'; 
+			document.getElementById("row5_tp_spereschetom").style.display = 'none';  
+			document.getElementById("no6_rw7_1rsv_for_cl_and_cc").style.display = 'none';
+			document.getElementById("row7_not_activated_cc2").style.display = 'none';
+			document.getElementById("no8_row9_no_offer").style.display = 'none';
+			document.getElementById("y8_r9_second_offer").style.display = 'none';
+			document.getElementById("no7_r8_different_offer").style.display = 'none';
+			document.getElementById("next5_row6_count_for_cl").style.display = 'none';
+			document.getElementById("no5_row6_choose_product_cc").style.display = 'none';
+			}
+	};	
+
+function function_row5_predlojenie_cl_next()
+	{
+		if (document.getElementById("row5_predlojenie_cl_next").checked) 
+			{
+			document.getElementById("next5_row6_count_for_cl").style.display = 'table-row'; 
+			document.getElementById("row5_tp_spereschetom").style.display = 'none'; 
+			}
+	};	
+
+function function_row6_raschety_cl_no()
+	{
+		if (document.getElementById("row6_raschety_cl_no").checked) 
+			{
+			document.getElementById("no6_rw7_1rsv_for_cl_and_cc").style.display = 'table-row'; 
+			document.getElementById("row7_not_activated_cc2").style.display = 'none';
+			}
+	};	
+
+function function_row7_y_klienta_est_neact_cc_yes()
+	{
+		if (document.getElementById("row7_y_klienta_est_neact_cc_yes").checked) 
+			{
+			document.getElementById("y7_r8_attention_cc2").style.display = 'table-row'; 
+			document.getElementById("row8_email_possible").style.display = 'none';
+			}
+	};	
+
+function function_r8_attention_cc2()
+	{
+		if (document.getElementById("r8_attention_cc2_next").checked) 
+			{
+			document.getElementById("r8next_r9_can_get_on_email").style.display = 'table-row';
+			}
+	};	
+
+
+function function_r9_email_no()
+	{
+		if (document.getElementById("r9_email_no").checked) 
+			{
+			document.getElementById("n9_r10_choose_offer_cl").style.display = 'table-row';
+			}
+	};	
+
+
+
+function function_r9_email_yes()
+	{
+		if (document.getElementById("r9_email_yes").checked) 
+			{
+			document.getElementById("y9_r10_is_email_correct").style.display = 'table-row';
+			}
+	};		
+
+
+function function_r10_is_email_correct_no()	
+	{
+		if (document.getElementById("r10_is_email_correct_no").checked) 
+			{
+			document.getElementById("n10_r11_requst_change_data").style.display = 'table-row';
+			}
+	};	
+
+
+function function_r11_requst_change_data_next()
+	{
+		if (document.getElementById("r11_requst_change_data_next").checked) 
+			{
+			document.getElementById("n9_r10_choose_offer_cl").style.display = 'table-row';
+			}
+	};	
+
+
+
+function function_count_for_cl_yes()
+	{
+		if (document.getElementById("count_for_cl_yes").checked) 
+			{
+			document.getElementById("row7_not_activated_cc2").style.display = 'table-row'; 
+			document.getElementById("no6_rw7_1rsv_for_cl_and_cc").style.display = 'none';   
+			document.getElementById("no8_row9_no_offer").style.display = 'none';
+			document.getElementById("y8_r9_second_offer").style.display = 'none';
+			document.getElementById("no7_r8_different_offer").style.display = 'none';
+			}
+	};	
+
+function function_count_for_cl_no()
+	{
+		if (document.getElementById("count_for_cl_no").checked) 
+			{
+			document.getElementById("no6_rw7_1rsv_for_cl_and_cc").style.display = 'table-row';
+			document.getElementById("row7_not_activated_cc2").style.display = 'none'; 
+			document.getElementById("row8_email_possible").style.display = 'none'; 
+			document.getElementById("y7_r8_attention_cc2").style.display = 'none'; 
+			document.getElementById("y11_r12_can_activate_now").style.display = 'none'; 
+			document.getElementById("row12_choose_offer_cl").style.display = 'none'; 
+			document.getElementById("y10_r11_say_email_better").style.display = 'none'; 
+			document.getElementById("y8_ro9_is_email_correct").style.display = 'none';   
+			}
+	};	
+
+function function_row7_rsv_no()
+	{
+		if (document.getElementById("row7_rsv_no").checked) 
+			{
+			document.getElementById("no7_r8_different_offer").style.display = 'table-row';
+			document.getElementById("y7_r8_unactivated_cc2").style.display = 'none';
+			}
+	};		
+
+function function_row7_rsv_yes()
+	{
+		if (document.getElementById("row7_rsv_yes").checked) 
+			{
+			document.getElementById("y7_r8_unactivated_cc2").style.display = 'table-row';
+			document.getElementById("no7_r8_different_offer").style.display = 'none';
+			}
+	};	
+
+function function_r8_unactivated_cc2_no()
+	{
+		if (document.getElementById("r8_unactivated_cc2_no").checked) 
+			{
+			document.getElementById("n8_r9_can_use_email").style.display = 'table-row';
+			document.getElementById("y8_r9_attention_cc2").style.display = 'none';
+			}
+	};		
+
+function function_r8_unactivated_cc2_yes()
+	{
+		if (document.getElementById("r8_unactivated_cc2_yes").checked) 
+			{
+			document.getElementById("y8_r9_attention_cc2").style.display = 'table-row';
+			document.getElementById("n8_r9_can_use_email").style.display = 'none';
+			}
+	};		
+
+function function_r9_attention_cc2_next()
+	{
+		if (document.getElementById("r9_attention_cc2_next").checked) 
+			{
+			document.getElementById("next9_r10_can_use_email").style.display = 'table-row';			
+			}
+	};	
+
+function function_r8_different_offer_no()
+	{
+		if (document.getElementById("r8_different_offer_no").checked) 
+			{
+			document.getElementById("no8_row9_no_offer").style.display = 'table-row';
+			document.getElementById("y8_r9_second_offer").style.display = 'none';			
+			}
+	};			
+
+function function_r8_different_offer_yes()
+	{
+		if (document.getElementById("r8_different_offer_yes").checked) 
+			{
+			document.getElementById("y8_r9_second_offer").style.display = 'table-row';
+			document.getElementById("no8_row9_no_offer").style.display = 'none';
+			}
+	};			
+
+function function_r9_second_offer_no()
+	{
+		if (document.getElementById("r9_second_offer_no").checked) 
+			{
+			document.getElementById("no8_row9_no_offer").style.display = 'table-row';
+			document.getElementById("no5_row6_choose_product_cc").style.display = 'none';
+			document.getElementById("row5_cc_advantages").style.display = 'none';
+			}
+	};			
+
+function function_r9_second_offer_yes()
+	{
+		if (document.getElementById("r9_second_offer_yes").checked) 
+			{
+			document.getElementById("no5_row6_choose_product_cc").style.display = 'table-row';
+			document.getElementById("no8_row9_no_offer").style.display = 'none';
+			document.getElementById("row5_cc_advantages").style.display = 'none';
+			}
+	};		
+
+function function_r9_second_offer_advantages()
+	{
+		if (document.getElementById("r9_second_offer_advantages").checked) 
+			{
+			document.getElementById("row5_cc_advantages").style.display = 'table-row';
+			document.getElementById("no8_row9_no_offer").style.display = 'none'; 
+			document.getElementById("no5_row6_choose_product_cc").style.display = 'none'; 
+			}
+	};		
+
+function function_row10_unactivated_cc3_yes()
+	{
+		if (document.getElementById("row10_unactivated_cc3_yes").checked) 
+			{
+			document.getElementById("y6_ro7_attention_cc").style.display = 'table-row';
+			document.getElementById("row11_may_get_on_email").style.display = 'none'; 
+			}
+	};		
+
+function function_ro7_attention_cc_next()
+	{
+		if (document.getElementById("ro7_attention_cc_next").checked) 
+			{
+			document.getElementById("row11_may_get_on_email").style.display = 'table-row';
+			}
+	};			
+
+function function_row8_email_yes()
+	{
+		if (document.getElementById("row8_email_yes").checked) 
+			{
+			document.getElementById("y8_ro9_is_email_correct").style.display = 'table-row';
+			document.getElementById("row9_email_no").style.display = 'none';
+			}
+	};	
+
+function function_ro9_is_email_correct_no()
+	{
+		if (document.getElementById("ro9_is_email_correct_no").checked) 
+			{
+			document.getElementById("n9_r10_is_email_correct").style.display = 'table-row';
+			document.getElementById("row12_choose_offer_cl").style.display = 'none';
+			document.getElementById("y10_r11_confirm_condition_for_cl").style.display = 'none';
+			document.getElementById("y10_r11_say_email_better").style.display = 'none'; 
+
+			}
+	};	
+
+function function_r10_is_email_correct_next()
+	{
+		if (document.getElementById("r10_is_email_correct_next").checked) 
+			{
+			document.getElementById("no13_row14_choose_offer_cl").style.display = 'table-row';
+			}
+	};	
+
+function function_ro9_is_email_correct_yes()
+	{
+		if (document.getElementById("ro9_is_email_correct_yes").checked) 
+			{
+			document.getElementById("y10_r11_say_email_better").style.display = 'table-row'; 
+			document.getElementById("n9_r10_is_email_correct").style.display = 'none';
+			}
+	};	
+
+function function_r11_say_email_better_no()	
+	{
+		if (document.getElementById("r11_say_email_better_no").checked) 
+			{
+			document.getElementById("row12_choose_offer_cl").style.display = 'table-row'; 
+			document.getElementById("y11_r12_can_activate_now").style.display = 'table-row'; 
+			document.getElementById("y10_r11_confirm_condition_for_cl").style.display = 'none'; 
+			}
+	};		
+
+function function_r11_say_email_better_yes()
+	{
+		if (document.getElementById("r11_say_email_better_yes").checked) 
+			{
+			document.getElementById("y10_r11_confirm_condition_for_cl").style.display = 'table-row'; 
+			document.getElementById("row12_choose_offer_cl").style.display = 'none';
+			}
+	};		
+
+function function_r11_confirm_condition_for_cl_yes()
+	{
+		if (document.getElementById("r11_confirm_condition_for_cl_yes").checked) 
+			{
+			document.getElementById("y11_r12_can_activate_now").style.display = 'table-row';
+			}
+	};	
+
+function function_r11_confirm_condition_for_cl_no()	
+	{
+		if (document.getElementById("r11_confirm_condition_for_cl_no").checked) 
+			{
+			document.getElementById("n11_r12_2rsv_cc_cl").style.display = 'table-row';
+			}
+	};	
+
+
+function function_row7_offer_cl_to_recount_to_offer_cl_to_recount()
+	{
+		if (document.getElementById("row7_offer_cl_to_recount_to_offer_cl_to_recount").checked) 
+			{
+			document.getElementById("n7_r8_offer_cl_tp_recount").style.display = 'table-row'; 			
+			document.getElementById("y7_row8_offer_cl_tp_recount").style.display = 'none';
+			document.getElementById("row9_cl_count_rsv").style.display = 'none';
+			document.getElementById("row10_unactivated_cc3").style.display = 'none';
+			document.getElementById("row10_goodbye_no_offer").style.display = 'none';   
+			}
+	};		
+
+
+function function_r8_offer_cl_tp_recount_dalee()
+	{
+		if (document.getElementById("r8_offer_cl_tp_recount_dalee").checked) 
+			{
+			document.getElementById("row9_cl_count_rsv").style.display = 'table-row';
+			}
+	};		
+
+function function_row11_may_get_on_email_yes()
+	{
+		if (document.getElementById("row11_may_get_on_email_yes").checked) 
+			{
+			document.getElementById("yes11_row12_offer_cl_email_is_correct").style.display = 'table-row';
+			document.getElementById("row12_choose_offer_cl").style.display = 'none';
+			}
+	};			
+
+function function_yes11_row12_offer_cl_email_is_correct_yes()
+	{
+		if (document.getElementById("yes11_row12_offer_cl_email_is_correct_yes").checked) 
+			{
+			document.getElementById("yes12_row13_offer_cl_can_send_on_email").style.display = 'table-row';
+			document.getElementById("n10_r11_requst_change_data").style.display = 'none';
+			document.getElementById("n9_r10_choose_offer_cl").style.display = 'none';
+			}
+	};	
+
+
+function function_yes11_row12_offer_cl_email_is_correct_no()
+	{
+		if (document.getElementById("yes11_row12_offer_cl_email_is_correct_no").checked) 
+			{
+			document.getElementById("n10_r11_requst_change_data").style.display = 'table-row';
+			document.getElementById("yes12_row13_offer_cl_can_send_on_email").style.display = 'none';
+			}
+	};		
+
+function function_yes12_row13_offer_cl_can_send_on_email_no()
+	{
+		if (document.getElementById("yes12_row13_offer_cl_can_send_on_email_no").checked) 
+			{
+			document.getElementById("no13_row14_choose_offer_cl").style.display = 'table-row';
+			document.getElementById("y10_r11_confirm_condition_for_cl").style.display = 'none';
+			}
+	};		
+
+function function_yes12_row13_offer_cl_can_send_on_email_yes()
+	{
+		if (document.getElementById("yes12_row13_offer_cl_can_send_on_email_yes").checked) 
+			{
+			document.getElementById("y10_r11_confirm_condition_for_cl").style.display = 'table-row';
+			document.getElementById("no13_row14_choose_offer_cl").style.display = 'none';
+			}
+	};		
+
+function function_r12_can_activate_now_yes()
+	{
+		if (document.getElementById("r12_can_activate_now_yes").checked) 
+			{
+			document.getElementById("y12_r13_activation_on_formation").style.display = 'table-row';
+			document.getElementById("n12_r13_activation_with_employee").style.display = 'none';
+			}
+	};		
+
+function function_r12_can_activate_now_no()
+	{
+		if (document.getElementById("r12_can_activate_now_no").checked) 
+			{
+			document.getElementById("n12_r13_activation_with_employee").style.display = 'table-row';
+			document.getElementById("y12_r13_activation_on_formation").style.display = 'none';
+			}
+	};	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// function function_row4_cl_yes() 
+// {
+// 		if (document.getElementById("row4_tp_s_pereschetom_yes").checked) 
+// 			{
+// 			document.getElementById("row5_tp_spereschetom").style.display = 'table-row';
+// 			document.getElementById("").style.display = 'none';
+// 			} 
+// 		else if (document.getElementById("").checked)
+// 			{
+// 			document.getElementById("").style.display = 'none';
+// 			document.getElementById("").style.display = 'table-row';
+// 			}
+// 	};
+
+
+</script>
 </body>
 </html>
 
