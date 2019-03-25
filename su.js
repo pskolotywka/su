@@ -1,18 +1,123 @@
-function m_a__more_actions {
-		{
-		if (document.getElementById("m_a__more_actions").click) 
-			{
-			document.getElementById("").style.display = 'block'; 	 
-			} 
-	};	
+// appointment__ops form__SU3 
+
+function cl_count__button() {
+	if (document.getElementById("cl_count__button").click) {
+		document.getElementById("my_cl_count_result").style.display = "block"
+	}
 }
+
+function cl_count__button1() {
+	if (document.getElementById("cl_count__button1").click) {
+		document.getElementById("my_cl_count_result1").style.display = "block"
+	}
+}
+
+
+
+
+function tooltip() {
+if (document.getElementById("span-tooltip").click) {
+	document.getElementById("tooltip_wrap").style.display = 'block';}
+}
+
+function tooltip1() {
+if (document.getElementById("span-tooltip1").click) {
+	document.getElementById("tooltip_wrap1").style.display = 'block';}
+}
+
+function m_a__claim_register() {
+	if (document.getElementById("m_a__claim_register").click)
+		{document.getElementById("comliance__open").style.display = 'block';
+		document.getElementById("m_a__claim_register1").style.display = 'block';
+		document.getElementById("m_a__claim_register").style.display = 'none';}
+}
+
+
+function m_a__claim_register1() {
+	if (document.getElementById("m_a__claim_register1").click)
+		{document.getElementById("comliance__open").style.display = 'none';
+		document.getElementById("m_a__claim_register1").style.display = 'none';
+		document.getElementById("m_a__claim_register").style.display = 'block';}
+}
+
+function m_a__more_actions() {
+	if (document.getElementById("m_a__more_actions").click)
+		{document.getElementById("m_a__more_actions_open").style.display = 'block';
+		document.getElementById("m_a__more_actions1").style.display = 'block';
+		document.getElementById("m_a__more_actions").style.display = 'none';}
+}
+
+function m_a__more_actions1() {
+	if (document.getElementById("m_a__more_actions1").click)
+		{document.getElementById("m_a__more_actions_open").style.display = 'none';
+		document.getElementById("m_a__more_actions1").style.display = 'none';
+		document.getElementById("m_a__more_actions").style.display = 'block';}
+}
+
+
+
+
+function m_a__map() {
+	if (document.getElementById("m_a__map").click)
+		{document.getElementById("map__open").style.display = 'block';
+		document.getElementById("m_a__map1").style.display = 'block';
+		document.getElementById("m_a__map").style.display = 'none';}
+}
+
+function m_a__map1() {
+	if (document.getElementById("m_a__map1").click)
+		{document.getElementById("map__open").style.display = 'none';
+		document.getElementById("m_a__map1").style.display = 'none';
+		document.getElementById("m_a__map").style.display = 'block';}
+}
+
+
+
+
+
+
+function ch_comliance() {
+		{
+	if 
+		(document.getElementById("ch_comliance").checked) 
+		{
+		document.getElementById("m_a_comliance").style.display = 'block';
+			} 	else {
+			document.getElementById("m_a_comliance").style.display = 'none';
+		
+		} 
+	};
+
+}
+
+
+function change_data() {
+	{
+	if 
+		(document.getElementById("change_data").checked) 
+		{
+		document.getElementById("change_data__wrap").style.display = 'block';
+			} 	else {
+			document.getElementById("change_data__wrap").style.display = 'none';
+		
+		} 
+	};
+}
+
+
+
+
+
+		
 
 
 function take_a_credit() {
 	{
-		if (document.getElementById("take_a_credit_activate" || "take_a_credit_email" || "take_a_credit_guy").click) 
+		if (document.getElementById("take_a_credit_activate" || "take_a_credit_email").click) 
 			{
-			document.getElementById("end_task").style.display = 'block'; 	 
+			document.getElementById("end_task").style.display = 'block'; 	
+			document.getElementById("appointment__ops").style.display = 'none'; 	
+			document.getElementById("appointment").style.display = 'none'; 	
 			} 
 	};	
 }
@@ -26,6 +131,11 @@ function function_form_SU4() {
 			document.getElementById("take_a_credit").style.display = 'block'; 
 			document.getElementById("su4-1").style.display = 'block'; 	 
 			document.getElementById("su3-1").style.display = 'none'; 
+			document.getElementById("my_cl_count_result").style.display = 'none'; 
+			document.getElementById("tooltip_wrap").style.display = 'none';  
+			document.getElementById("appointment__ops").style.display = 'none';  
+			document.getElementById("my_cl_count_result1").style.display = 'none';  
+			document.getElementById("appointment").style.display = 'none';  
 			} 
 	};	
 }
@@ -62,6 +172,10 @@ function function_form_SU3()
 			document.getElementById("my_cl_count1").style.display = 'none'; 	 
 			document.getElementById("my_cl_count2").style.display = 'none'; 	 
 			document.getElementById("appointment").style.display = 'none'; 	 
+			document.getElementById("my_cl_count_result").style.display = 'none'; 	 
+			document.getElementById("tooltip_wrap").style.display = 'none'; 	  
+			document.getElementById("appointment__ops").style.display = 'none'; 	  
+			document.getElementById("my_cl_count_result1").style.display = 'none'; 	  
 			} 
 	};
 
@@ -76,6 +190,10 @@ function function__hide_cl_count()
 			document.getElementById("su3-1").style.display = 'none'; 
 			document.getElementById("appointment").style.display = 'block'; 
 			document.getElementById("take_a_credit").style.display = 'none'; 
+			document.getElementById("my_cl_count_result").style.display = 'none'; 
+			document.getElementById("tooltip_wrap").style.display = 'none';  
+			document.getElementById("appointment__ops").style.display = 'none';  
+			document.getElementById("my_cl_count_result1").style.display = 'none';  
 			} 
 	};	
 
@@ -158,6 +276,9 @@ function function_appointment_show()
 			document.getElementById("SU").style.display = 'none';
 			document.getElementById("credit_condition").style.display = 'none'; 
 			document.getElementById("appointment").style.display = 'none'; 
+			document.getElementById("appointment").style.display = 'none'; 
+			document.getElementById("end_task").style.display = 'none'; 
+			document.getElementById("take_a_credit").style.display = 'none'; 
 			} 
 	};
 
@@ -422,7 +543,55 @@ function function_row4_cl_yes()
 			document.getElementById("y10_r11_say_email_better").style.display = 'none';
 			document.getElementById("y10_r11_confirm_condition_for_cl").style.display = 'none';
 			document.getElementById("next5_row6_count_for_cl").style.display = 'none';
+			document.getElementById("n9_r10_choose_offer_cl").style.display = 'none'; 
+			document.getElementById("row5_cc_advantages").style.display = 'none';  
+			document.getElementById("row5_cc_yes_neakt_cc").style.display = 'none';  
+			document.getElementById("row5_rsv_for_cc").style.display = 'none';  
+			document.getElementById("no4_row5_predlojenie_cl").style.display = 'none';  
+			document.getElementById("row6_neakt_no_choose_cc").style.display = 'none';  
+			document.getElementById("row6_cc_to_offer_cl_yes_no").style.display = 'none';  
+			document.getElementById("no5_row6_choose_product_cc").style.display = 'none';  
+			document.getElementById("y5_r6_attention_cc").style.display = 'none';  
+			document.getElementById("next_r7_choose_product_cc").style.display = 'none';  
+			document.getElementById("next5_row6_count_for_cl").style.display = 'none';  
+			document.getElementById("row7_not_activated_cc2").style.display = 'none';  
+			document.getElementById("row7_no_offer_cl_from_cc_sorry").style.display = 'none';  
+			document.getElementById("row7_offer_cl_to_recount").style.display = 'none';  
+			document.getElementById("no6_rw7_1rsv_for_cl_and_cc").style.display = 'none';  
+			document.getElementById("y6_ro7_attention_cc").style.display = 'none';  
+			document.getElementById("row8_email_possible").style.display = 'none';  
+			document.getElementById("y7_r8_attention_cc2").style.display = 'none';  
+			document.getElementById("no7_r8_different_offer").style.display = 'none';  
+			document.getElementById("y7_r8_unactivated_cc2").style.display = 'none';  
+			document.getElementById("n7_r8_offer_cl_tp_recount").style.display = 'none';  
+			document.getElementById("y7_row8_offer_cl_tp_recount").style.display = 'none';  
+			document.getElementById("row9_choose_cl_offer").style.display = 'none';  
+			document.getElementById("row9_email_no").style.display = 'none';  
+			document.getElementById("row9_cl_count_rsv").style.display = 'none';  
+			document.getElementById("r8next_r9_can_get_on_email").style.display = 'none';  
+			document.getElementById("n8_r9_can_use_email").style.display = 'none';  
+			document.getElementById("y8_r9_attention_cc2").style.display = 'none';  
+			document.getElementById("no8_row9_no_offer").style.display = 'none';  
+			document.getElementById("y8_r9_second_offer").style.display = 'none';  
+			document.getElementById("y8_ro9_is_email_correct").style.display = 'none';  
+			document.getElementById("row10_goodbye_no_offer").style.display = 'none';  
+			document.getElementById("row10_unactivated_cc3").style.display = 'none';  
 			document.getElementById("n9_r10_choose_offer_cl").style.display = 'none';  
+			document.getElementById("y9_r10_is_email_correct").style.display = 'none';  
+			document.getElementById("next9_r10_can_use_email").style.display = 'none';  
+			document.getElementById("n9_r10_is_email_correct").style.display = 'none';  
+			document.getElementById("row11_may_get_on_email").style.display = 'none';  
+			document.getElementById("n10_r11_requst_change_data").style.display = 'none';  
+			document.getElementById("y10_r11_confirm_condition_for_cl").style.display = 'none';  
+			document.getElementById("y10_r11_say_email_better").style.display = 'none';  
+			document.getElementById("row12_choose_offer_cl").style.display = 'none';  
+			document.getElementById("yes11_row12_offer_cl_email_is_correct").style.display = 'none';  
+			document.getElementById("y11_r12_can_activate_now").style.display = 'none';  
+			document.getElementById("n11_r12_2rsv_cc_cl").style.display = 'none';  
+			document.getElementById("yes12_row13_offer_cl_can_send_on_email").style.display = 'none';  
+			document.getElementById("y12_r13_activation_on_formation").style.display = 'none';  
+			document.getElementById("n12_r13_activation_with_employee").style.display = 'none';  
+			document.getElementById("no13_row14_choose_offer_cl").style.display = 'none';   
 			} 
 	};
 
@@ -450,6 +619,8 @@ function function_row7_y_klienta_est_neact_cc_no()
 			{
 			document.getElementById("row8_email_possible").style.display = 'table-row';
 			document.getElementById("y7_r8_attention_cc2").style.display = 'none';
+			document.getElementById("r8next_r9_can_get_on_email").style.display = 'none';
+			document.getElementById("y9_r10_is_email_correct").style.display = 'none';
 			}
 	};
 
@@ -712,6 +883,7 @@ function function_r9_email_no()
 		if (document.getElementById("r9_email_no").checked) 
 			{
 			document.getElementById("n9_r10_choose_offer_cl").style.display = 'table-row';
+			document.getElementById("y9_r10_is_email_correct").style.display = 'none';
 			}
 	};	
 
@@ -722,6 +894,7 @@ function function_r9_email_yes()
 		if (document.getElementById("r9_email_yes").checked) 
 			{
 			document.getElementById("y9_r10_is_email_correct").style.display = 'table-row';
+			document.getElementById("n9_r10_choose_offer_cl").style.display = 'none';
 			}
 	};		
 
@@ -1042,6 +1215,13 @@ function function_r12_can_activate_now_no()
 	};	
 
 
+function function_r10_is_email_correct_yes()
+	{
+		if (document.getElementById("r10_is_email_correct_yes").checked) 
+			{
+			document.getElementById("yes12_row13_offer_cl_can_send_on_email").style.display = 'table-row'; 
+			}
+	};	
 
 
 

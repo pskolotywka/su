@@ -36,6 +36,19 @@
 1 час 30 мин
 07.02
 2 часа
+12.02
+2 часа 30 мин
+13.02
+2 часа
+14.02
+2 часа
+15.02 
+2 часа
+18.02
+2 Часа
+
+01.03
+1 час 30 мин.
 
 -->
 <html lang="en">
@@ -43,8 +56,12 @@
 	<meta charset="UTF-8">
 	<title>Document</title>
 	<link rel="stylesheet" href="su.css">
+	<style>
+		
+	</style>
 </head>
 <body>
+
 
 <div id="tab">
 	<input class="input" type="radio" name="table" id="n1" checked/>
@@ -76,8 +93,10 @@
 						<th><p><span style="color: #0000FF">Здравствуйте, меня зовут <ИМЯ>, <span style="color: #B22222"> я представляю АО Тинькофф Банк.</span> Я разговариваю с <ФИО>?</span></p> </th>
 						<th class="th1">
 							<form class="row2_yes_no">
-								<input type="radio" name="d" id="row2_yes" onclick="function_name1()"><span style="color: #3c763d">Да</span>
-								<input type="radio" name="d" id="row2_no" onclick="function_name2()"><span style="color: #B22222">Нет</span>
+								<input type="radio" name="d" id="row2_yes" onclick="function_name1()">
+								<label for="row2_yes"><span style="color: #3c763d">Да</span></label>
+								<input type="radio" name="d" id="row2_no" onclick="function_name2()">
+								<label for="row2_no"><span style="color: #B22222">Нет</span></label>
 							</form>
 						</th>
 					</tr>
@@ -85,8 +104,8 @@
 						<th class="cell-wrap">Знакомы с ФИО?</th>
 						<th><span class="span-blue">По данному номеру телефона можно услышать <ФИО>?</span></th>
 						<th>							
-							<input type="radio" name="l" id="row3_znakomy_no" onclick="function_row3_znakomy_no()"><span class="span-red">Нет</span>
-							<input type="radio" name="l" id="row3button_znakomy_yes" onclick="function_row3_znakomy_yes()"><span class="span-green">Да</span>
+							<input type="radio" name="l" id="row3_znakomy_no" onclick="function_row3_znakomy_no()"><label for="row3_znakomy_no"><span class="span-red">Нет</span></label>
+							<input type="radio" name="l" id="row3button_znakomy_yes" onclick="function_row3_znakomy_yes()"><label for="row3button_znakomy_yes"><span class="span-green">Да</span></label>
 						</th>						
 					</tr>
 					<tr id="row3_znakomy_yes">
@@ -121,7 +140,9 @@
 					</tr>
 					<tr id="no4_row5_predlojenie_cl">
 						<th class="cell-wrap">Предложение КН</th>
-						<th><p><span class="span-blue">ФИО, ранее вы обсуждали с сотрудником возможность получения кредитной карты нашего банка. Сейчас банк одобрил Вам <span class="span-red">кредит наличными</span> с максимальной суммой<span class="span-red"> <максимальная сумма></span> рублей и максимальным сроком погашения 36 месяцев. Регулярный платеж составит<span class="span-red"> <назвать платеж></span> рублей в месяц.</span> </p>
+						<th><p>
+							<span class="span-red">ИО</span>
+							<span class="span-blue">, ранее Вы оформляли кредитную карту нашего банка, но так ей и не воспользовались. Сейчас банк одобрил Вам <span class="span-red">кредит наличными</span> с максимальной суммой<span class="span-red"> <максимальная сумма></span> рублей и максимальным сроком погашения 36 месяцев. Регулярный платеж составит<span class="span-red"> <назвать платеж></span> рублей в месяц.</span> </p>
 						</th>
 						<th>
 							<form class="no4_row5_net">
@@ -130,16 +151,10 @@
 						</th>
 					</tr>
 					<tr id="row5_tp_spereschetom">
-						<th class="cell-wrap">ТП с перечетом</th>
+						<th class="cell-wrap">ТП с переcчетом</th>
 						<th>
-							<p><span class="span-blue">
-							ФИО, ранее вы обсуждали с сотрудником возможность получения кредитной карты нашего банка. Сейчас банк одобрил Вам<span class="span-red"> кредит наличными</span> с максимальной суммой <span class="span-red"><максимальная сумма> </span> рублей и максимальным сроком погашения 36 месяцев. Регулярный платеж составит <span class="span-red"><назвать платеж> </span>рублей в месяц. 
-							</p>
-							<p><span class="span-red">
-							Если вы погасите кредит без просрочек и не раньше, чем за половину 
-							срока, то мы вернем Вам часть переплаты за кредит. Для возврата Вам будет достаточно обратиться 
-							в банк после полного погашения кредита не позднее, чем через три месяца с даты погашения.
-							</span>
+							<p>
+								<span class="span-red">ИО,</span><span class="span-blue"> Банк одобрил Вам </span><span class="span-red">кредит наличными</span><span class="span-blue"> с максимальной суммой </span><span class="span-red"><максимальная сумма></span><span class="span-blue"> рублей и максимальным сроком погашения 36 месяцев. Регулярный платеж составит </span><span class="span-red"><назвать платеж></span><span class="span-blue"> рублей в месяц. Чтобы обсудить детали, предлагаю сделать расчет. Какую сумму рассматриваете?</span>
 							</p>
 						</th>
 						<th>
@@ -152,7 +167,7 @@
 						<th>Провести рассч для КН</th>
 						<th><b>Произведи необходимые расчеты. <br>При необходимости проконсультируй об условиях кредитования. <br><br> Клиент согласен получить кредит наличными?</b></th>
 						<th>
-							<p><input type="radio" name="ae" id="count_for_cl_yes" onclick="function_count_for_cl_yes()"><span class="span-green">Да</span></p>
+							<p><input type="radio" name="ae" id="r8_attention_cc2_next" onclick="function_r8_attention_cc2()"><span class="span-green">Да</span></p>
 							<p><input type="radio" name="ae" id="count_for_cl_no" onclick="function_count_for_cl_no()"><span class="span-red">Нет</span></p>
 						</th>						
 					</tr>
@@ -348,10 +363,9 @@
 					<tr id="y7_row8_offer_cl_tp_recount">
 						<th class="cell-wrap">Оффер КН: ТП с пересчётом</th>
 						<th>
-							<span class="span-blue">ФИО, также банк одобрил Вам <span class="span-red">кредит наличным</span> с максимальной суммой <span class="span-red"><максимальная сумма></span>
-							рублей и максимальным сроком погашения 36 месяцев. Регулярный платеж составит <span class="span-red"><назвать платеж></span> рублей в месяц.</span><br><br>
-							<span class="span-red">Если вы погасите кредит без просрочек и не раньше, чем за половину срока, то мы вернем Вам часть переплаты за кредит. <br>
-							Для возврата Вам будет достаточно обратиться в банк после полного погашения кредита не позднее, чем через три месяца с даты погашения.</span>
+							<p>
+								<span class="span-red">ИО,</span><span class="span-blue"> Банк одобрил Вам </span><span class="span-red">кредит наличными</span><span class="span-blue"> с максимальной суммой </span><span class="span-red"><максимальная сумма></span><span class="span-blue"> рублей и максимальным сроком погашения 36 месяцев. Регулярный платеж составит </span><span class="span-red"><назвать платеж></span><span class="span-blue"> рублей в месяц. Чтобы обсудить детали, предлагаю сделать расчет. Какую сумму рассматриваете?</span>
+							</p>
 						</th>
 						<th>
 							<p><input type="radio" name="q" id="row8_offer_cl_tp_recount_dalee" onclick="function_row8_offer_cl_tp_recount_dalee()">Далее</p>
@@ -366,7 +380,7 @@
 						</th>
 						<th>
 							<p><input type="radio" name="r" id="row9_cl_count_rsv_no" onclick="function_row9_cl_count_rsv_no()"><span class="span-red">Нет</span></p>
-							<p><input type="radio" name="r" id="row9_cl_count_rsv_yes" onclick="function_row9_cl_count_rsv_yes()"><span class="span-green">Да</span></p>
+							<p><input type="radio" name="r" id="ro7_attention_cc_next" onclick="function_ro7_attention_cc_next()"><span class="span-green">Да</span></p>
 						</th>						
 					</tr>
 					<tr id="row10_unactivated_cc3">
@@ -402,32 +416,8 @@
 						<th><b>Выясни причину и проведи работу с возражениями. <br>Расскажи о преимуществах кредита наличными.<br><br>Клиент согласен получить кредит наличными и документы?</b> </th>
 						<th>
 							<p><input type="radio" name="ap" id="r12_2rsv_cc_cl_yes" onclick="function_r12_2rsv_cc_cl_yes()">Да</p>
-							<p><input type="radio" name="ap" id="r12_2rsv_cc_cl_no" onclick="function_r12_2rsv_cc_cl_no()">Нет</p>
-							
-						</th>	
-						
-					</tr>
-					<tr id="yes11_row12_offer_cl_email_is_correct">
-						<th class="cell-wrap">Оффер КН: e-mail указан верно?</th>
-						<th>
-							<b>Сверь с клиентом e-mail. <br>
-							E-mail указан верно?</b>
-						</th>
-						<th>
-							<p><input type="radio" name="u" id="yes11_row12_offer_cl_email_is_correct_yes" onclick="function_yes11_row12_offer_cl_email_is_correct_yes()"><span class="span-green">Да</span></p>	
-							<p><input type="radio" name="u" id="yes11_row12_offer_cl_email_is_correct_no" onclick="function_yes11_row12_offer_cl_email_is_correct_no()"><span class="span-red">Нет</span></p>
-						</th>						
-					</tr>
-					<tr id="yes12_row13_offer_cl_can_send_on_email">
-						<th class="cell-wrap">Оффер КН: согласование отправки на e-mail</th>
-						<th>
-							<b>Сообщи клиенту, что документы можем отправить на e-mail. <br>
-							Клиент согласен получить документы по e-mail?</b>
-						</th>
-						<th>
-							<p><input type="radio" name="v" id="yes12_row13_offer_cl_can_send_on_email_no" onclick="function_yes12_row13_offer_cl_can_send_on_email_no()"><span class="span-red">Нет</span></p>
-							<p><input type="radio" name="v" id="yes12_row13_offer_cl_can_send_on_email_yes" onclick="function_yes12_row13_offer_cl_can_send_on_email_yes()"><span class="span-green">Да</span></p>	
-						</th>						
+							<p><input type="radio" name="ap" id="r12_2rsv_cc_cl_no" onclick="function_r12_2rsv_cc_cl_no()">Нет</p>							
+						</th>							
 					</tr>
 					<tr id="no13_row14_choose_offer_cl">
 						<th class="cell-wrap">Выбрать оффер КН</th>
@@ -525,6 +515,7 @@
 							<p><input type="radio" name="ab" id="r10_is_email_correct_no" onclick="function_r10_is_email_correct_no()"><span class="span-red">Нет</span></p>
 						</th>						
 					</tr>
+
 					<tr id="y10_r11_say_email_better">
 						<th>Сообщите, что лучше получить по e-mail</th>
 						<th><b>Сообщи клиенту, что документы можем отправить на e-mail. <br><br>Клиент согласен получить документы по e-mail?</b></th>
@@ -546,6 +537,17 @@
 							После назначения сообщи: <br></b>
 							<span class="span-red">Активируйте кредит наличными на встрече с представителем. Проценты за кредит будут начисляться на всю сумму, сразу после перевода средств на карту. Погашение кредита осуществляется с помощью пополнения дебетовой карты.</span> </th>
 						<th></th>						
+					</tr>
+					<tr id="yes12_row13_offer_cl_can_send_on_email">
+						<th class="cell-wrap">Оффер КН: согласование отправки на e-mail</th>
+						<th>
+							<b>Сообщи клиенту, что документы можем отправить на e-mail. <br>
+							Клиент согласен получить документы по e-mail?</b>
+						</th>
+						<th>
+							<p><input type="radio" name="v" id="yes12_row13_offer_cl_can_send_on_email_no" onclick="function_yes12_row13_offer_cl_can_send_on_email_no()"><span class="span-red">Нет</span></p>
+							<p><input type="radio" name="v" id="yes12_row13_offer_cl_can_send_on_email_yes" onclick="function_yes12_row13_offer_cl_can_send_on_email_yes()"><span class="span-green">Да</span></p>	
+						</th>						
 					</tr>
 					<tr id="row12_choose_offer_cl">
 						<th class="cell-wrap">Выбрать оффер КН</th>
@@ -643,16 +645,16 @@
 			<hr>
 			<form class="SU__form">
 	               	<p><input id="form__SU1" type="radio" name="c" value="a" checked onclick="function__hide_cl_count()">Кредитная карта Tinkoff Platinum TFPV7.27, кредитный лимит 140 000 рублей</p>
-	                <p><input id="form__SU3" type="radio" name="c" value="d" onclick="function_form_SU3()">Кредит наличными с пересчетом ставки: 200 000 на 36 месяцев (10 000 в месяц, присутствует страховка)</p>
-	                <p id="su3-1"><input id="form__SU3-1" type="radio" name="c" value="d" onclick="function_cl_count1()">Собственный расчет</p>
+	                <p><input id="form__SU3" type="radio" name="c" value="d" onclick="function_form_SU3()">Кредит наличными с пересчетом ставки: 200 000 на 36 месяцев (10 000 в месяц, присутствует страховка, кредитные каникулы отсутствуют)</p>	                
 	                <p><input id="form__SU4" type="radio" name="c" value="d" onclick="function_form_SU4()">Кредит наличными: 99 000 на 36 месяцев (4 000 в месяц, присутствует страховка, кредитные каникулы отсутсвуют)</p>
+	                <p id="su3-1"><input id="form__SU3-1" type="radio" name="c" value="d" onclick="function_cl_count1()">Собственный расчет</p>
 	                <p id="su4-1"><input id="form__SU4-1" type="radio" name="c" value="d" onclick="function_cl_count2()">Собственный расчет</p>
 	        </form>
 	    </div>   
 	    <div id="my_cl_count1">
 	    	<h2>Собственный расчет кредита</h2>
 	    	<hr>
-	    	<p class="span-grey">От 50000 до 20000 на сроки от 3 до 36 месяцев</p>
+	    	<p class="span-grey">От 50000 до 200000 на сроки от 3 до 36 месяцев</p>
 	    	<div class="counting__wrap">
 		    	<div class="cl__counting1">
 		    		<label>Сумма в рублях</label><input type="number" placeholder="  Сумма">
@@ -666,32 +668,70 @@
 		    	<p class="count_chebx"><input type="checkbox" name="ggt2" id="count_chex_insur">Страховка</p>
 		    	<p class="count_chebx"><input type="checkbox" name="ggt2" id="count_chex_vacation">Кредитные каникулы</p>
 		    </div>
-		    <button id="cl_count__button">Рассчитать</button>
+		    <button id="cl_count__button1" onclick="cl_count__button1()">Рассчитать</button>
 	    </div> 
+	    <div id="my_cl_count_result1">
+	    		<div>
+	    			<span class="span-green">Одобрен: </span>Кредит наличными на *сумма* рублей на срок N месяцев (N рублей в месяц, присутствует страховка, кредитные каникулы отсутсвуют) <span class="span-background" id="span-tooltip" onclick="tooltip()">?</span>
+	    			<div id="tooltip_wrap">
+						<div id="tooltip_count">
+							<b>Полная стоимость кредита: </b>N % <br>
+							<b>Переплата общая: </b>N руб. <br>
+							<b>Общий процент платы за кредит: </b>N % <br>
+							<b>Переплата за год: </b>N руб. <br>
+							<b>Годовой процент платы за кредит: </b>N %<br>
+							<b>Плата за страховку: </b>N руб.<br>
+							<b>Плата за кредитные каникулы: </b>N руб.<br>
+							<b>Ставка: </b>N %<br>
+						</div>
+					</div>
+	    		</div>	    		
+	    	</div>
 	    <div id="my_cl_count2">
 	    	<h2>Собственный расчет кредита</h2>
-	    	<hr>
-	    	<p class="span-grey">От 50000 до 99000 на сроки от 3 до 36 месяцев</p>
-	    	<div class="counting__wrap">
-		    	<div class="cl__counting1">
-		    		<label>Сумма в рублях</label><input type="number" placeholder="  Сумма">
-		    	</div>
-				<div class="cl__counting2">
-		    		<label>Срок в месяцах</label><input type="number" placeholder="  Срок">
-		    	</div>
-		    </div>	
-			<div id="cl_count_chex2">				
-		    	<p class="count_chebx"><input type="checkbox" name="ggt2" id="count_chex_insur">Страховка</p>
+	    	<div id="my_counting">
+		    	<hr>
+		    	<p class="span-grey">От 50000 до 99000 на сроки от 3 до 36 месяцев</p>
+		    	<div class="counting__wrap">
+			    	<div class="cl__counting1">
+			    		<label>Сумма в рублях</label><input type="number" placeholder="  Сумма">
+			    	</div>
+					<div class="cl__counting2">
+			    		<label>Срок в месяцах</label><input type="number" placeholder="  Срок">
+			    	</div>
+			    </div>
+				<div id="cl_count_chex2">				
+			    	<p class="count_chebx"><input type="checkbox" name="ggt2" id="count_chex_insur">Страховка</p>
+			    </div>
+			    <button id="cl_count__button" onclick="cl_count__button()">Рассчитать</button>
 		    </div>
-		    <button id="cl_count__button">Рассчитать</button>
-	    </div> 
+			<div id="my_cl_count_result">
+	    		<div>
+	    			<span class="span-green">Одобрен: </span>Кредит наличными на *сумма* рублей на срок N месяцев (N рублей в месяц, присутствует страховка, кредитные каникулы отсутсвуют) <span class="span-background" id="span-tooltip1" onclick="tooltip1()">?</span>
+	    			<div id="tooltip_wrap1">
+						<div id="tooltip_count1">
+							<b>Полная стоимость кредита: </b>N % <br>
+							<b>Переплата общая: </b>N руб. <br>
+							<b>Общий процент платы за кредит: </b>N % <br>
+							<b>Переплата за год: </b>N руб. <br>
+							<b>Годовой процент платы за кредит: </b>N %<br>
+							<b>Плата за страховку: </b>N руб.<br>
+							<b>Плата за кредитные каникулы: </b>N руб.<br>
+							<b>Ставка: </b>N %<br>
+							<b>Пониженная ставка: </b>N %<br>
+							<b>Сумма возврата: </b>N %<br>
+						</div>
+					</div>
+	    		</div>	    		
+	    	</div>
+	    </div>
 	    <div id="take_a_credit">
 	    	<h2>Получение кредита</h2>
 	    	<hr>
 	    	<form>
 	    		<p><input type="radio" name="c32" value="24g" id="take_a_credit_activate" onclick="take_a_credit()">Активировать кредит (Деньги будут зачислены на карту Tinkoff Black, документы на e-mail fakemailforspam@gmail.com)</p>
 	    		<p><input type="radio" name="c32" value="24g" id="take_a_credit_email" onclick="take_a_credit()">Отправить документы для активации на e-mail fakemailforspam@gmail.com</p>
-	    		<p><input type="radio" name="c32" value="24g" id="take_a_credit_guy" onclick="take_a_credit()">Назначить доставку представителем</p>
+	    		<p><input type="radio" name="c32" value="24g" id="take_a_credit_guy" onclick="function_appointment_show()">Назначить доставку представителем</p>
 	    	</form>
 	    	<button id="end_task">Завершить работу с заданием</button>
 	    </div>
@@ -714,13 +754,13 @@
 	        <div id="change_place">
 	        		<h2>Адрес</h2>
 	        		<hr>
-	        		<p><input type="radio" name="ee3" id="change_p1" onclick="function_change_p1()"><b>Адрес регистрации</b> 111000, Г москва, Ш волоколамское, 1110а, кв. 07п7     (<span class="span-red"><b>КАК ПРИМЕР:</b></span> ЭТОТ АДРЕС НЕ В ЗОНЕ ДОСТАВКИ!!!)</p>
-	        		<p><input type="radio" name="ee3" id="change_p2" onclick="function_change_p2()"><b>Рабочий адрес</b> 888000, Г москва, Ул василия петушкова, 210, к. 018   		(<span class="span-red"><b>КАК ПРИМЕР:</b></span> А ЭТОТ АДРЕС В ЗОНЕ ДОСТАВКИ!) </p> 
+	        		<p><input type="radio" name="ee3" id="change_p1" onclick="function_change_p1()"><b>Адрес регистрации</b> 111000 г.Москва, ул. Центральная, д.21</p>
+	        		<p><input type="radio" name="ee3" id="change_p2" onclick="function_change_p2()"><b>Рабочий адрес</b> 111000 г.Москва, ул. Василия Петушкова, д. 210</p> 
 	        		<p><input type="radio" name="ee3" id="change_p3" onclick="function_change_p3()"><b>Новый адрес</b></p>
 	        		<h2>Удобный адрес для встречи</h2>
 	        		<hr>
 	        		<div id="appointment__nice_address">
-	        			<input type="radio" name="ee3" id="change_p4" onclick="function_change_p4()">Башкортостан Республика, Туймазы, 70 Лет Октября, 6 (Автовокзал)
+	        			<input type="radio" name="ee3" id="change_p4">Башкортостан Республика, Туймазы, 70 Лет Октября, 6 (Автовокзал)
 	        		</div>
 	        		<div id="appointment__new_address">
 	        			<p><b>Адрес<span class="span-red">*</span></b></p>
@@ -735,7 +775,7 @@
 					<h2>Дата и время</h2>
 					<hr>
 					<div id="set_time_and_date__block">
-						<p><b>Дата</b><span class="span-red">*</span></p><input type="text" size="40">
+						<p><b>Дата</b><span class="span-red">*</span></p><input type="date" class="form-control" id="date" name="date" placeholder="Дата" required>
 						<p><b>Временной интервал</b><span class="span-red">*</span></p><input type="text" size="40" placeholder="15:00 - 17:00">
 						<p><b>Комментарий <br>для представителя</b></p><textarea name="ff3"cols="40" rows="5" placeholder="Код домофона, подъезд, другое..."></textarea>
 					</div>
@@ -831,25 +871,74 @@
 		</div>
 	</div>
 	<div id="more_actions">
-    	<div id="m_a__more_actions" onclick="m_a__more_actions()">
-    		<p class="ma_paragraph">&#9658;   Дополнительные действия</p>
-    	</div>
+		<div id="m_a__more_actions1" onclick="m_a__more_actions1()">
+			<p class="ma_paragraph">&#9658;   Дополнительные действия
+    		</p> 
+		</div>
+    	<div id="m_a__more_actions" onclick="m_a__more_actions()">		
+    		<p class="ma_paragraph">&#9658;   Дополнительные действия
+    		</p>    	
+    	</div>	
     	<div id="m_a__more_actions_open">
-    		<div id="change_data" onclick="change_data()"><p><input type="checkbox">Изменение данных</p>
-    			<div><p><b>Дата обработки:</b><input type="datetime"></p></div>
-    			<div><p><b>Комментарий: <span class="span-red"></span></b></p></div>
-    			<div><textarea rows="3" cols="45" maxlength="300"></textarea></div>
+    		<div>
+    			<p><input type="checkbox" id="change_data" onclick="change_data()">Изменение данных</p>
+    			<div id="change_data__wrap">
+	    			<div class="datetime"><p><b>Дата обработки:</b><input type="datetime"></p></div>
+	    			<div><p><b>Комментарий: <span class="span-red"></span></b></p></div>
+	    			<div><textarea rows="3" cols="45" maxlength="300"></textarea></div>
+    			</div>
     		</div>
-    		<div><p><input type="checkbox">Претензия</p></div>
-    	</div>
-    	<div id="m_a__claim_register" onclick="m_a__claim_register()">
+    		<div>
+    			<p><input type="checkbox" id="ch_comliance" onclick="ch_comliance()">Претензия</p>
+    			<div id="m_a_comliance">
+	    			<div class="datetime"><p><b>Дата обработки:</b><input type="datetime"></p></div>
+	    			<div><p><b>Комментарий: <span class="span-red"></span></b></p></div>
+	    			<div><textarea rows="3" cols="45" maxlength="300"></textarea></div>
+    			</div>
+    		</div>
+			<button type="submit" class="save">Сохранить</button>		
+    	</div>  
+    	<div id="m_a__claim_register1" onclick="m_a__claim_register1()">
+    		<p class="ma_paragraph">&#9658;   Зарегистрировать претензию</p>
+    	</div>  	 
+		<div id="m_a__claim_register" onclick="m_a__claim_register()">
     		<p class="ma_paragraph">&#9658;   Зарегистрировать претензию</p>
     	</div>
+    	<div id="comliance__open">
+    		<p><b>Претензия<span class="span-red">*</span></b></p>
+    		<div id="comliance__select">
+    			<select name="comp" id="comp__sel" size="1">
+    				<option value=""></option>
+    				<option value="Оформление заявки">Оформление заявки</option>
+    				<option value="Доставка карты/документов">Доставка карты/документов</option>
+    			</select>
+    		</div>
+    		<br>
+    		<p><b>Описание со слов клиента<span class="span-red">*</span></b></p>
+			<div class="div_textarea_compl"><textarea rows="3" cols="45" maxlength="300"></textarea></div>
+			<p><b>Дата и время со слов клиента</b></p>
+			<div class="datetime"><p><b>Дата обработки:</b><input type="datetime"></p></div>
+			<p><input type="checkbox">Проинформировать клиента о рассмотрении</p>
+			<button type="submit" id="confirm_compliance">Отправить претензию</button>
+    	</div>
+    	<div id="m_a__map1" onclick="m_a__map1()">
+    		<p class="ma_paragraph">&#9658;   Карта</p>
+    	</div>	
     	<div id="m_a__map" onclick="m_a__map()">
     		<p class="ma_paragraph">&#9658;   Карта</p>
-    	</div>	        	
+    	</div>
+    	<div id="map__open">
+		<p>
+			Чтобы проверить возможность доставки и перейти к карте <br> 
+			скопируйте ссылку ниже в новую вкладку и перейдите по ней.
+		</p>
+		<br><br>
+		<p>https://weboffice.tinkoff.ru/rest/user-guide-files/5421.html</p>
+    	</div>
+
     </div>
 </div>
+<div id="f5">Нажмите F5(обновить страницу), чтобы вернуться к началу</div>    
 <script src="su.js"></script>
 </body>
 </html>

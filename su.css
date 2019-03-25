@@ -26,6 +26,162 @@ body {
 
 }
 
+
+
+.span-background {
+	color: white;
+	display: inline-block;
+	  width: 20px;
+  height: 20px;
+  line-height: 22px;
+  background: lightblue;
+  margin: 1em;
+  border-radius: 50%;
+  text-align: center;
+  cursor: pointer;
+
+}
+
+#tooltip_wrap, #my_cl_count_result, #my_cl_count_result1, #tooltip_wrap1 {
+	display: none;
+}
+
+#tooltip_count, #tooltip_count1 {
+	font-size: 12px;
+	border: 1px solid #ccc;
+    border-radius: 4px;
+	background-color: white;
+	width: 300px;
+	padding: 10px;
+	position: relative;
+}
+
+#tooltip_count:after, #tooltip_count1:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-bottom: 13px solid lightblue;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    bottom: 132px;
+    left: 265px;
+
+}
+
+#f5 {
+    position: absolute;
+    top: 5px;
+}
+
+#set_time_and_date__block input, textarea {
+		padding: 5px;
+	border: 1px solid #cccccc;
+	border-radius: 5px;
+	margin: 0;
+	height: 19px;
+}
+
+#map__open {
+	width: 409px;
+	height: 400px;
+	border: 1px solid #ccc;
+    border-radius: 4px;
+    display: none;
+}
+
+#m_a__more_actions1 {
+	height: 40px;
+	width: 411px;
+	position: relative;
+}
+
+#comp__sel {
+	width: 399px;
+	height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    text-transform: none;
+	overflow: visible;
+}
+
+.div_textarea_compl textarea {
+	margin: 0;
+}
+
+
+#change_data__wrap, #m_a__more_actions_open, #m_a_comliance {
+	display: none;
+}
+
+#m_a__more_actions_open, #comliance__open, #map__open {
+	border: 1px solid #cccccc;
+	border-radius: 5px;
+	cursor: default;
+	padding: 5px;
+
+}
+
+#confirm_compliance {
+	padding: 6px 12px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    vertical-align: middle;
+    border-radius: 4px;
+    background-color: #337ab7;
+    color: white;
+    background-image: linear-gradient(to bottom,#337ab7 0,#265a88 100%);
+    background-repeat: repeat-x;
+    border-color: #245580;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.15), 0 1px 1px rgba(0,0,0,.075);
+    text-shadow: 0 -1px 0 rgba(0,0,0,.2);
+    touch-action: manipulation;
+    cursor: pointer;
+}
+
+#comliance__open, #m_a__claim_register1, #m_a__more_actions1, #m_a__map1 {
+	display: none;
+}
+
+.button_wrap {
+	display: flex;
+}
+
+.datetime input, textarea {
+	padding: 5px;
+	border: 1px solid #cccccc;
+	border-radius: 5px;
+}
+
+
+.save {
+	padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    border-radius: 4px;
+    background-color: #E5E5E5;
+    color: #333;
+    touch-action: manipulation;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
 .appointment__hr {
 	width: 800px;
     margin-right: 1000px;
@@ -80,9 +236,9 @@ body {
 
 }
 
-#end_task, #cl_count__button {
+#end_task, #cl_count__button, #cl_count__button1 {
     padding: 6px 12px;
-    margin-bottom: 0;
+    margin: 10px;
     font-size: 14px;
     font-weight: 400;
     line-height: 1.42857143;
@@ -255,6 +411,7 @@ input[type="text"] {
 }
 
 #set_time_and_date__block {
+	margin-left: 100px;
 	width: 600px;
 	display: flex;
 
@@ -467,7 +624,7 @@ text-align: left;
 #row7_not_activated_cc2, #row7_no_offer_cl_from_cc_sorry, #row7_offer_cl_to_recount, #no6_rw7_1rsv_for_cl_and_cc, #y6_ro7_attention_cc,
 #row8_email_possible, #row8_offer_cl_tp_recount, #y7_r8_attention_cc2, #no7_r8_different_offer, #y7_r8_unactivated_cc2, #n7_r8_offer_cl_tp_recount, #y7_row8_offer_cl_tp_recount,
 #row9_choose_cl_offer, #row9_email_no, #row9_cl_count_rsv, #r8next_r9_can_get_on_email, #n8_r9_can_use_email, #y8_r9_attention_cc2, #no8_row9_no_offer, #y8_r9_second_offer, #y8_ro9_is_email_correct, 
-#row10_goodbye_no_offer, #row10_unactivated_cc3, #n9_r10_choose_offer_cl, #y9_r10_is_email_correct, #next9_r10_can_use_email, #n9_r10_is_email_correct,
+#row10_goodbye_no_offer, #row10_unactivated_cc3, #n9_r10_choose_offer_cl, #y9_r10_is_email_correct, #next9_r10_can_use_email, #n9_r10_is_email_correct, #yes10_row11_offer_cl_can_send_on_email,
 #row11_may_get_on_email, #n10_r11_requst_change_data, #y10_r11_confirm_condition_for_cl, #y10_r11_say_email_better,
 #row12_choose_offer_cl, #yes11_row12_offer_cl_email_is_correct,  #y11_r12_can_activate_now, #n11_r12_2rsv_cc_cl,
 #yes12_row13_offer_cl_can_send_on_email, #y12_r13_activation_on_formation, #n12_r13_activation_with_employee,
