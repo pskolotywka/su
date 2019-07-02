@@ -7,26 +7,44 @@ body {
     display: none;
 }
 
+.wrapper {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.main {
+    max-width: 800px;
+    margin: 0 20px 0 0;
+}
+
+.header {
+    margin: 0 0 40px 15px;
+}
+
 .info__wrap {
-    margin: 0 0 20px 0;
-    padding: 0 15px 0 15px;
     max-width: 900px;
     box-sizing: border-box;
 }
 
 .info {
     display: flex;
+    border-bottom: 1px solid #ddd;
 }
 
 .info__item {
-    margin: 0 10px 0 0;
-    padding: 5px;
+    padding: 5px 15px;
+    margin: 0 0 -1px 0;
     cursor: pointer;
-    border: 1px solid #c8c8c8;
+    color: #337ab7;
 }
 
-.info__item_mark {
-    background-color: #c8c8c8;
+.info__item_active {
+    border-radius: 4px 4px 0 0;
+    color: #555;
+    cursor: default;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-bottom-color: transparent;
 }
 
 .info__item:hover {
@@ -34,23 +52,21 @@ body {
 }
 
 .drop-down__wrap {
-    position: relative;
+
 }
 
 .drop-down {
-    position: absolute;
-    top: 0;
-    left: 0;
     min-height: 100px;
-    min-width: 870px;
-    background-color: #c8c8c8;
-    border: 1px solid #fff;
-    border-top: none;
 }
 
 
 .su_block {
     width: 856px;
+}
+
+.SU__select-credit {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 16px;
 }
 
 #tab {
@@ -64,9 +80,9 @@ body {
     font-size: 16px;
     width: 411px;
     margin: 0;
-    position: absolute;
+    /*position: absolute;
     top: 16px;
-    left: 915px;
+    left: 915px;*/
     cursor: pointer;
 }
 
@@ -83,7 +99,7 @@ body {
     cursor: pointer;
 }
 
-#tooltip_wrap, #my_cl_count_result, #my_cl_count_result1, #tooltip_wrap1 {
+#tooltip_wrap, #my_cl_count_result_fail, #my_cl_count_result, #my_cl_count_result1, #tooltip_wrap1 {
     display: none;
 }
 
@@ -525,7 +541,7 @@ input[type="text"] {
 #table > div {
     background: #fff;
     /*position: absolute;*/
-    min-width: 775px;
+    /*min-width: 775px;*/
     padding: 15px;
     overflow: hidden;
     height: auto;
@@ -535,7 +551,7 @@ input[type="text"] {
     float: left;
     margin: 14px 0;
     display: none;
-    width: 856px;
+    /*width: 856px;*/
 }
 
 #n1:checked ~ #table > div:nth-of-type(1) {
