@@ -1,3 +1,4 @@
+document.addEventListener('change', (event) => catchChange(event) );
 document.addEventListener('click', (event) => catchClick(event) );
 
 function catchClick(event) {
@@ -5,39 +6,79 @@ function catchClick(event) {
     if ( clickedElement.classList.contains('info__item') ) {
         catchClickInfo(clickedElement);
     };
-
 };
 
 function catchClickInfo(clickedElement) {
     if ( clickedElement.classList.contains('info__task') ) {
-        const dropDown = document.querySelector('.drop-down_task');
-        dropDownInfo (dropDown, clickedElement);
+        const dropDownBlok = document.querySelector('.drop-down_task');
+        toggleDropDownInfo (dropDownBlok, clickedElement);
     };
     
     if ( clickedElement.classList.contains('info__history') ) {
-        const dropDown = document.querySelector('.drop-down_history');
-        dropDownInfo (dropDown, clickedElement);
+        const dropDownBlok = document.querySelector('.drop-down_history');
+        toggleDropDownInfo (dropDownBlok, clickedElement);
     };
 
     if ( clickedElement.classList.contains('info__credit') ) {
-        const dropDown = document.querySelector('.drop-down_credit');
-        dropDownInfo (dropDown, clickedElement);
+        const dropDownBlok = document.querySelector('.drop-down_credit');
+        toggleDropDownInfo (dropDownBlok, clickedElement);
     };
 };
 
-function dropDownInfo (dropDown, clickedElement) {
-    dropDown.classList.toggle('hidden');
-    clickedElement.classList.toggle('info__item_mark');
+function toggleDropDownInfo (dropDownBlok, clickedElement) {
+    const infoButtonArray = arrayFromCollection( document.querySelectorAll('.info__item') );
+    infoButtonArray.forEach( (btn) => btn.classList.remove('info__item_active') )
+
+    hideElements('.drop-down');
+
+    dropDownBlok.classList.remove('hidden');
+    clickedElement.classList.add('info__item_active');
+};
+
+function arrayFromCollection(collection) {
+    const array = Array.from(collection);
+    return array;
+}
+
+function hideElements(selector) {
+    const elementsArray = arrayFromCollection( document.querySelectorAll([selector]) );
+    elementsArray.forEach( (elem) => elem.classList.add('hidden') );
+};
+
+function catchChange(event) {
+    const changedElement = event.target;
+    if ( changedElement.classList.contains('SU__select-credit') ) {
+        showCredit(changedElement);
+    };
+};
+
+function showCredit(changedElement) {
+    hideElements('.SU__credit');
+    switch(changedElement.value) {
+        case 'Кредитная карта':
+            document.querySelector('#su1').classList.remove('hidden');
+            break;
+        case 'Кредит наличными':
+                document.querySelector('#su3').classList.remove('hidden');
+                document.querySelector('#su4').classList.remove('hidden');
+                break;
+    };
+    document.querySelector('.SU__credit_btn').classList.remove('hidden'); 
 };
 
 
 
 // appointment__ops form__SU3 
 
+function cl_count__button_fail() {
+    document.getElementById("my_cl_count_result_fail").style.display = "block"
+
+    }
+
 function cl_count__button() {
-if (document.getElementById("cl_count__button").click) {
+//if (document.getElementById("cl_count__button").click) {
     document.getElementById("my_cl_count_result").style.display = "block"
-}
+//}
 }
 
 function cl_count__button1() {
