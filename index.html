@@ -66,8 +66,14 @@
 					Нажмите F5 (обновить страницу), чтобы вернуться к началу
 				</div>
 
-				<div class='info__wrap'>
-					<div class='info'>
+				<div class='info'>
+					<div class="info__heder">
+						<span class="info__heder-text">ФИО клиента: <b>Буторин Росислав</b>
+							<br>
+							Локальное время клиента: <b>17:00</b></span>
+
+					</div>
+					<div class='info__main'>
 						<div class='info__item info__task info__item_active'>
 							Информация по заданию
 						</div>
@@ -88,7 +94,40 @@
 								<li><b>Описание:</b> Совершается обзвон клиентов банка с целью согласования условий на КК Tinkoff Platinum/Кредит наличными</li>
 							</ul>
 						</div>
-						<div class="drop-down hidden drop-down_history">
+						<div class="drop-down hidden drop-down_history history">
+							<div class="history__title"> <b>Дата создания:</b> 01.07.2019 16:59:19 мск</div>
+							<div class="history__table">
+								<div class="history__cell history__cell-title history__data-title">
+									Дата звонка
+								</div>
+								<div class="history__cell history__cell-title history__type-title">
+									Тип коммуникации
+								</div>
+								<div class="history__cell history__cell-title history__phone-type">
+									Мобильный								
+								</div>
+								<div class="history__cell history__date history__data-content">
+									01.07.2019 17:00:25 мск
+								</div>
+								<div class="history__cell history__call-type history__data-content">
+									Исходящий звонок (мобильный)
+								</div>
+								<div class="history__cell history__result history__data-content">
+									Дозвон, Перезвонить, По просьбе клиента/3-го лица
+								</div>
+								<div class="history__cell history__now">
+									<b>Сейчас</b>
+								</div>
+								<div class="history__cell history__action">
+									<button class="btn btn_call" data-click="call">
+										Позвонить
+									</button>
+									<span class="history__action-work hidden"><b>Работа со звонком</b></span>
+								</div>
+								<div class="history__cell history__count-record">
+									Показано записей: 1 из 1
+								</div>
+							</div>
 						</div>
 						<div class="drop-down hidden drop-down_credit">
 						</div>
@@ -111,7 +150,7 @@
 				<label for="n6">Ошибка телефонии</label>
 
 				<div id="table">
-					<div class="predstavlenie">
+					<div class="predstavlenie hidden">
 						<table class="predstavlenie__table">
 							<thead>
 								<tr>
@@ -676,12 +715,12 @@
 							<hr>
 							<form class="SU__form">
 
-								<select class="SU__select-credit">
-									<option class="select-credit-item" selected="selected" disabled>Выберите кредит</option>
-									<option class="select-credit-item" value="Кредитная карта">Кредитная карта</option>
-									<option class="select-credit-item" value="Кредит наличными">Кредит наличными</option>
-									<option class="select-credit-item" disabled value="Автокредит">Автокредит</option>
-									<option class="select-credit-item" disabled value="Кредит под залог недвижимости">Кредит под залог недвижимости</option>
+								<select class="select SU__select-credit">
+									<option class="select select-credit-item" selected="selected" disabled>Выберите кредит</option>
+									<option class="select select-credit-item" value="Кредитная карта">Кредитная карта</option>
+									<option class="select select-credit-item" value="Кредит наличными">Кредит наличными</option>
+									<option class="select select-credit-item" disabled value="Автокредит">Автокредит</option>
+									<option class="select select-credit-item" disabled value="Кредит под залог недвижимости">Кредит под залог недвижимости</option>
 								</select>
 
 								<p id="su1" class="SU__credit hidden">
@@ -734,12 +773,18 @@
 								<p class="count_chebx"><input type="checkbox" name="ggt2" id="count_chex_insur" checked><label for="count_chex_insur">Страховка</label></p>
 								<p class="count_chebx"><input type="checkbox" name="ggt2" id="count_chex_vacation"><label for="count_chex_vacation">Кредитные каникулы</label></p>
 							</div>
-							<button id="cl_count__button1" onclick="cl_count__button1()">Рассчитать</button>
+							<button id="cl_count__button1" class="btn btn_blue" onclick="cl_count__button1()">Рассчитать</button>
 						</div> 
 						<div id="my_cl_count_result1">
 							<div>
-								<span class="span-green">Одобрен: </span>Кредит наличными на *сумма* рублей на срок N месяцев (N рублей в месяц, присутствует страховка, кредитные каникулы отсутсвуют) <span class="span-background" id="span-tooltip" onclick="tooltip()">?</span>
-								<div id="tooltip_wrap">
+								<span class="span-green">
+									Одобрен: 
+								</span>
+								Кредит наличными на *сумма* рублей на срок N месяцев (N рублей в месяц, присутствует страховка, кредитные каникулы отсутсвуют) 
+									<span class="span-background" id="span-tooltip">
+										?
+									</span>
+								<div id="tooltip_wrap" class="hidden">
 									<div id="tooltip_count">
 										<b>Полная стоимость кредита: </b>28,9 %  <br>
 										<b>Переплата общая: </b>145 076 руб.<br>
@@ -771,7 +816,7 @@
 								<div id="cl_count_chex2">				
 									<p class="count_chebx"><input type="checkbox" name="ggt2" id="count_chex_insur">Страховка</p>
 								</div>
-								<button id="cl_count__button" onclick="cl_count__button_fail()">Рассчитать</button>
+								<button id="cl_count__button" class="btn btn_blue" onclick="cl_count__button_fail()">Рассчитать</button>
 							</div>
 
 							<div id="my_cl_count_result_fail">
@@ -785,7 +830,7 @@
 								<div>
 									Кредит наличными: 290 000 на 12 месяцев (30 000 в месяц, присутствует страховка, кредитные каникулы отсутсвуют)
 								</div>
-								<button id="cl_count__button" onclick="cl_count__button()">Рассчитать</button>    		
+								<button id="cl_count__button" class="btn btn_blue" onclick="cl_count__button()">Рассчитать</button>    		
 							</div>
 
 							<div id="my_cl_count_result">
@@ -814,10 +859,10 @@
 								<p><input type="radio" name="c32" value="24g" id="take_a_credit_email" onclick="take_a_credit()"><label for="take_a_credit_email">Отправить документы для активации на e-mail fakemailforspam@gmail.com</label></p>
 								<p><input type="radio" name="c32" value="24g" id="take_a_credit_guy" onclick="function_appointment_show()"><label for="take_a_credit_guy">Назначить доставку представителем</label></p>
 							</form>
-							<button id="end_task">Завершить работу с заданием</button>
+							<button id="end_task" class="btn btn_blue">Завершить работу с заданием</button>
 						</div>
 
-						<input class="SU__credit SU__credit_btn hidden" type="button" value="Назначить встречу" id="appointment" onclick="function_appointment_show()">
+						<input class="SU__credit SU__credit_btn hidden btn btn_blue" type="button" value="Назначить встречу" id="appointment" onclick="function_appointment_show()">
 						
 						<div id="appointment__ops">
 							<h2 class="appointment__header">Встреча</h2>
@@ -830,8 +875,8 @@
 							<p><b>Комментарий для представителя</b></p>
 							<textarea name="comment" cols="50" rows="10"></textarea>
 							<div class="appointment__buttons">
-						<input type="button" value="Назначить встречу" id="appointment__confirm" onclick="function_confirm_meet()">
-						<input type="button" value="Другое место/время" id="appointment__another_time_or_place" onclick="function_appointment__another_time_or_place()">
+						<input class="btn btn_blue" type="button" value="Назначить встречу" id="appointment__confirm" onclick="function_confirm_meet()">
+						<input class="btn btn_gray" type="button" value="Другое место/время" id="appointment__another_time_or_place" onclick="function_appointment__another_time_or_place()">
 							</div>
 						</div>
 						<div id="change_place">
@@ -851,7 +896,7 @@
 								</div>
 								<div class="confirmation__mail_and_time">
 									<button type="submit" id="confirm_with_mail">Доставить почтой (ТОЛЬКО ЕСЛИ НЕ В ЗОНЕ ДОСТАВКИ!!! СМОТРИ КАРТУ!!!)</button>
-									<button type="submit" id="confirm_day_and_time" onclick="function_confirm_day_and_time()">Выбрать дату и время</button>
+									<button class="btn btn_blue" type="submit" id="confirm_day_and_time" onclick="function_confirm_day_and_time()">Выбрать дату и время</button>
 								</div>
 						</div>
 						<div id="set_time_and_date">	
@@ -862,7 +907,7 @@
 									<p><b>Временной интервал</b><span class="span-red">*</span></p><input type="text" size="40" placeholder="15:00 - 17:00">
 									<p><b>Комментарий <br>для представителя</b></p><textarea name="ff3"cols="40" rows="5" placeholder="Код домофона, подъезд, другое..."></textarea>
 								</div>
-								<button type="submit" id="confirm_meet" onclick="function_confirm_meet()">Подтвердить встречу</button>
+								<button class="btn btn_blue" type="submit" id="confirm_meet" onclick="function_confirm_meet()">Подтвердить встречу</button>
 						</div>	
 						<div id="modal">
 							<div id="mod_interaction">
@@ -879,8 +924,8 @@
 									<p class="span-grey next_task2">Получить задание из очереди</p>
 									<hr>
 									<div id="mod_but_wrap">
-										<button type="submit" id="confirm_end" onclick="window.location.reload()">Подтвердить</button>
-										<button type="submit" id="confirm_cancel" onclick="function_confirm_cancel()">Отменить</button>
+										<button class="btn btn_blue" type="submit" id="confirm_end" onclick="window.location.reload()">Подтвердить</button>
+										<button class="btn btn_gray" type="submit" id="confirm_cancel" onclick="function_confirm_cancel()">Отменить</button>
 									</div>	
 								</div>
 							</div>
@@ -901,7 +946,7 @@
 							<textarea rows="10" cols="45" maxlength="500"></textarea>
 							<p>Длина комментария не должна превышать 500 символов</p>
 						</div>
-						<button type="submit">Завершить работу с заданием</button>
+						<button class="btn btn_gray" type="submit">Завершить работу с заданием</button>
 					</div>
 					<div class="otkaz"><h3>Отказ</h3>
 						<div class="otkaz__div">
@@ -923,7 +968,7 @@
 							<textarea rows="10" cols="45" maxlength="500"></textarea>
 							<p>Длина комментария не должна превышать 500 символов</p>
 						</div>
-						<button type="submit">Завершить работу с заданием</button>
+						<button class="btn btn_gray" type="submit">Завершить работу с заданием</button>
 					</div>
 						<div class="perezvon">
 							<div class="perezvon__wrap">
@@ -941,7 +986,7 @@
 								</div>	
 							</div>
 							<textarea name="perezvon" rows="8" cols="80" class="perezvon__wrap__textarea"></textarea>
-							<p><button class="perezvon__button perezvon" type="submit">Завершить работу с заданием</button></p>                
+							<p><button class="perezvon__button perezvon btn btn_gray" type="submit">Завершить работу с заданием</button></p>                
 						</div>
 					<div>
 						<hr>
@@ -949,14 +994,14 @@
 							<p>Комментарий:</p>
 							<textarea rows="10" cols="45" maxlength="500"></textarea>
 							<p>Длина комментария не должна превышать 500 символов</p>
-							<button type="submit">Завершить работу с заданием</button>
+							<button class="btn btn_gray" type="submit">Завершить работу с заданием</button>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 
-		<aside id="more_actions">
+		<aside id="more_actions" class="hidden">
 			<div id="m_a__more_actions1" onclick="m_a__more_actions1()">
 				<p class="ma_paragraph">&#9658;   Дополнительные действия
 				</p> 
@@ -982,7 +1027,7 @@
 						<div><textarea rows="3" cols="45" maxlength="300"></textarea></div>
 					</div>
 				</div>
-				<button type="submit" class="save">Сохранить</button>		
+				<button type="submit" class="save btn btn_gray">Сохранить</button>		
 			</div>  
 			<div id="m_a__claim_register1" onclick="m_a__claim_register1()">
 				<p class="ma_paragraph">&#9658;   Зарегистрировать претензию</p>
@@ -993,7 +1038,7 @@
 			<div id="comliance__open">
 				<p><b>Претензия<span class="span-red">*</span></b></p>
 				<div id="comliance__select">
-					<select name="comp" id="comp__sel" size="1">
+					<select id="comp__sel" class="select" name="comp" size="1">
 						<option value=""></option>
 						<option value="Оформление заявки">Оформление заявки</option>
 						<option value="Доставка карты/документов">Доставка карты/документов</option>
@@ -1005,7 +1050,7 @@
 				<p><b>Дата и время со слов клиента</b></p>
 				<div class="datetime"><p><b>Дата обработки:</b><input type="datetime"></p></div>
 				<p><input type="checkbox">Проинформировать клиента о рассмотрении</p>
-				<button type="submit" id="confirm_compliance">Отправить претензию</button>
+				<button class="btn btn_blue" type="submit" id="confirm_compliance">Отправить претензию</button>
 			</div>
 			<div id="m_a__map1" onclick="m_a__map1()">
 				<p class="ma_paragraph">&#9658;   Карта</p>
