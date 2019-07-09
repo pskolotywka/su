@@ -6,6 +6,15 @@ function catchClick(event) {
     if ( clickedElement.classList.contains('info__item') ) {
         catchClickInfo(clickedElement);
     };
+
+    if ( clickedElement.dataset.click ) {
+        showScript(clickedElement);
+    };
+
+    if (clickedElement.id === 'span-tooltip') {
+        showTooltip();
+    };
+
 };
 
 function catchClickInfo(clickedElement) {
@@ -35,16 +44,6 @@ function toggleDropDownInfo (dropDownBlok, clickedElement) {
     clickedElement.classList.add('info__item_active');
 };
 
-function arrayFromCollection(collection) {
-    const array = Array.from(collection);
-    return array;
-}
-
-function hideElements(selector) {
-    const elementsArray = arrayFromCollection( document.querySelectorAll([selector]) );
-    elementsArray.forEach( (elem) => elem.classList.add('hidden') );
-};
-
 function catchChange(event) {
     const changedElement = event.target;
     if ( changedElement.classList.contains('SU__select-credit') ) {
@@ -66,6 +65,38 @@ function showCredit(changedElement) {
     document.querySelector('.SU__credit_btn').classList.remove('hidden'); 
 };
 
+function showScript(clickedElement) {
+    showElements('.predstavlenie');
+    clickedElement.classList.add('hidden');
+    showElements('.history__action-work');
+    showElements('#more_actions');
+};
+
+function showTooltip() {
+    console.log('123');
+    document.getElementById("tooltip_wrap").classList.toggle('hidden');
+};
+
+
+function arrayFromCollection(collection) {
+    const array = Array.from(collection);
+    return array;
+}
+
+function hideElements(selector) {
+    const elementsArray = arrayFromCollection( document.querySelectorAll([selector]) );
+    elementsArray.forEach( (elem) => elem.classList.add('hidden') );
+};
+
+function showElements(selector) {
+    const elementsArray = arrayFromCollection( document.querySelectorAll([selector]) );
+    elementsArray.forEach( (elem) => elem.classList.remove('hidden') );
+};
+
+
+
+
+
 
 
 // appointment__ops form__SU3 
@@ -85,14 +116,6 @@ function cl_count__button1() {
 if (document.getElementById("cl_count__button1").click) {
     document.getElementById("my_cl_count_result1").style.display = "block"
 }
-}
-
-
-
-
-function tooltip() {
-if (document.getElementById("span-tooltip").click) {
-document.getElementById("tooltip_wrap").style.display = 'block';}
 }
 
 function tooltip1() {
@@ -207,7 +230,7 @@ function function_form_SU4() {
         document.getElementById("su4-1").style.display = 'block'; 	 
         document.getElementById("su3-1").style.display = 'none'; 
         document.getElementById("my_cl_count_result").style.display = 'none'; 
-        document.getElementById("tooltip_wrap").style.display = 'none';  
+        document.getElementById("tooltip_wrap").classList.add('hidden');
         document.getElementById("appointment__ops").style.display = 'none';  
         document.getElementById("my_cl_count_result1").style.display = 'none';  
         document.getElementById("appointment").style.display = 'none';  
@@ -248,7 +271,7 @@ function function_form_SU3()
         document.getElementById("my_cl_count2").style.display = 'none'; 	 
         document.getElementById("appointment").style.display = 'none'; 	 
         document.getElementById("my_cl_count_result").style.display = 'none'; 	 
-        document.getElementById("tooltip_wrap").style.display = 'none'; 	  
+        document.getElementById("tooltip_wrap").classList.add('hidden');	  
         document.getElementById("appointment__ops").style.display = 'none'; 	  
         document.getElementById("my_cl_count_result1").style.display = 'none'; 	  
         } 
@@ -266,7 +289,7 @@ function function__hide_cl_count()
         document.getElementById("appointment").style.display = 'block'; 
         document.getElementById("take_a_credit").style.display = 'none'; 
         document.getElementById("my_cl_count_result").style.display = 'none'; 
-        document.getElementById("tooltip_wrap").style.display = 'none';  
+        document.getElementById("tooltip_wrap").classList.add('hidden');  
         document.getElementById("appointment__ops").style.display = 'none';  
         document.getElementById("my_cl_count_result1").style.display = 'none';  
         } 
@@ -1025,7 +1048,7 @@ function function_row7_rsv_no()
     if (document.getElementById("row7_rsv_no").checked) 
         {
         document.getElementById("no7_r8_different_offer").style.display = 'table-row';
-        document.getElementById("y7_r8_unactivated_cc2").style.display = 'none';
+        document.getElementById("n8_r9_can_use_email").style.display = 'none';
         }
 };		
 
@@ -1033,7 +1056,7 @@ function function_row7_rsv_yes()
 {
     if (document.getElementById("row7_rsv_yes").checked) 
         {
-        document.getElementById("y7_r8_unactivated_cc2").style.display = 'table-row';
+        document.getElementById("n8_r9_can_use_email").style.display = 'table-row';
         document.getElementById("no7_r8_different_offer").style.display = 'none';
         }
 };	
