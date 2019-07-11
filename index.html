@@ -1,157 +1,112 @@
 <!DOCTYPE html>
-<!-- 
-21.12 
-1 час 40 мин
-26.12 
-40 мин
-28.12
-1 час
-09.01
-2 часа
-11.01
-2 часа
-12.01
-3 часа
-13.01
-2 часа 30 мин
-14.01
-2 часа 10 мин
-15.01
-2 часа 
-16.01
-2 часа
-17.01
-2 часа 30 мин
-21.01 
-2 часа 
-22.01
-1 час
-25.01
-2 часа 30 мин
-28.01
-2 часа 30 мин
-05.01
-2 часа
-06.01 
-1 час 30 мин
-07.02
-2 часа
-12.02
-2 часа 30 мин
-13.02
-2 часа
-14.02
-2 часа
-15.02 
-2 часа
-18.02
-2 Часа
-
-01.03
-1 час 30 мин.
-
--->
-<html lang="en">
+<html lang="ru">
 <head>
 	<meta charset="UTF-8">
 	<title>Тренажер</title>
 	<link rel="stylesheet" href="style.css">
 
 </head>
-<body>
+<body class="body">
 	<div class="wrapper">
 		<div class="main">
-			<div class="header">
-				<div id="f5">
-					Нажмите F5 (обновить страницу), чтобы вернуться к началу
+			<div id="f5">
+				Нажмите F5 (обновить страницу), чтобы вернуться к началу
+			</div>
+			<div class="client-card">
+				<div class="client-card__heder">
+					<p class="client-card__heder-text">
+						ФИО клиента: <b>Буторин Росислав</b>
+					</p>
+					<p class="client-card__heder-text">
+						Локальное время клиента: <b>17:00</b>
+					</p>
 				</div>
-
-				<div class='info'>
-					<div class="info__heder">
-						<span class="info__heder-text">ФИО клиента: <b>Буторин Росислав</b>
-							<br>
-							Локальное время клиента: <b>17:00</b></span>
-
+				<menu class="client-card__bookmark-wrap">
+					<div class="client-card__bookmark client-card__bookmark_active">
+						Информация по заданию
 					</div>
-					<div class='info__main'>
-						<div class='info__item info__task info__item_active'>
-							Информация по заданию
-						</div>
-						<div class='info__item info__history'>
-							История по заданию
-						</div>
-						<div class='info__item info__credit'>
-							Детали кредита
-						</div>  
+					<div class="client-card__bookmark">
+						История по заданию
 					</div>
-
-					<div class="drop-down__wrap">
-						<div class="drop-down drop-down_task">
-							<ul>
-								<li><b>Тип задания:</b> согласование условий</li>
-								<li><b>Группа очередей:</b> согласование условий</li>
-								<li><b>Баллов за успешно выполненное задание:</b> 1,6</li>
-								<li><b>Описание:</b> Совершается обзвон клиентов банка с целью согласования условий на КК Tinkoff Platinum/Кредит наличными</li>
-							</ul>
-						</div>
-						<div class="drop-down hidden drop-down_history history">
-							<div class="history__title"> <b>Дата создания:</b> 01.07.2019 16:59:19 мск</div>
-							<div class="history__table">
-								<div class="history__cell history__cell-title history__data-title">
-									Дата звонка
-								</div>
-								<div class="history__cell history__cell-title history__type-title">
-									Тип коммуникации
-								</div>
-								<div class="history__cell history__cell-title history__phone-type">
-									Мобильный								
-								</div>
-								<div class="history__cell history__date history__data-content">
-									01.07.2019 17:00:25 мск
-								</div>
-								<div class="history__cell history__call-type history__data-content">
-									Исходящий звонок (мобильный)
-								</div>
-								<div class="history__cell history__result history__data-content">
-									Дозвон, Перезвонить, По просьбе клиента/3-го лица
-								</div>
-								<div class="history__cell history__now">
-									<b>Сейчас</b>
-								</div>
-								<div class="history__cell history__action">
-									<button class="btn btn_call" data-click="call">
-										Позвонить
-									</button>
-									<span class="history__action-work hidden"><b>Работа со звонком</b></span>
-								</div>
-								<div class="history__cell history__count-record">
-									Показано записей: 1 из 1
-								</div>
+					<div class="client-card__bookmark">
+						Детали кредита
+					</div>  
+				</menu>
+				
+				<div class="client-card__section-wrap">
+					<ul class="client-card__section client-card__task-info">
+						<li><b>Тип задания:</b> согласование условий</li>
+						<li><b>Группа очередей:</b> согласование условий</li>
+						<li><b>Баллов за успешно выполненное задание:</b> 1,6</li>
+						<li><b>Описание:</b> Совершается обзвон клиентов банка с целью согласования условий на КК Tinkoff Platinum/Кредит наличными</li>
+					</ul>
+					<div class="client-card__section hidden client-card__history history">
+						<div class="history__title"> <b>Дата создания:</b> 01.07.2019 16:59:19 мск</div>
+						<div class="history__table">
+							<div class="history__cell history__cell-title history__data-title">
+								Дата звонка
+							</div>
+							<div class="history__cell history__cell-title history__type-title">
+								Тип коммуникации
+							</div>
+							<div class="history__cell history__cell-title history__phone-type">
+								Мобильный								
+							</div>
+							<div class="history__cell history__date">
+								01.07.2019 17:00:25 мск
+							</div>
+							<div class="history__cell history__call-type">
+								Исходящий звонок (мобильный)
+							</div>
+							<div class="history__cell history__result">
+								Дозвон, Перезвонить, По просьбе клиента/3-го лица
+							</div>
+							<div class="history__cell history__now">
+								<b>Сейчас</b>
+							</div>
+							<div class="history__cell history__action">
+								<button class="btn btn_call" data-click="call">
+									Позвонить
+								</button>
+								<span class="history__action-work hidden">
+									<b>Работа со звонком</b>
+								</span>
+							</div>
+							<div class="history__cell history__count-record">
+								Показано записей: 1 из 1
 							</div>
 						</div>
-						<div class="drop-down hidden drop-down_credit">
-						</div>
+					</div>
+					<div class="client-card__section hidden client-card__credit-details">
 					</div>
 				</div>
 			</div>
-		
-			<div id="tab">
-				<input class="input" type="radio" name="table" id="n1" checked/>
-				<label for="n1">Представление</label>
-				<input type="radio" name="table" id="n2"/>
-				<label for="n2">Согласование условий</label>
-				<input type="radio" name="table" id="n3"/>
-				<label for="n3">Недозвон</label>
-				<input type="radio" name="table" id="n4"/>
-				<label for="n4">Отказ</label>
-				<input type="radio" name="table" id="n5"/>
-				<label for="n5">Перезвон</label>
-				<input type="radio" name="table" id="n6"/>
-				<label for="n6">Ошибка телефонии</label>
 
-				<div id="table">
-					<div class="predstavlenie hidden">
-						<table class="predstavlenie__table">
+			<div class="actions">
+				<nav class="actions__bookmark-wrap">
+					<div class="actions__bookmark actions__bookmark_active">
+						Представление
+					</div>
+					<div class="actions__bookmark">
+						Согласование условий
+					</div>
+					<div class="actions__bookmark">
+						Недозвон
+					</div>
+					<div class="actions__bookmark">
+						Отказ
+					</div>
+					<div class="actions__bookmark">
+						Перезвон
+					</div>
+					<div class="actions__bookmark">
+						Ошибка телефонии
+					</div>
+				</nav>
+
+				<div class="actions__section-wrap">
+					<div class="actions__section actions__presentation">
+						<table class="predstavlenie__table hidden">
 							<thead>
 								<tr>
 									<th class="th1"><p class="table-zagolovok"><b>Тема</b></p></th>
@@ -694,7 +649,7 @@
 							</tbody>
 						</table>
 					</div>	
-					<div class="SU_block">
+					<div class="actions__section hidden actions__conditions">
 						<div id="SU">
 							<h2 class="SU__H2_1">Дополнительная информация</h2>
 							<hr>
@@ -781,7 +736,7 @@
 									Одобрен: 
 								</span>
 								Кредит наличными на *сумма* рублей на срок N месяцев (N рублей в месяц, присутствует страховка, кредитные каникулы отсутсвуют) 
-									<span class="span-background" id="span-tooltip">
+									<span class="span-background" data-click='tooltip'>
 										?
 									</span>
 								<div id="tooltip_wrap" class="hidden">
@@ -931,7 +886,7 @@
 							</div>
 						</div>          	
 					</div>		
-					<div class="nedozvon">
+					<div class="actions__section hidden actions__no-call">
 						<div class="nedozvon__div">
 							<form class="nedozvon__div__form">
 								<p><input id="form__nedozvon" type="radio" name="b" value="Клиент не отвечает">Клиент не отвечает</p>
@@ -948,7 +903,7 @@
 						</div>
 						<button class="btn btn_gray" type="submit">Завершить работу с заданием</button>
 					</div>
-					<div class="otkaz"><h3>Отказ</h3>
+					<div class="actions__section hidden actions__refusal"><h3>Отказ</h3>
 						<div class="otkaz__div">
 							<form class="otkaz__div__form">
 								<p><input id="form__otkaz" type="radio" name="a" value="Высокая ставка по кредиту">Высокая ставка по кредиту</p>
@@ -970,25 +925,25 @@
 						</div>
 						<button class="btn btn_gray" type="submit">Завершить работу с заданием</button>
 					</div>
-						<div class="perezvon">
-							<div class="perezvon__wrap">
-								<hr>
-								<p class="perezvon__paragraph"><input type="radio" name="perezvon" value="v3" id="recall_appointment_time" checked><label for="recall_appointment_time">Не устраивает время встречи</label></p>
-								<p class="perezvon__paragraph"><input type="radio" name="perezvon" value="v1" id="recall_client_ask"><label for="recall_client_ask">По просьбе клиента / 3го лица</label></p>
-								<input class="perezvon__paragraph__call_fail" type="radio" name="perezvon" value="v2" id="recall_connection_fail"><label for="recall_connection_fail">Звонок сорвался</label>
-								<div class="perezvon__wrap__p">
-									<p class="perezvon__paragraph__checkbox_time_recall_selected" ><input type="checkbox" id="perezvon__paragraph__checkbox_time_recall_selected" name="perezvon" onclick="preparePage()">Время перезвона выбрано</p>
-									<div id="perezvon__wrap2">
-										<p>Дата и время перезвона</p>
-										<p><input type="text" name="perezvon" placeholder="ДД.ММ.ГГГГ ЧЧ:ММ" required="required"></p>
-										<p class="perezvon__checkbox_otlojka"><input type="checkbox" name="perezvon">Отложить себе</p>
-									</div>	
+					<div class="actions__section hidden actions__chime">
+						<div class="perezvon__wrap">
+							<hr>
+							<p class="perezvon__paragraph"><input type="radio" name="perezvon" value="v3" id="recall_appointment_time" checked><label for="recall_appointment_time">Не устраивает время встречи</label></p>
+							<p class="perezvon__paragraph"><input type="radio" name="perezvon" value="v1" id="recall_client_ask"><label for="recall_client_ask">По просьбе клиента / 3го лица</label></p>
+							<input class="perezvon__paragraph__call_fail" type="radio" name="perezvon" value="v2" id="recall_connection_fail"><label for="recall_connection_fail">Звонок сорвался</label>
+							<div class="perezvon__wrap__p">
+								<p class="perezvon__paragraph__checkbox_time_recall_selected" ><input type="checkbox" id="perezvon__paragraph__checkbox_time_recall_selected" name="perezvon" onclick="preparePage()">Время перезвона выбрано</p>
+								<div id="perezvon__wrap2">
+									<p>Дата и время перезвона</p>
+									<p><input type="text" name="perezvon" placeholder="ДД.ММ.ГГГГ ЧЧ:ММ" required="required"></p>
+									<p class="perezvon__checkbox_otlojka"><input type="checkbox" name="perezvon">Отложить себе</p>
 								</div>	
-							</div>
-							<textarea name="perezvon" rows="8" cols="80" class="perezvon__wrap__textarea"></textarea>
-							<p><button class="perezvon__button perezvon btn btn_gray" type="submit">Завершить работу с заданием</button></p>                
+							</div>	
 						</div>
-					<div>
+						<textarea name="perezvon" rows="8" cols="80" class="perezvon__wrap__textarea"></textarea>
+						<p><button class="perezvon__button perezvon btn btn_gray" type="submit">Завершить работу с заданием</button></p>                
+					</div>
+					<div class="actions__section hidden actions__error">
 						<hr>
 						<div>
 							<p>Комментарий:</p>
