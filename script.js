@@ -1,47 +1,81 @@
-document.addEventListener('change', (event) => catchChange(event) );
 document.addEventListener('click', (event) => catchClick(event) );
+document.addEventListener('change', (event) => catchChange(event) );
 
 function catchClick(event) {
     const clickedElement = event.target;
-    if ( clickedElement.classList.contains('info__item') ) {
-        catchClickInfo(clickedElement);
+    if( clickedElement.classList.contains('client-card__bookmark') ) {
+        catchClickBookmarkClientCard(clickedElement);
+    };
+    if(clickedElement.classList.contains('actions__bookmark') ) {
+        catchClickBookmarkActions(clickedElement);
     };
 
-    if ( clickedElement.dataset.click ) {
-        showScript(clickedElement);
-    };
-
-    if (clickedElement.id === 'span-tooltip') {
-        showTooltip();
-    };
-
-};
-
-function catchClickInfo(clickedElement) {
-    if ( clickedElement.classList.contains('info__task') ) {
-        const dropDownBlok = document.querySelector('.drop-down_task');
-        toggleDropDownInfo (dropDownBlok, clickedElement);
-    };
-    
-    if ( clickedElement.classList.contains('info__history') ) {
-        const dropDownBlok = document.querySelector('.drop-down_history');
-        toggleDropDownInfo (dropDownBlok, clickedElement);
-    };
-
-    if ( clickedElement.classList.contains('info__credit') ) {
-        const dropDownBlok = document.querySelector('.drop-down_credit');
-        toggleDropDownInfo (dropDownBlok, clickedElement);
+    switch(clickedElement.dataset.click) {
+        case 'call':
+            showScript(clickedElement);
+            break;
+        case 'tooltip':
+            showTooltip();
+            break;
     };
 };
 
-function toggleDropDownInfo (dropDownBlok, clickedElement) {
-    const infoButtonArray = arrayFromCollection( document.querySelectorAll('.info__item') );
-    infoButtonArray.forEach( (btn) => btn.classList.remove('info__item_active') )
+function catchClickBookmarkClientCard(clickedElement) {
+    switch(clickedElement.innerText) {
+        case 'Информация по заданию':
+            toggleClientCardSection ('.client-card__task-info', clickedElement);
+            break;
+        case 'История по заданию':
+            toggleClientCardSection ('.client-card__history', clickedElement);
+            break;
+        case 'Детали кредита':
+            toggleClientCardSection ('.client-card__credit-details', clickedElement);
+            break;
+    };
+};
 
-    hideElements('.drop-down');
+function catchClickBookmarkActions(clickedElement) {
+    switch(clickedElement.innerText) {
+        case 'Представление':
+            toggleActionsSection ('.actions__presentation', clickedElement);
+            break;
+        case 'Согласование условий':
+            toggleActionsSection ('.actions__conditions', clickedElement);
+            break;
+        case 'Недозвон':
+            toggleActionsSection ('.actions__no-call', clickedElement);
+            break;
+        case 'Отказ':
+            toggleActionsSection ('.actions__refusal', clickedElement);
+            break;
+        case 'Перезвон':
+            toggleActionsSection ('.actions__chime', clickedElement);
+            break;
+        case 'Ошибка телефонии':
+            toggleActionsSection ('.actions__error', clickedElement);
+            break;
+    };
+};
 
-    dropDownBlok.classList.remove('hidden');
-    clickedElement.classList.add('info__item_active');
+function toggleClientCardSection (sectionClassName, clickedElement) {
+    const bookmarkArray = arrayFromCollection( document.querySelectorAll('.client-card__bookmark') );
+    bookmarkArray.forEach( (bookmark) => bookmark.classList.remove('client-card__bookmark_active') )
+    clickedElement.classList.add('client-card__bookmark_active');
+
+    hideElements('.client-card__section');
+    const section = document.querySelector(sectionClassName);
+    section.classList.remove('hidden');
+};
+
+function showScript(clickedElement) {
+    clickedElement.classList.add('hidden');
+    showElements('.history__action-work');
+    showElements('.predstavlenie__table');
+    showElements('#more_actions');
+};
+
+function showTooltip() {
+    document.getElementById("tooltip_wrap").classList.toggle('hidden');
 };
 
 function catchChange(event) {
@@ -58,30 +92,25 @@ function showCredit(changedElement) {
             document.querySelector('#su1').classList.remove('hidden');
             break;
         case 'Кредит наличными':
-                document.querySelector('#su3').classList.remove('hidden');
-                document.querySelector('#su4').classList.remove('hidden');
-                break;
+            document.querySelector('#su3').classList.remove('hidden');
+            document.querySelector('#su4').classList.remove('hidden');
+            break;
     };
     document.querySelector('.SU__credit_btn').classList.remove('hidden'); 
 };
 
-function showScript(clickedElement) {
-    showElements('.predstavlenie');
-    clickedElement.classList.add('hidden');
-    showElements('.history__action-work');
-    showElements('#more_actions');
+function toggleActionsSection (sectionClassName, clickedElement) {
+    const bookmarkArray = arrayFromCollection( document.querySelectorAll('.actions__bookmark') );
+    bookmarkArray.forEach( (bookmark) => bookmark.classList.remove('actions__bookmark_active') )
+    clickedElement.classList.add('actions__bookmark_active');
+
+    hideElements('.actions__section');
+    const section = document.querySelector(sectionClassName);
+    section.classList.remove('hidden');
 };
 
-function showTooltip() {
-    console.log('123');
-    document.getElementById("tooltip_wrap").classList.toggle('hidden');
-};
 
 
-function arrayFromCollection(collection) {
-    const array = Array.from(collection);
-    return array;
-}
 
 function hideElements(selector) {
     const elementsArray = arrayFromCollection( document.querySelectorAll([selector]) );
@@ -92,6 +121,11 @@ function showElements(selector) {
     const elementsArray = arrayFromCollection( document.querySelectorAll([selector]) );
     elementsArray.forEach( (elem) => elem.classList.remove('hidden') );
 };
+
+function arrayFromCollection(collection) {
+    const array = Array.from(collection);
+    return array;
+}
 
 
 
