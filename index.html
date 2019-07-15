@@ -83,7 +83,7 @@
 			</div>
 
 			<div class="actions">
-				<nav class="actions__bookmark-wrap">
+				<menu class="actions__bookmark-wrap">
 					<div class="actions__bookmark actions__bookmark_active">
 						Представление
 					</div>
@@ -102,7 +102,7 @@
 					<div class="actions__bookmark">
 						Ошибка телефонии
 					</div>
-				</nav>
+				</menu>
 
 				<div class="actions__section-wrap">
 					<div class="actions__section actions__presentation">
@@ -161,8 +161,8 @@
 									<th class="cell-wrap">ТП с пересчетом?</th>
 									<th><b>Присутствует информация о возможности предложить премиум тариф?</b></th>
 									<th>
-										<p><input type="radio" name="d" id="row4_tp_s_pereschetom_yes" onclick="function_row4_cl_yes()"><label for="row4_tp_s_pereschetom_yes">Да</label></p>
-										<p><input type="radio" name="d" id="row4_tp_s_pereschetom_no" onclick="function_row4_tp_s_pereschetom_no()"><label for="row4_tp_s_pereschetom_no">Нет</label></p>							
+										<p class="radio"><input type="radio" name="d" id="row4_tp_s_pereschetom_yes" onclick="function_row4_cl_yes()"><label for="row4_tp_s_pereschetom_yes">Да</label></p>
+										<p class="radio"><input type="radio" name="d" id="row4_tp_s_pereschetom_no" onclick="function_row4_tp_s_pereschetom_no()"><label for="row4_tp_s_pereschetom_no">Нет</label></p>							
 									</th>				
 								</tr>
 								<tr id="no4_row5_predlojenie_cl">
@@ -173,7 +173,7 @@
 									</th>
 									<th>
 										<form class="no4_row5_net">
-											<p><input type="radio" name="y" id="row5_predlojenie_cl_next" onclick="function_row5_predlojenie_cl_next()"><label for="row5_predlojenie_cl_next">Далее</label></p>
+											<p class="radio"><input type="radio" name="y" id="row5_predlojenie_cl_next" onclick="function_row5_predlojenie_cl_next()"><label for="row5_predlojenie_cl_next">Далее</label></p>
 										</form>
 									</th>
 								</tr>
@@ -186,7 +186,7 @@
 									</th>
 									<th>
 										<form class="row5_next">
-											<p><input type="radio" name="h" id="row5_tp_spereschetom_next" onclick="function_row5_tp_spereschetom_next()"><label for="row5_tp_spereschetom_next">Далее</label></p>
+											<p class="radio"><input type="radio" name="h" id="row5_tp_spereschetom_next" onclick="function_row5_tp_spereschetom_next()"><label for="row5_tp_spereschetom_next">Далее</label></p>
 										</form>
 									</th>
 								</tr>
@@ -194,8 +194,8 @@
 									<th>Провести рассч для КН</th>
 									<th><b>Произведи необходимые расчеты. <br>При необходимости проконсультируй об условиях кредитования. <br><br> Клиент согласен получить кредит наличными?</b></th>
 									<th>
-										<p><input type="radio" name="ae" id="r8_attention_cc2_next" onclick="function_r8_attention_cc2()"><label for="r8_attention_cc2_next"><span class="span-green">Да</span></label></p>
-										<p><input type="radio" name="ae" id="count_for_cl_no" onclick="function_count_for_cl_no()"><label for="count_for_cl_no"><span class="span-red">Нет</span></label></p>
+										<p class="radio"><input type="radio" name="ae" id="r8_attention_cc2_next" onclick="function_r8_attention_cc2()"><label for="r8_attention_cc2_next"><span class="span-green">Да</span></label></p>
+										<p class="radio"><input type="radio" name="ae" id="count_for_cl_no" onclick="function_count_for_cl_no()"><label for="count_for_cl_no"><span class="span-red">Нет</span></label></p>
 									</th>						
 								</tr>
 
@@ -203,39 +203,39 @@
 									<th>1 РСВ для КН+КК</th>
 									<th><b>Выясни причину и проведи работу с возражениями, расскажи о преимуществах кредита наличными. <br> Клиент согласен получить кредит?</b></th>
 									<th>							
-										<p><input type="radio" name="x1" id="row7_rsv_no" onclick="function_row7_rsv_no()"><label for="row7_rsv_no"><span class="span-red">Нет</span></label></p>
-										<p><input type="radio" name="x1" id="row7_rsv_yes" onclick="function_row7_rsv_yes()"><label for="row7_rsv_yes"><span class="span-green">Да</span></label></p>							
+										<p class="radio"><input type="radio" name="x1" id="row7_rsv_no" onclick="function_row7_rsv_no()"><label for="row7_rsv_no"><span class="span-red">Нет</span></label></p>
+										<p class="radio"><input type="radio" name="x1" id="row7_rsv_yes" onclick="function_row7_rsv_yes()"><label for="row7_rsv_yes"><span class="span-green">Да</span></label></p>							
 									</th>						
 								</tr>
 
 								<tr id="y8_r9_attention_cc2">
 									<th>Предупреждение КК 2</th>
 									<th><span class="span-blue">ФИО, </span><span class="span-red">обращаю Ваше внимание, что в данном случае Ваша не активированная кредитная карта будет заблокирована. </span> </th>
-									<th><p><input type="radio" name="ai" id="r9_attention_cc2" onclick="function_r9_attention_cc2_next()"><label for="r9_attention_cc2">Далее</label></p></th>						
+									<th><p class="radio"><input type="radio" name="ai" id="r9_attention_cc2" onclick="function_r9_attention_cc2_next()"><label for="r9_attention_cc2">Далее</label></p></th>						
 								</tr>
 
 								<tr id="y7_r8_unactivated_cc2">
 									<th>Не активированная КК 2</th>
 									<th><b>Проверь апплет Дополнительная информация <br> У клиента есть не активированная кредитная карта, которая будет заблокирована?</b></th>
 									<th>
-										<p><input type="radio" name="ag" id="r8_unactivated_cc2_no" onclick="function_r8_unactivated_cc2_no()"><label for="r8_unactivated_cc2_no">Нет</label></p>
-										<p><input type="radio" name="ag" id="r8_unactivated_cc2_yes" onclick="function_r8_unactivated_cc2_yes()"><label for="r8_unactivated_cc2_yes">Да</label></p>
+										<p class="radio"><input type="radio" name="ag" id="r8_unactivated_cc2_no" onclick="function_r8_unactivated_cc2_no()"><label for="r8_unactivated_cc2_no">Нет</label></p>
+										<p class="radio"><input type="radio" name="ag" id="r8_unactivated_cc2_yes" onclick="function_r8_unactivated_cc2_yes()"><label for="r8_unactivated_cc2_yes">Да</label></p>
 									</th>
 								</tr>
 								<tr id="no7_r8_different_offer">
 									<th>Другой оффер</th>
 									<th><b>В задании есть оффер на предложение кредитной карты?</b></th>
 									<th>
-										<p><input type="radio" name="af" id="r8_different_offer_yes" onclick="function_r8_different_offer_yes()"><label for="r8_different_offer_yes">Да</label></p>
-										<p><input type="radio" name="af" id="r8_different_offer_no" onclick="function_r8_different_offer_no()"><label for="r8_different_offer_no">Нет</label></p>
+										<p class="radio"><input type="radio" name="af" id="r8_different_offer_yes" onclick="function_r8_different_offer_yes()"><label for="r8_different_offer_yes">Да</label></p>
+										<p class="radio"><input type="radio" name="af" id="r8_different_offer_no" onclick="function_r8_different_offer_no()"><label for="r8_different_offer_no">Нет</label></p>
 									</th>						
 								</tr>
 								<tr id="n8_r9_can_use_email">
 									<th>Может получить на e-mail?</th>
 									<th><b>Уточни способы получения кредита. <br>Есть возможность отправить документы на e-mail?</b></th>
 									<th>
-										<p><input type="radio" name="ah" id="r9_can_use_email_no" onclick="function_r9_can_use_email_no()"><span class="span-red"><label for="r9_can_use_email_no">Нет</span></label></p>
-										<p><input type="radio" name="ah" id="r9_can_use_email_yes" onclick="function_r9_can_use_email_yes()"><span class="span-green"><label for="r9_can_use_email_yes">Да</span></label></p>
+										<p class="radio"><input type="radio" name="ah" id="r9_can_use_email_no" onclick="function_r9_can_use_email_no()"><span class="span-red"><label for="r9_can_use_email_no">Нет</span></label></p>
+										<p class="radio"><input type="radio" name="ah" id="r9_can_use_email_yes" onclick="function_r9_can_use_email_yes()"><span class="span-green"><label for="r9_can_use_email_yes">Да</span></label></p>
 									</th>						
 								</tr>
 
@@ -243,8 +243,8 @@
 									<th>Может получить на e-mail?</th>
 									<th><b>Уточни способы получения кредита. <br> Есть возможность отправить документы на e-mail?</b></th>
 									<th>
-										<p><input type="radio" name="aj" id="next9_r10_can_use_email_no" onclick="function_next9_r10_can_use_email_no()"><label for="next9_r10_can_use_email_no"><span class="span-red">Нет</span></label></p>
-										<p><input type="radio" name="aj" id="next9_r10_can_use_email_yes" onclick="function_next9_r10_can_use_email_yes()"><label for="next9_r10_can_use_email_yes"><span class="span-green">Да</span></label></p>
+										<p class="radio"><input type="radio" name="aj" id="next9_r10_can_use_email_no" onclick="function_next9_r10_can_use_email_no()"><label for="next9_r10_can_use_email_no"><span class="span-red">Нет</span></label></p>
+										<p class="radio"><input type="radio" name="aj" id="next9_r10_can_use_email_yes" onclick="function_next9_r10_can_use_email_yes()"><label for="next9_r10_can_use_email_yes"><span class="span-green">Да</span></label></p>
 									</th>						
 								</tr>
 								<tr id="y8_r9_second_offer">
@@ -254,9 +254,9 @@
 										<span class="span-red">*</span><b>При необходимости расскажи о других преимуществах кредитной карты и проведи работу с возражениями.  <br><br>Клиент согласен?</b>
 									</th>
 									<th>
-										<p><input type="radio" name="ak" id="r9_second_offer_no" onclick="function_r9_second_offer_no()"><label for="r9_second_offer_no"><span class="span-red">Нет</span></label></p>
-										<p><input type="radio" name="ak" id="r9_second_offer_yes" onclick="function_r9_second_offer_yes()"><label for="r9_second_offer_yes"><span class="span-green">Да</span></label></p>
-										<p><input type="radio" name="ak" id="r9_second_offer_advantages" onclick="function_r9_second_offer_advantages()"><label for="r9_second_offer_advantages">Преимущества</label></p>
+										<p class="radio"><input type="radio" name="ak" id="r9_second_offer_no" onclick="function_r9_second_offer_no()"><label for="r9_second_offer_no"><span class="span-red">Нет</span></label></p>
+										<p class="radio"><input type="radio" name="ak" id="r9_second_offer_yes" onclick="function_r9_second_offer_yes()"><label for="r9_second_offer_yes"><span class="span-green">Да</span></label></p>
+										<p class="radio"><input type="radio" name="ak" id="r9_second_offer_advantages" onclick="function_r9_second_offer_advantages()"><label for="r9_second_offer_advantages">Преимущества</label></p>
 									</th>						
 								</tr>
 								<tr id="no8_row9_no_offer">
@@ -276,8 +276,8 @@
 									</th>
 									<th>
 										<form class="row7_y_klienta_est_neact_cc_yes_no">
-											<p><input type="radio" name="j" id="row7_y_klienta_est_neact_cc_no" onclick="function_row7_y_klienta_est_neact_cc_no()"><label for="row7_y_klienta_est_neact_cc_no">Нет</label></p>
-											<p><input type="radio" name="j" id="row7_y_klienta_est_neact_cc_yes" onclick="function_row7_y_klienta_est_neact_cc_yes()"><label for="row7_y_klienta_est_neact_cc_yes">Да</label></p>
+											<p class="radio"><input type="radio" name="j" id="row7_y_klienta_est_neact_cc_no" onclick="function_row7_y_klienta_est_neact_cc_no()"><label for="row7_y_klienta_est_neact_cc_no">Нет</label></p>
+											<p class="radio"><input type="radio" name="j" id="row7_y_klienta_est_neact_cc_yes" onclick="function_row7_y_klienta_est_neact_cc_yes()"><label for="row7_y_klienta_est_neact_cc_yes">Да</label></p>
 										</form>
 									</th>
 								</tr>
@@ -289,8 +289,8 @@
 									</th>					
 									<th>
 									<form class="row8_email_yes_no">
-										<p><input type="radio" name="k" id="row8_email_no" onclick="function_row8_email_no()"><label for="row8_email_no"><span class="span-red">Нет</span></label></p>
-										<p><input type="radio" name="k" id="row8_email_yes" onclick="function_row8_email_yes()"><label for="row8_email_yes"><span class="span-green">Да</span></label></p>
+										<p class="radio"><input type="radio" name="k" id="row8_email_no" onclick="function_row8_email_no()"><label for="row8_email_no"><span class="span-red">Нет</span></label></p>
+										<p class="radio"><input type="radio" name="k" id="row8_email_yes" onclick="function_row8_email_yes()"><label for="row8_email_yes"><span class="span-green">Да</span></label></p>
 									</form>	
 									</th>					
 								</tr>
@@ -298,14 +298,14 @@
 									<th>E-mail указан верно?</th>
 									<th><b>Сверь с клиентом e-mail. <br> E-mail указан верно?</b></th>
 									<th>
-										<p><input type="radio" name="al1" id="ro9_is_email_correct_yes" onclick="function_ro9_is_email_correct_yes()"><label for="ro9_is_email_correct_yes"><span class="span-green">Да</span></label></p>
-										<p><input type="radio" name="al1" id="ro9_is_email_correct_no" onclick="function_ro9_is_email_correct_no()"><label for="ro9_is_email_correct_no"><span class="span-red">Нет</span></label></p>
+										<p class="radio"><input type="radio" name="al1" id="ro9_is_email_correct_yes" onclick="function_ro9_is_email_correct_yes()"><label for="ro9_is_email_correct_yes"><span class="span-green">Да</span></label></p>
+										<p class="radio"><input type="radio" name="al1" id="ro9_is_email_correct_no" onclick="function_ro9_is_email_correct_no()"><label for="ro9_is_email_correct_no"><span class="span-red">Нет</span></label></p>
 									</th>						
 								</tr>
 								<tr id="n9_r10_is_email_correct">
 									<th>Запрос на изменение данных</th>
 									<th><b>Отправь запрос на изменение данных.</b></th>
-									<th><p><input type="radio" name="am" id="r10_is_email_correct_next" onclick="function_r10_is_email_correct_next()"><label for="r10_is_email_correct_next">Далее</label></p></th>						
+									<th><p class="radio"><input type="radio" name="am" id="r10_is_email_correct_next" onclick="function_r10_is_email_correct_next()"><label for="r10_is_email_correct_next">Далее</label></p></th>						
 								</tr>				
 									
 								</tr>
@@ -344,9 +344,9 @@
 										</p>
 									</th>
 									<th>
-										<p><input type="radio" name="g" id="row4_cc_advantages" onclick="function_cc_advantages()"><label for="row4_cc_advantages">Преимущества карты</label></p>
-										<p><input type="radio" name="g" id="row4_cc_yes" onclick="function_offer_cc_yes()"><label for="row4_cc_yes"><span class="span-green">Да</span></label></p>
-										<p><input type="radio" name="g" id="row4_cc_no" onclick="function_offer_cc_no()"><label for="row4_cc_no"><span class="span-red">Нет</span></label></p>
+										<p class="radio"><input type="radio" name="g" id="row4_cc_advantages" onclick="function_cc_advantages()"><label for="row4_cc_advantages">Преимущества карты</label></p>
+										<p class="radio"><input type="radio" name="g" id="row4_cc_yes" onclick="function_offer_cc_yes()"><label for="row4_cc_yes"><span class="span-green">Да</span></label></p>
+										<p class="radio"><input type="radio" name="g" id="row4_cc_no" onclick="function_offer_cc_no()"><label for="row4_cc_no"><span class="span-red">Нет</span></label></p>
 									</th>				
 								</tr>
 								<tr id="row5_rsv_for_cc">
@@ -356,24 +356,24 @@
 										Клиент согласен получить карту?</b>
 									</th>
 									<th>
-										<p><input type="radio" name="n" id="row5_cc_no_rsv_yes" onclick="function_row5_rsv_for_cc_yes()"><label for="row5_cc_no_rsv_yes"><span class="span-green">Да</span></label></p>
-										<p><input type="radio" name="n" id="row5_cc_no_rsv_no" onclick="function_row5_rsv_for_cc_no()"><label for="row5_cc_no_rsv_no"><span class="span-red">Нет</span></label></p>
+										<p class="radio"><input type="radio" name="n" id="row5_cc_no_rsv_yes" onclick="function_row5_rsv_for_cc_yes()"><label for="row5_cc_no_rsv_yes"><span class="span-green">Да</span></label></p>
+										<p class="radio"><input type="radio" name="n" id="row5_cc_no_rsv_no" onclick="function_row5_rsv_for_cc_no()"><label for="row5_cc_no_rsv_no"><span class="span-red">Нет</span></label></p>
 									</th>
 								</tr>
 								<tr id="row6_cc_to_offer_cl_yes_no">
 									<th class="cell-wrap">Оффер КН</th>
 									<th><b>В задании есть оффер на предложение кредита наличными?</b></th>
 									<th>
-										<p><input type="radio" name="o" id="row6_cc_to_offer_cl_no" onclick="function_row6_cc_to_offer_cl_no()"><label for="row6_cc_to_offer_cl_no">Нет</label></p>
-										<p><input type="radio" name="o" id="row6_cc_to_offer_cl_yes" onclick="function_row6_cc_to_offer_cl_yes()"><label for="row6_cc_to_offer_cl_yes">Да</label></p>
+										<p class="radio"><input type="radio" name="o" id="row6_cc_to_offer_cl_no" onclick="function_row6_cc_to_offer_cl_no()"><label for="row6_cc_to_offer_cl_no">Нет</label></p>
+										<p class="radio"><input type="radio" name="o" id="row6_cc_to_offer_cl_yes" onclick="function_row6_cc_to_offer_cl_yes()"><label for="row6_cc_to_offer_cl_yes">Да</label></p>
 									</th>			
 								</tr>
 								<tr id="row7_offer_cl_to_recount">
 									<th class="cell-wrap">Оффер КН - ТП с пересчётом</th>
 									<th><b>Присутствует информация о возможности предложить премиум тариф?</b> </th>
 									<th>
-										<p><input type="radio" name="p" id="row7_offer_cl_to_recount_to_accept_offer" onclick="function_row7_offer_cl_to_recount_to_accept_offer()"><label for="row7_offer_cl_to_recount_to_accept_offer">Да</label></p>
-										<p><input type="radio" name="p" id="row7_offer_cl_to_recount_to_offer_cl_to_recount" onclick="function_row7_offer_cl_to_recount_to_offer_cl_to_recount()"><label for="row7_offer_cl_to_recount_to_offer_cl_to_recount">Нет</label></p>
+										<p class="radio"><input type="radio" name="p" id="row7_offer_cl_to_recount_to_accept_offer" onclick="function_row7_offer_cl_to_recount_to_accept_offer()"><label for="row7_offer_cl_to_recount_to_accept_offer">Да</label></p>
+										<p class="radio"><input type="radio" name="p" id="row7_offer_cl_to_recount_to_offer_cl_to_recount" onclick="function_row7_offer_cl_to_recount_to_offer_cl_to_recount()"><label for="row7_offer_cl_to_recount_to_offer_cl_to_recount">Нет</label></p>
 									</th>
 								</tr>
 								<tr id="n7_r8_offer_cl_tp_recount">
@@ -383,7 +383,7 @@
 										рублей и максимальным сроком погашения 36 месяцев. Регулярный платеж составит <span class="span-red"><назвать платеж></span> рублей в месяц.</span><br><br>
 									</th>
 									<th>
-										<p><input type="radio" name="q" id="r8_offer_cl_tp_recount_dalee" onclick="function_r8_offer_cl_tp_recount_dalee()"><label for="r8_offer_cl_tp_recount_dalee">Далее</label></p>
+										<p class="radio"><input type="radio" name="q" id="r8_offer_cl_tp_recount_dalee" onclick="function_r8_offer_cl_tp_recount_dalee()"><label for="r8_offer_cl_tp_recount_dalee">Далее</label></p>
 									</th>	
 									
 								</tr>
@@ -395,7 +395,7 @@
 										</p>
 									</th>
 									<th>
-										<p><input type="radio" name="q" id="row8_offer_cl_tp_recount_dalee" onclick="function_row8_offer_cl_tp_recount_dalee()"><label for="row8_offer_cl_tp_recount_dalee">Далее</label></p>
+										<p class="radio"><input type="radio" name="q" id="row8_offer_cl_tp_recount_dalee" onclick="function_row8_offer_cl_tp_recount_dalee()"><label for="row8_offer_cl_tp_recount_dalee">Далее</label></p>
 									</th>						
 								</tr>
 								<tr id="row9_cl_count_rsv">
@@ -406,8 +406,8 @@
 										Клиент согласен получить кредит наличными?</b>
 									</th>
 									<th>
-										<p><input type="radio" name="r" id="row9_cl_count_rsv_no" onclick="function_row9_cl_count_rsv_no()"><label for="row9_cl_count_rsv_no"><span class="span-red">Нет</span></label></p>
-										<p><input type="radio" name="r" id="ro7_attention_cc_next" onclick="function_ro7_attention_cc_next()"><label for="ro7_attention_cc_next"><span class="span-green">Да</span></label></p>
+										<p class="radio"><input type="radio" name="r" id="row9_cl_count_rsv_no" onclick="function_row9_cl_count_rsv_no()"><label for="row9_cl_count_rsv_no"><span class="span-red">Нет</span></label></p>
+										<p class="radio"><input type="radio" name="r" id="ro7_attention_cc_next" onclick="function_ro7_attention_cc_next()"><label for="ro7_attention_cc_next"><span class="span-green">Да</span></label></p>
 									</th>						
 								</tr>
 								<tr id="row10_unactivated_cc3">
@@ -417,14 +417,14 @@
 										У клиента есть не активированная кредитная карта, которая будет заблокирована?</b>
 									</th>
 									<th>
-										<p><input type="radio" name="s" id="row10_unactivated_cc3_no" onclick="function_row10_unactivated_cc3_no()"><label for="row10_unactivated_cc3_no">Нет</label></p>
-										<p><input type="radio" name="s" id="row10_unactivated_cc3_yes" onclick="function_row10_unactivated_cc3_yes()"><label for="row10_unactivated_cc3_yes">Да</label></p>
+										<p class="radio"><input type="radio" name="s" id="row10_unactivated_cc3_no" onclick="function_row10_unactivated_cc3_no()"><label for="row10_unactivated_cc3_no">Нет</label></p>
+										<p class="radio"><input type="radio" name="s" id="row10_unactivated_cc3_yes" onclick="function_row10_unactivated_cc3_yes()"><label for="row10_unactivated_cc3_yes">Да</label></p>
 									</th>						
 								</tr>
 								<tr id="y6_ro7_attention_cc">
 									<th>Предупреждение КК</th>
 									<th><span class="span-blue">ФИО</span>, <span class="span-red">обращаю Ваше внимание, что в данном случае Ваша не активированная кредитная карта будет заблокирована.</span></th>
-									<th><p><input type="radio" name="al" id="ro7_attention_cc_next" onclick="function_ro7_attention_cc_next()"><label for="ro7_attention_cc_next">Далее</label></p></th>						
+									<th><p class="radio"><input type="radio" name="al" id="ro7_attention_cc_next" onclick="function_ro7_attention_cc_next()"><label for="ro7_attention_cc_next">Далее</label></p></th>						
 								</tr>
 
 								<tr id="row11_may_get_on_email">
@@ -434,16 +434,16 @@
 										Есть возможность отправить документы на e-mail?</b>
 									</th>
 									<th>
-										<p><input type="radio" name="t" id="row11_may_get_on_email_no" onclick="function_row11_may_get_on_email_no()"><label for="row11_may_get_on_email_no"><span class="span-red">Нет</span></label></p>
-										<p><input type="radio" name="t" id="row11_may_get_on_email_yes" onclick="function_row11_may_get_on_email_yes()"><label for="row11_may_get_on_email_yes"><span class="span-green">Да</span></label></p>							
+										<p class="radio"><input type="radio" name="t" id="row11_may_get_on_email_no" onclick="function_row11_may_get_on_email_no()"><label for="row11_may_get_on_email_no"><span class="span-red">Нет</span></label></p>
+										<p class="radio"><input type="radio" name="t" id="row11_may_get_on_email_yes" onclick="function_row11_may_get_on_email_yes()"><label for="row11_may_get_on_email_yes"><span class="span-green">Да</span></label></p>							
 									</th>						
 								</tr>
 								<tr id="n11_r12_2rsv_cc_cl">
 									<th>2 РСВ КК+КН</th>
 									<th><b>Выясни причину и проведи работу с возражениями. <br>Расскажи о преимуществах кредита наличными.<br><br>Клиент согласен получить кредит наличными и документы?</b> </th>
 									<th>
-										<p><input type="radio" name="ap" id="r12_2rsv_cc_cl_yes" onclick="function_r12_2rsv_cc_cl_yes()"><label for="r12_2rsv_cc_cl_yes">Да</label></p>
-										<p><input type="radio" name="ap" id="r12_2rsv_cc_cl_no" onclick="function_r12_2rsv_cc_cl_no()"><label for="r12_2rsv_cc_cl_no">Нет</label></p>							
+										<p class="radio"><input type="radio" name="ap" id="r12_2rsv_cc_cl_yes" onclick="function_r12_2rsv_cc_cl_yes()"><label for="r12_2rsv_cc_cl_yes">Да</label></p>
+										<p class="radio"><input type="radio" name="ap" id="r12_2rsv_cc_cl_no" onclick="function_r12_2rsv_cc_cl_no()"><label for="r12_2rsv_cc_cl_no">Нет</label></p>							
 									</th>							
 								</tr>
 								<tr id="no13_row14_choose_offer_cl">
@@ -503,8 +503,8 @@
 									<th class="cell-wrap">Неактивированная КК</th>
 									<th><b>Проверь апплет Дополнительная информация <br>У клиента есть неактивированная кредитная карта, которая будет заблокирована?</b></th>
 									<th>							
-										<p><input type="radio" name="m" id="row5_neakt_cc_no" onclick="function_neakt_cc_no()"><label for="row5_neakt_cc_no">Нет</label></p>
-										<p><input type="radio" name="m" id="row5_neakt_cc_yes" onclick="function_neakt_cc_yes()"><label for="row5_neakt_cc_yes">Да</label></p>							
+										<p class="radio"><input type="radio" name="m" id="row5_neakt_cc_no" onclick="function_neakt_cc_no()"><label for="row5_neakt_cc_no">Нет</label></p>
+										<p class="radio"><input type="radio" name="m" id="row5_neakt_cc_yes" onclick="function_neakt_cc_yes()"><label for="row5_neakt_cc_yes">Да</label></p>							
 									</th>
 								</tr>
 								<tr id="no5_row6_choose_product_cc">
@@ -518,7 +518,7 @@
 									<th class="cell-wrap">Предупреждение КК</th>
 									<th><span class="span-blue">ФИО</span>, <span class="span-red">обращаю Ваше внимание, что в данном случае Ваша не активированная кредитная карта будет заблокирована.</span> </th>
 									<th>							
-										<p><input type="radio" name="w" id="r6_attention_cc_next" onclick="function_r6_attention_cc_next()"><label for="r6_attention_cc_next">Далее</label></p>
+										<p class="radio"><input type="radio" name="w" id="r6_attention_cc_next" onclick="function_r6_attention_cc_next()"><label for="r6_attention_cc_next">Далее</label></p>
 									</th>
 								</tr>
 								<tr id="y7_r8_attention_cc2">
@@ -530,16 +530,16 @@
 									<th>Может получить на e-mail?</th>
 									<th><b>Уточни способы получения кредита. <br>Есть возможность отправить документы на e-mail?</b></th>
 									<th>
-										<p><input type="radio" name="aa" id="r9_email_no" onclick="function_r9_email_no()"><label for="r9_email_no"><span class="span-red">Нет</span></label></p>
-										<p><input type="radio" name="aa" id="r9_email_yes" onclick="function_r9_email_yes()"><label for="r9_email_yes"><span class="span-green">Да</span></label></p>
+										<p class="radio"><input type="radio" name="aa" id="r9_email_no" onclick="function_r9_email_no()"><label for="r9_email_no"><span class="span-red">Нет</span></label></p>
+										<p class="radio"><input type="radio" name="aa" id="r9_email_yes" onclick="function_r9_email_yes()"><label for="r9_email_yes"><span class="span-green">Да</span></label></p>
 									</th>
 								</tr>
 								<tr id="y9_r10_is_email_correct">
 									<th>E-mail указан верно?</th>
 									<th><b>Сверь с клиентом e-mail. <br>E-mail указан верно?</b></th>
 									<th>
-										<p><input type="radio" name="ab" id="r10_is_email_correct_yes" onclick="function_r10_is_email_correct_yes()"><label for="r10_is_email_correct_yes"><span class="span-green">Да</span></label></p>
-										<p><input type="radio" name="ab" id="r10_is_email_correct_no" onclick="function_r10_is_email_correct_no()"><label for="r10_is_email_correct_no"><span class="span-red">Нет</span></label></p>
+										<p class="radio"><input type="radio" name="ab" id="r10_is_email_correct_yes" onclick="function_r10_is_email_correct_yes()"><label for="r10_is_email_correct_yes"><span class="span-green">Да</span></label></p>
+										<p class="radio"><input type="radio" name="ab" id="r10_is_email_correct_no" onclick="function_r10_is_email_correct_no()"><label for="r10_is_email_correct_no"><span class="span-red">Нет</span></label></p>
 									</th>						
 								</tr>
 
@@ -547,8 +547,8 @@
 									<th>Сообщите, что лучше получить по e-mail</th>
 									<th><b>Сообщи клиенту, что документы можем отправить на e-mail. <br><br>Клиент согласен получить документы по e-mail?</b></th>
 									<th>
-										<p><input type="radio" name="ad" id="r11_say_email_better_no" onclick="function_r11_say_email_better_no()"><label for="r11_say_email_better_no"><span class="span-red">Нет</span></label></p>
-										<p><input type="radio" name="ad" id="r11_say_email_better_yes" onclick="function_r11_say_email_better_yes()"><label for="r11_say_email_better_yes"><span class="span-green">Да</span></label></p>
+										<p class="radio"><input type="radio" name="ad" id="r11_say_email_better_no" onclick="function_r11_say_email_better_no()"><label for="r11_say_email_better_no"><span class="span-red">Нет</span></label></p>
+										<p class="radio"><input type="radio" name="ad" id="r11_say_email_better_yes" onclick="function_r11_say_email_better_yes()"><label for="r11_say_email_better_yes"><span class="span-green">Да</span></label></p>
 									</th>
 								</tr>
 								<tr id="n10_r11_requst_change_data">
@@ -572,8 +572,8 @@
 										Клиент согласен получить документы по e-mail?</b>
 									</th>
 									<th>
-										<p><input type="radio" name="v" id="yes12_row13_offer_cl_can_send_on_email_no" onclick="function_yes12_row13_offer_cl_can_send_on_email_no()"><label for="yes12_row13_offer_cl_can_send_on_email_no"><span class="span-red">Нет</span></label></p>
-										<p><input type="radio" name="v" id="yes12_row13_offer_cl_can_send_on_email_yes" onclick="function_yes12_row13_offer_cl_can_send_on_email_yes()"><label for="yes12_row13_offer_cl_can_send_on_email_yes"><span class="span-green">Да</span></label></p>	
+										<p class="radio"><input type="radio" name="v" id="yes12_row13_offer_cl_can_send_on_email_no" onclick="function_yes12_row13_offer_cl_can_send_on_email_no()"><label for="yes12_row13_offer_cl_can_send_on_email_no"><span class="span-red">Нет</span></label></p>
+										<p class="radio"><input type="radio" name="v" id="yes12_row13_offer_cl_can_send_on_email_yes" onclick="function_yes12_row13_offer_cl_can_send_on_email_yes()"><label for="yes12_row13_offer_cl_can_send_on_email_yes"><span class="span-green">Да</span></label></p>	
 									</th>						
 								</tr>
 								<tr id="row12_choose_offer_cl">
@@ -595,16 +595,16 @@
 										<span class="span-blue">ИО,</span> <span class="span-red">погашать кредит можно пополняя дебетовую карту. Вы подтверждаете, что оформляете кредит наличными на <b><сумму></b> и <b><срок ></b> месяцев с платежом <b><Назвать платеж></b> рублей в месяц?</span><br><br><b>Клиент согласен?</b>
 									</th>	
 									<th>
-										<p><input type="radio" name="an" id="r11_confirm_condition_for_cl_no" onclick="function_r11_confirm_condition_for_cl_no()"><label for="r11_confirm_condition_for_cl_no"><span class="span-red">Нет</span></label></p>
-										<p><input type="radio" name="an" id="r11_confirm_condition_for_cl_yes" onclick="function_r11_confirm_condition_for_cl_yes()"><label for="r11_confirm_condition_for_cl_yes"><span class="span-green">Да</span></label></p>
+										<p class="radio"><input type="radio" name="an" id="r11_confirm_condition_for_cl_no" onclick="function_r11_confirm_condition_for_cl_no()"><label for="r11_confirm_condition_for_cl_no"><span class="span-red">Нет</span></label></p>
+										<p class="radio"><input type="radio" name="an" id="r11_confirm_condition_for_cl_yes" onclick="function_r11_confirm_condition_for_cl_yes()"><label for="r11_confirm_condition_for_cl_yes"><span class="span-green">Да</span></label></p>
 									</th>					
 								</tr>
 								<tr id="y11_r12_can_activate_now">
 									<th>Можно активировать кредит сразу</th>
 									<th><b>Сообщи (не настаивая) клиенту, что у него есть возможность активировать кредит прямо сейчас. Клиент согласен произвести активацию?</b></th>
 									<th>
-										<p><input type="radio" name="ao" id="r12_can_activate_now_no" onclick="function_r12_can_activate_now_no()"><label for="r12_can_activate_now_no"><span class="span-red">Нет</span></label></p>
-										<p><input type="radio" name="ao" id="r12_can_activate_now_yes" onclick="function_r12_can_activate_now_yes()"><label for="r12_can_activate_now_yes"><span class="span-green">Да</span></label></p>
+										<p class="radio"><input type="radio" name="ao" id="r12_can_activate_now_no" onclick="function_r12_can_activate_now_no()"><label for="r12_can_activate_now_no"><span class="span-red">Нет</span></label></p>
+										<p class="radio"><input type="radio" name="ao" id="r12_can_activate_now_yes" onclick="function_r12_can_activate_now_yes()"><label for="r12_can_activate_now_yes"><span class="span-green">Да</span></label></p>
 									</th>	
 								</tr>
 								<tr id="y12_r13_activation_on_formation">
@@ -732,14 +732,13 @@
 						</div> 
 						<div id="my_cl_count_result1">
 							<div>
-								<span class="span-green">
-									Одобрен: 
+								<span>
+									<mark class="span-green">Одобрен:</mark> Кредит наличными на *сумма* рублей на срок N месяцев (N рублей в месяц, присутствует страховка, кредитные каникулы отсутсвуют)
 								</span>
-								Кредит наличными на *сумма* рублей на срок N месяцев (N рублей в месяц, присутствует страховка, кредитные каникулы отсутсвуют) 
-									<span class="span-background" data-click='tooltip'>
-										?
-									</span>
-								<div id="tooltip_wrap" class="hidden">
+								<span class="span-background" data-click='tooltip'>
+									?
+								</span>
+								<div id="tooltip_wrap" class="hidden tooltip">
 									<div id="tooltip_count">
 										<b>Полная стоимость кредита: </b>28,9 %  <br>
 										<b>Переплата общая: </b>145 076 руб.<br>
@@ -753,6 +752,7 @@
 										<b>Сумма возврата: </b>33 487 рублей<br>
 									</div>
 								</div>
+
 							</div>	    		
 						</div>
 						<div id="my_cl_count2">
@@ -790,8 +790,11 @@
 
 							<div id="my_cl_count_result">
 								<div>
-									<span class="span-green">Одобрен: </span>Кредит наличными на *сумма* рублей на срок N месяцев (N рублей в месяц, присутствует страховка, кредитные каникулы отсутсвуют) <span class="span-background" id="span-tooltip1" onclick="tooltip1()">?</span>
-									<div id="tooltip_wrap1">
+									<mark class="span-green">Одобрен: </mark>Кредит наличными на *сумма* рублей на срок N месяцев (N рублей в месяц, присутствует страховка, кредитные каникулы отсутсвуют) 
+									<span class="span-background" id="span-tooltip1" data-click='tooltip1'>
+										?
+									</span>
+									<div id="tooltip_wrap1" lass="hidden tooltip">
 										<div id="tooltip_count1">
 											<b>Полная стоимость кредита: </b>24,9 %  <br>
 											<b>Переплата общая: </b>167 800 руб.  <br>
@@ -810,9 +813,9 @@
 							<h2>Получение кредита</h2>
 							<hr>
 							<form>
-								<p><input type="radio" name="c32" value="24g" id="take_a_credit_activate" onclick="take_a_credit()"><label for="take_a_credit_activate">Активировать кредит (Деньги будут зачислены на карту Tinkoff Black, документы на e-mail fakemailforspam@gmail.com)</label></p>
-								<p><input type="radio" name="c32" value="24g" id="take_a_credit_email" onclick="take_a_credit()"><label for="take_a_credit_email">Отправить документы для активации на e-mail fakemailforspam@gmail.com</label></p>
-								<p><input type="radio" name="c32" value="24g" id="take_a_credit_guy" onclick="function_appointment_show()"><label for="take_a_credit_guy">Назначить доставку представителем</label></p>
+								<p class="radio"><input type="radio" name="c32" value="24g" id="take_a_credit_activate" onclick="take_a_credit()"><label for="take_a_credit_activate">Активировать кредит (Деньги будут зачислены на карту Tinkoff Black, документы на e-mail fakemailforspam@gmail.com)</label></p>
+								<p class="radio"><input type="radio" name="c32" value="24g" id="take_a_credit_email" onclick="take_a_credit()"><label for="take_a_credit_email">Отправить документы для активации на e-mail fakemailforspam@gmail.com</label></p>
+								<p class="radio"><input type="radio" name="c32" value="24g" id="take_a_credit_guy" onclick="function_appointment_show()"><label for="take_a_credit_guy">Назначить доставку представителем</label></p>
 							</form>
 							<button id="end_task" class="btn btn_blue">Завершить работу с заданием</button>
 						</div>
@@ -837,9 +840,9 @@
 						<div id="change_place">
 								<h2>Адрес</h2>
 								<hr>
-								<p><input type="radio" name="ee3" id="change_p1" onclick="function_change_p1()"><label for="change_p1"><b>Адрес регистрации</b> 111000 г.Москва, ул. Центральная, д.21</label></p>
-								<p><input type="radio" name="ee3" id="change_p2" onclick="function_change_p2()"><label for="change_p2"><b>Рабочий адрес</b> 111000 г.Москва, ул. Василия Петушкова, д. 210</label></p> 
-								<p><input type="radio" name="ee3" id="change_p3" onclick="function_change_p3()"><label for="change_p3"><b>Новый адрес</b></label></p>
+								<p class="radio"><input type="radio" name="ee3" id="change_p1" onclick="function_change_p1()"><label for="change_p1"><b>Адрес регистрации</b> 111000 г.Москва, ул. Центральная, д.21</label></p>
+								<p class="radio"><input type="radio" name="ee3" id="change_p2" onclick="function_change_p2()"><label for="change_p2"><b>Рабочий адрес</b> 111000 г.Москва, ул. Василия Петушкова, д. 210</label></p> 
+								<p class="radio"><input type="radio" name="ee3" id="change_p3" onclick="function_change_p3()"><label for="change_p3"><b>Новый адрес</b></label></p>
 								<h2>Удобный адрес для встречи</h2>
 								<hr>
 								<div id="appointment__nice_address">
@@ -867,17 +870,22 @@
 						<div id="modal">
 							<div id="mod_interaction">
 								<p class="mod_par">
-									Встреча состоится 10.08.2019 в период 10:00 – 12:00. Примерно за час до встречи представитель свяжется с Вами для подтверждения доставки. 
-									В день встречи мы отправим смс с телефоном представителя. На встрече потребуется подписать документы и передать их представителю. 
-									Обязательно возьмите с собой паспорт. Представитель сфотографирует Вас и документы.
+									Мы назначили встречу на 01.07.2019 в период 10:00 – 15:00. 
+									В день встречи отправим смс с телефоном представителя.
+									Примерно за час до встречи он вам позвонит.
+									На встрече потребуется подписать документы и передать их представителю. 
+									Возьмите с собой оригинал паспорта, представитель сфотографирует вас и документы.
 								</p>
 								<div class="mod_ball">
-									<b>	Баллов за задание: 2,00</b>
+									<b>Баллов за задание: 1,30</b>
 								</div>
+								<p class="mod_check">
+									<input type="checkbox" checked name="pe2" id="next_task">
+									Ожидать следующий звонок
+								</p>
+
 								<div id="mod_buttons_wrap">
-									<p><input type="checkbox" name="pe2" id="next_task">Продолжить работу</p>
-									<p class="span-grey next_task2">Получить задание из очереди</p>
-									<hr>
+
 									<div id="mod_but_wrap">
 										<button class="btn btn_blue" type="submit" id="confirm_end" onclick="window.location.reload()">Подтвердить</button>
 										<button class="btn btn_gray" type="submit" id="confirm_cancel" onclick="function_confirm_cancel()">Отменить</button>
@@ -889,11 +897,11 @@
 					<div class="actions__section hidden actions__no-call">
 						<div class="nedozvon__div">
 							<form class="nedozvon__div__form">
-								<p><input id="form__nedozvon" type="radio" name="b" value="Клиент не отвечает">Клиент не отвечает</p>
-								<p><input id="form__nedozvon" type="radio" name="b" value="Телефон не существует">Телефон не существует</p>
-								<p><input id="form__nedozvon" type="radio" name="b" value="Занято">Занято</p>
-								<p><input id="form__nedozvon" type="radio" name="b" value="Клиент сбрасывает вызов">Клиент сбрасывает вызов</p>
-								<p><input id="form__nedozvon" type="radio" name="b" value="Телефон абонента выключен">Телефон абонента выключен</p>
+								<p class="radio"><input id="form__nedozvon" type="radio" name="b" value="Клиент не отвечает">Клиент не отвечает</p>
+								<p class="radio"><input id="form__nedozvon" type="radio" name="b" value="Телефон не существует">Телефон не существует</p>
+								<p class="radio"><input id="form__nedozvon" type="radio" name="b" value="Занято">Занято</p>
+								<p class="radio"><input id="form__nedozvon" type="radio" name="b" value="Клиент сбрасывает вызов">Клиент сбрасывает вызов</p>
+								<p class="radio"><input id="form__nedozvon" type="radio" name="b" value="Телефон абонента выключен">Телефон абонента выключен</p>
 							</form>
 						</div>
 						<div>
@@ -906,16 +914,16 @@
 					<div class="actions__section hidden actions__refusal"><h3>Отказ</h3>
 						<div class="otkaz__div">
 							<form class="otkaz__div__form">
-								<p><input id="form__otkaz" type="radio" name="a" value="Высокая ставка по кредиту">Высокая ставка по кредиту</p>
-								<p><input id="form__otkaz" type="radio" name="a" value="Другое">Другое</p>
-								<p><input id="form__otkaz" type="radio" name="a" value="Другой банк">Другой банк</p>
-								<p><input id="form__otkaz" type="radio" name="a" value="Кредит уже не нужен">Кредит уже не нужен</p>
-								<p><input id="form__otkaz" type="radio" name="a" value="Не звонить">Не звонить</p>
-								<p><input id="form__otkaz" type="radio" name="a" value="Не устраивает одобренная сумма">Не устраивает одобренная сумма</p>
-								<p><input id="form__otkaz" type="radio" name="a" value="По инициативе банка">По инициативе банка</p>
-								<p><input id="form__otkaz" type="radio" name="a" value="Третье лицо">Третье лицо</p>
-								<p><input id="form__otkaz" type="radio" name="a" value="Самовывоз">Самовывоз</p>
-								<p><input id="form__otkaz" type="radio" name="a" value="Клиент ранее отказался">Клиент ранее отказался</p>
+								<p class="radio"><input id="form__otkaz" type="radio" name="a" value="Высокая ставка по кредиту">Высокая ставка по кредиту</p>
+								<p class="radio"><input id="form__otkaz" type="radio" name="a" value="Другое">Другое</p>
+								<p class="radio"><input id="form__otkaz" type="radio" name="a" value="Другой банк">Другой банк</p>
+								<p class="radio"><input id="form__otkaz" type="radio" name="a" value="Кредит уже не нужен">Кредит уже не нужен</p>
+								<p class="radio"><input id="form__otkaz" type="radio" name="a" value="Не звонить">Не звонить</p>
+								<p class="radio"><input id="form__otkaz" type="radio" name="a" value="Не устраивает одобренная сумма">Не устраивает одобренная сумма</p>
+								<p class="radio"><input id="form__otkaz" type="radio" name="a" value="По инициативе банка">По инициативе банка</p>
+								<p class="radio"><input id="form__otkaz" type="radio" name="a" value="Третье лицо">Третье лицо</p>
+								<p class="radio"><input id="form__otkaz" type="radio" name="a" value="Самовывоз">Самовывоз</p>
+								<p class="radio"><input id="form__otkaz" type="radio" name="a" value="Клиент ранее отказался">Клиент ранее отказался</p>
 							</form>
 						</div>
 						<div>
@@ -928,9 +936,9 @@
 					<div class="actions__section hidden actions__chime">
 						<div class="perezvon__wrap">
 							<hr>
-							<p class="perezvon__paragraph"><input type="radio" name="perezvon" value="v3" id="recall_appointment_time" checked><label for="recall_appointment_time">Не устраивает время встречи</label></p>
-							<p class="perezvon__paragraph"><input type="radio" name="perezvon" value="v1" id="recall_client_ask"><label for="recall_client_ask">По просьбе клиента / 3го лица</label></p>
-							<input class="perezvon__paragraph__call_fail" type="radio" name="perezvon" value="v2" id="recall_connection_fail"><label for="recall_connection_fail">Звонок сорвался</label>
+							<p class="perezvon__paragraph radio"><input type="radio" name="perezvon" value="v3" id="recall_appointment_time" checked><label for="recall_appointment_time">Не устраивает время встречи</label></p>
+							<p class="perezvon__paragraph radio"><input type="radio" name="perezvon" value="v1" id="recall_client_ask"><label for="recall_client_ask">По просьбе клиента / 3го лица</label></p>
+							<input class="perezvon__paragraph__call_fail radio" type="radio" name="perezvon" value="v2" id="recall_connection_fail"><label for="recall_connection_fail">Звонок сорвался</label>
 							<div class="perezvon__wrap__p">
 								<p class="perezvon__paragraph__checkbox_time_recall_selected" ><input type="checkbox" id="perezvon__paragraph__checkbox_time_recall_selected" name="perezvon" onclick="preparePage()">Время перезвона выбрано</p>
 								<div id="perezvon__wrap2">

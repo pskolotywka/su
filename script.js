@@ -15,7 +15,10 @@ function catchClick(event) {
             showScript(clickedElement);
             break;
         case 'tooltip':
-            showTooltip();
+            toggleTooltip('tooltip_wrap');
+            break;
+        case 'tooltip1':
+            toggleTooltip('tooltip_wrap1');
             break;
     };
 };
@@ -59,7 +62,7 @@ function catchClickBookmarkActions(clickedElement) {
 
 function toggleClientCardSection (sectionClassName, clickedElement) {
     const bookmarkArray = arrayFromCollection( document.querySelectorAll('.client-card__bookmark') );
-    bookmarkArray.forEach( (bookmark) => bookmark.classList.remove('client-card__bookmark_active') )
+    bookmarkArray.forEach( (bookmark) => bookmark.classList.remove('client-card__bookmark_active') );
     clickedElement.classList.add('client-card__bookmark_active');
 
     hideElements('.client-card__section');
@@ -74,8 +77,8 @@ function showScript(clickedElement) {
     showElements('#more_actions');
 };
 
-function showTooltip() {
-    document.getElementById("tooltip_wrap").classList.toggle('hidden');
+function toggleTooltip(id) {
+    document.getElementById(id).classList.toggle('hidden');
 };
 
 function catchChange(event) {
@@ -125,7 +128,7 @@ function showElements(selector) {
 function arrayFromCollection(collection) {
     const array = Array.from(collection);
     return array;
-}
+};
 
 
 
