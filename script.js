@@ -57,17 +57,15 @@ function catchClick(event) {
         case 'work_adress':
             hideAdressElements();
             break;
-
-            
-
-            
         case 'reload':
             window.location.reload();
             break;
         case 'modal_cancel':
             hideModal();
             break;
-            
+        case 'choose_next_step':
+            chooseNextStep(event);
+            break;
     };
 };
 
@@ -121,6 +119,7 @@ function showScript(clickedElement) {
     clickedElement.classList.add('hidden');
     showElements('.history__work-status');
     showElements('.predstavlenie__table');
+    insertNextStepDialog('step_1');
     showElements('#more_actions');
 };
 
@@ -304,6 +303,125 @@ function showElements(selector) {
 
 
 
+//Вставка следующего шага диалогового скрипта.
+function insertNextStepDialog(step_number) {
+    const dialog = document.querySelector('.dialog');//Это таблица.
+    const step = baseOfStep[step_number];//Берем из базы данные о шаге.
+    step.step_number = step_number;//Добавляем в объект номер шага, он нам пригодится.
+   
+    //Создаем контейнер-строку в таблице.
+    const string = createDiv();
+    string.classList.add('dialog__string');
+    string.dataset.step = step_number;
+
+    //Создаем ячейки для строки.
+    const cellGrid = createDiv();
+    cellGrid.classList.add('dialog__cell');
+    const themeCell = cellGrid.cloneNode(true);
+    const phraseCell = cellGrid.cloneNode(true);
+    const answerCell = cellGrid.cloneNode(true);
+
+    //Наполняем ячейки данными из базы.
+    themeCell.innerHTML = step.theme;
+    phraseCell.innerHTML = step.text;
+    if (step.buttons) {//Если в базе есть данные о кнопках, вставляем их в ячейку.
+        answerCell.append( createAnswerForDialog(step) );
+    };
+    
+    //Наполняем строку ячейками.
+    string.append(themeCell);
+    string.append(phraseCell);
+    string.append(answerCell);
+
+    //Добавляем строку в таблицу.
+    dialog.append(string);
+};
+
+//Создаем контейнер с кнопками.
+function createAnswerForDialog(step) {
+    const wrap = createDiv();//Создаем обертку.
+    wrap.classList.add('dialog__buttons');
+    //Для каждой кнопки повторяем операцию создания и добавляем ее в обертку.
+    step.buttons.forEach(button_data => {
+        let label = createLabelForDialog(button_data, step);
+        wrap.append(label);
+    });
+    return wrap;
+};
+
+//Создаем кнопки.
+function createLabelForDialog(button_data, step) {
+    //Создаем label.
+    const label = document.createElement('label');
+    label.classList.add('dialog__label');
+    //Если есть данные о типе ответа - подкрашиваем текст ответа.
+    if (button_data.type) {
+        label.classList.add(`dialog__${button_data.type}`);
+    };
+    
+    //Создаем input.
+    const radioButton = document.createElement('input');
+    radioButton.type = 'radio';//Делаем его радиокнопкой.
+    radioButton.name = step.step_number;//Присваиваем имя, чтобы радиокнопки переключались между собой.
+    radioButton.dataset.click = 'choose_next_step';//Маркер для ловца кликов.
+    radioButton.dataset.nextStep = button_data.next_step;//Какой шаг должен ооткрыться при клике.
+    
+    //Добавляем input в label.
+    label.append(radioButton);
+    //Добавляем текст кнопки в label.
+    label.append(button_data.text);
+
+    return label;
+};
+
+//Вставка следующего шага.
+function chooseNextStep(event) {
+    const radio = event.target;
+    //Находим строку таблицы в которой был клик и удаляем все последующие строки.
+    const string = radio.closest('.dialog__string');
+    deleteSteps(string);
+    
+    //Берем номер следющео шага из дата-аттрибута кнопки и вставляем его.
+    const next_step = `step_${radio.dataset.nextStep}`;
+    insertNextStepDialog(next_step);
+};
+
+//Проверяем - есть ли нижележащий сестринский элемент, удаляем, повторяем.
+function deleteSteps(string) {
+    if(string.nextSibling) {
+        string.nextSibling.remove();
+        deleteSteps(string);
+    };
+    return;
+};
+
+function createDiv() {
+    const div = document.createElement('div');
+    return div;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // appointment__ops form__SU3 
 
 
@@ -383,740 +501,12 @@ function change_data() {
     };
 }
 
-function function_name1() {
-    if (document.getElementById("row2_yes").checked) {
-        document.getElementById("row3_y").style.display = 'table-row';
-        document.getElementById("row3_n").style.display = 'none';
-        document.getElementById("row3_znakomy_yes").style.display = 'none';
-        document.getElementById("row4_otkaz_3lico").style.display = 'none';
-    }
-};
 
-function function_name2() {
-    if (document.getElementById("row2_no").checked) {
-        document.getElementById("row3_n").style.display = 'table-row';
-        document.getElementById("row3_y").style.display = 'none';
-        document.getElementById("row3_znakomy_yes").style.display = 'none';
-        document.getElementById("row4_cl").style.display = 'none';
-        document.getElementById("row4_cc").style.display = 'none';
-        document.getElementById("row4_otkaz_3lico").style.display = 'none';
-        document.getElementById("row5_tp_spereschetom").style.display = 'none';
-        document.getElementById("row5_cc_advantages").style.display = 'none';
-        document.getElementById("row5_cc_yes_neakt_cc").style.display = 'none';
-        document.getElementById("row5_rsv_for_cc").style.display = 'none';
-        document.getElementById("no4_row5_predlojenie_cl").style.display = 'none';
-        document.getElementById("row6_neakt_no_choose_cc").style.display = 'none';
-        document.getElementById("row6_cc_to_offer_cl_yes_no").style.display = 'none';
-        document.getElementById("no5_row6_choose_product_cc").style.display = 'none';
-        document.getElementById("y5_r6_attention_cc").style.display = 'none';
-        document.getElementById("next_r7_choose_product_cc").style.display = 'none';
-        document.getElementById("next5_row6_count_for_cl").style.display = 'none';
-        document.getElementById("row7_not_activated_cc2").style.display = 'none';
-        document.getElementById("row7_no_offer_cl_from_cc_sorry").style.display = 'none';
-        document.getElementById("row7_offer_cl_to_recount").style.display = 'none';
-        document.getElementById("no6_rw7_1rsv_for_cl_and_cc").style.display = 'none';
-        document.getElementById("y6_ro7_attention_cc").style.display = 'none';
-        document.getElementById("row8_email_possible").style.display = 'none';
-        document.getElementById("y7_r8_attention_cc2").style.display = 'none';
-        document.getElementById("no7_r8_different_offer").style.display = 'none';
-        document.getElementById("y7_r8_unactivated_cc2").style.display = 'none';
-        document.getElementById("n7_r8_offer_cl_tp_recount").style.display = 'none';
-        document.getElementById("y7_row8_offer_cl_tp_recount").style.display = 'none';
-        document.getElementById("row9_choose_cl_offer").style.display = 'none';
-        document.getElementById("row9_email_no").style.display = 'none';
-        document.getElementById("row9_cl_count_rsv").style.display = 'none';
-        document.getElementById("r8next_r9_can_get_on_email").style.display = 'none';
-        document.getElementById("n8_r9_can_use_email").style.display = 'none';
-        document.getElementById("y8_r9_attention_cc2").style.display = 'none';
-        document.getElementById("no8_row9_no_offer").style.display = 'none';
-        document.getElementById("y8_r9_second_offer").style.display = 'none';
-        document.getElementById("y8_ro9_is_email_correct").style.display = 'none';
-        document.getElementById("row10_goodbye_no_offer").style.display = 'none';
-        document.getElementById("row10_unactivated_cc3").style.display = 'none';
-        document.getElementById("n9_r10_choose_offer_cl").style.display = 'none';
-        document.getElementById("y9_r10_is_email_correct").style.display = 'none';
-        document.getElementById("next9_r10_can_use_email").style.display = 'none';
-        document.getElementById("n9_r10_is_email_correct").style.display = 'none';
-        document.getElementById("row11_may_get_on_email").style.display = 'none';
-        document.getElementById("n10_r11_requst_change_data").style.display = 'none';
-        document.getElementById("y10_r11_confirm_condition_for_cl").style.display = 'none';
-        document.getElementById("y10_r11_say_email_better").style.display = 'none';
-        document.getElementById("row12_choose_offer_cl").style.display = 'none';
-        document.getElementById("yes11_row12_offer_cl_email_is_correct").style.display = 'none';
-        document.getElementById("y11_r12_can_activate_now").style.display = 'none';
-        document.getElementById("n11_r12_2rsv_cc_cl").style.display = 'none';
-        document.getElementById("yes12_row13_offer_cl_can_send_on_email").style.display = 'none';
-        document.getElementById("y12_r13_activation_on_formation").style.display = 'none';
-        document.getElementById("n12_r13_activation_with_employee").style.display = 'none';
-        document.getElementById("no13_row14_choose_offer_cl").style.display = 'none';
-    }
-};
 
 
-function function_row3_cl_cc() {
-    if (document.getElementById("row3_cl").checked) {
-        document.getElementById("row4_cc").style.display = 'none';
-        document.getElementById("row4_cl").style.display = 'table-row';
-        document.getElementById("row4_otkaz_3lico").style.display = 'none';
-        document.getElementById("row5_tp_spereschetom").style.display = 'none';
-        document.getElementById("row5_cc_advantages").style.display = 'none';
-        document.getElementById("row5_cc_yes_neakt_cc").style.display = 'none';
-        document.getElementById("row5_rsv_for_cc").style.display = 'none';
-        document.getElementById("no4_row5_predlojenie_cl").style.display = 'none';
-        document.getElementById("row6_neakt_no_choose_cc").style.display = 'none';
-        document.getElementById("row6_cc_to_offer_cl_yes_no").style.display = 'none';
-        document.getElementById("no5_row6_choose_product_cc").style.display = 'none';
-        document.getElementById("y5_r6_attention_cc").style.display = 'none';
-        document.getElementById("next_r7_choose_product_cc").style.display = 'none';
-        document.getElementById("next5_row6_count_for_cl").style.display = 'none';
-        document.getElementById("row7_not_activated_cc2").style.display = 'none';
-        document.getElementById("row7_no_offer_cl_from_cc_sorry").style.display = 'none';
-        document.getElementById("row7_offer_cl_to_recount").style.display = 'none';
-        document.getElementById("no6_rw7_1rsv_for_cl_and_cc").style.display = 'none';
-        document.getElementById("y6_ro7_attention_cc").style.display = 'none';
-        document.getElementById("row8_email_possible").style.display = 'none';
-        document.getElementById("y7_r8_attention_cc2").style.display = 'none';
-        document.getElementById("no7_r8_different_offer").style.display = 'none';
-        document.getElementById("y7_r8_unactivated_cc2").style.display = 'none';
-        document.getElementById("n7_r8_offer_cl_tp_recount").style.display = 'none';
-        document.getElementById("y7_row8_offer_cl_tp_recount").style.display = 'none';
-        document.getElementById("row9_choose_cl_offer").style.display = 'none';
-        document.getElementById("row9_email_no").style.display = 'none';
-        document.getElementById("row9_cl_count_rsv").style.display = 'none';
-        document.getElementById("r8next_r9_can_get_on_email").style.display = 'none';
-        document.getElementById("n8_r9_can_use_email").style.display = 'none';
-        document.getElementById("y8_r9_attention_cc2").style.display = 'none';
-        document.getElementById("no8_row9_no_offer").style.display = 'none';
-        document.getElementById("y8_r9_second_offer").style.display = 'none';
-        document.getElementById("y8_ro9_is_email_correct").style.display = 'none';
-        document.getElementById("row10_goodbye_no_offer").style.display = 'none';
-        document.getElementById("row10_unactivated_cc3").style.display = 'none';
-        document.getElementById("n9_r10_choose_offer_cl").style.display = 'none';
-        document.getElementById("y9_r10_is_email_correct").style.display = 'none';
-        document.getElementById("next9_r10_can_use_email").style.display = 'none';
-        document.getElementById("n9_r10_is_email_correct").style.display = 'none';
-        document.getElementById("row11_may_get_on_email").style.display = 'none';
-        document.getElementById("n10_r11_requst_change_data").style.display = 'none';
-        document.getElementById("y10_r11_confirm_condition_for_cl").style.display = 'none';
-        document.getElementById("y10_r11_say_email_better").style.display = 'none';
-        document.getElementById("row12_choose_offer_cl").style.display = 'none';
-        document.getElementById("yes11_row12_offer_cl_email_is_correct").style.display = 'none';
-        document.getElementById("y11_r12_can_activate_now").style.display = 'none';
-        document.getElementById("n11_r12_2rsv_cc_cl").style.display = 'none';
-        document.getElementById("yes12_row13_offer_cl_can_send_on_email").style.display = 'none';
-        document.getElementById("y12_r13_activation_on_formation").style.display = 'none';
-        document.getElementById("n12_r13_activation_with_employee").style.display = 'none';
-        document.getElementById("no13_row14_choose_offer_cl").style.display = 'none';
-    } else if (document.getElementById("row3_cc").checked) {
-        document.getElementById("row4_cl").style.display = 'none';
-        document.getElementById("row4_cc").style.display = 'table-row';
-        document.getElementById("row4_otkaz_3lico").style.display = 'none';
-        document.getElementById("row5_tp_spereschetom").style.display = 'none';
-        document.getElementById("row5_cc_advantages").style.display = 'none';
-        document.getElementById("row5_cc_yes_neakt_cc").style.display = 'none';
-        document.getElementById("row5_rsv_for_cc").style.display = 'none';
-        document.getElementById("no4_row5_predlojenie_cl").style.display = 'none';
-        document.getElementById("row6_neakt_no_choose_cc").style.display = 'none';
-        document.getElementById("row6_cc_to_offer_cl_yes_no").style.display = 'none';
-        document.getElementById("no5_row6_choose_product_cc").style.display = 'none';
-        document.getElementById("y5_r6_attention_cc").style.display = 'none';
-        document.getElementById("next_r7_choose_product_cc").style.display = 'none';
-        document.getElementById("next5_row6_count_for_cl").style.display = 'none';
-        document.getElementById("row7_not_activated_cc2").style.display = 'none';
-        document.getElementById("row7_no_offer_cl_from_cc_sorry").style.display = 'none';
-        document.getElementById("row7_offer_cl_to_recount").style.display = 'none';
-        document.getElementById("no6_rw7_1rsv_for_cl_and_cc").style.display = 'none';
-        document.getElementById("y6_ro7_attention_cc").style.display = 'none';
-        document.getElementById("row8_email_possible").style.display = 'none';
-        document.getElementById("y7_r8_attention_cc2").style.display = 'none';
-        document.getElementById("no7_r8_different_offer").style.display = 'none';
-        document.getElementById("y7_r8_unactivated_cc2").style.display = 'none';
-        document.getElementById("n7_r8_offer_cl_tp_recount").style.display = 'none';
-        document.getElementById("y7_row8_offer_cl_tp_recount").style.display = 'none';
-        document.getElementById("row9_choose_cl_offer").style.display = 'none';
-        document.getElementById("row9_email_no").style.display = 'none';
-        document.getElementById("row9_cl_count_rsv").style.display = 'none';
-        document.getElementById("r8next_r9_can_get_on_email").style.display = 'none';
-        document.getElementById("n8_r9_can_use_email").style.display = 'none';
-        document.getElementById("y8_r9_attention_cc2").style.display = 'none';
-        document.getElementById("no8_row9_no_offer").style.display = 'none';
-        document.getElementById("y8_r9_second_offer").style.display = 'none';
-        document.getElementById("y8_ro9_is_email_correct").style.display = 'none';
-        document.getElementById("row10_goodbye_no_offer").style.display = 'none';
-        document.getElementById("row10_unactivated_cc3").style.display = 'none';
-        document.getElementById("n9_r10_choose_offer_cl").style.display = 'none';
-        document.getElementById("y9_r10_is_email_correct").style.display = 'none';
-        document.getElementById("next9_r10_can_use_email").style.display = 'none';
-        document.getElementById("n9_r10_is_email_correct").style.display = 'none';
-        document.getElementById("row11_may_get_on_email").style.display = 'none';
-        document.getElementById("n10_r11_requst_change_data").style.display = 'none';
-        document.getElementById("y10_r11_confirm_condition_for_cl").style.display = 'none';
-        document.getElementById("y10_r11_say_email_better").style.display = 'none';
-        document.getElementById("row12_choose_offer_cl").style.display = 'none';
-        document.getElementById("yes11_row12_offer_cl_email_is_correct").style.display = 'none';
-        document.getElementById("y11_r12_can_activate_now").style.display = 'none';
-        document.getElementById("n11_r12_2rsv_cc_cl").style.display = 'none';
-        document.getElementById("yes12_row13_offer_cl_can_send_on_email").style.display = 'none';
-        document.getElementById("y12_r13_activation_on_formation").style.display = 'none';
-        document.getElementById("n12_r13_activation_with_employee").style.display = 'none';
-        document.getElementById("no13_row14_choose_offer_cl").style.display = 'none';
-    }
-};
 
 
-function function_row4_cl_yes() {
-    if (document.getElementById("row4_tp_s_pereschetom_yes").checked) {
-        document.getElementById("row5_tp_spereschetom").style.display = 'table-row';
-        document.getElementById("row7_not_activated_cc2").style.display = 'none';
-        document.getElementById("no4_row5_predlojenie_cl").style.display = 'none';
-        document.getElementById("y7_r8_attention_cc2").style.display = 'none';
-        document.getElementById("r8next_r9_can_get_on_email").style.display = 'none';
-        document.getElementById("y9_r10_is_email_correct").style.display = 'none';
-        document.getElementById("row8_email_possible").style.display = 'none';
-        document.getElementById("y8_ro9_is_email_correct").style.display = 'none';
-        document.getElementById("n11_r12_2rsv_cc_cl").style.display = 'none';
-        document.getElementById("y10_r11_say_email_better").style.display = 'none';
-        document.getElementById("y10_r11_confirm_condition_for_cl").style.display = 'none';
-        document.getElementById("next5_row6_count_for_cl").style.display = 'none';
-        document.getElementById("n9_r10_choose_offer_cl").style.display = 'none';
-        document.getElementById("row5_cc_advantages").style.display = 'none';
-        document.getElementById("row5_cc_yes_neakt_cc").style.display = 'none';
-        document.getElementById("row5_rsv_for_cc").style.display = 'none';
-        document.getElementById("no4_row5_predlojenie_cl").style.display = 'none';
-        document.getElementById("row6_neakt_no_choose_cc").style.display = 'none';
-        document.getElementById("row6_cc_to_offer_cl_yes_no").style.display = 'none';
-        document.getElementById("no5_row6_choose_product_cc").style.display = 'none';
-        document.getElementById("y5_r6_attention_cc").style.display = 'none';
-        document.getElementById("next_r7_choose_product_cc").style.display = 'none';
-        document.getElementById("next5_row6_count_for_cl").style.display = 'none';
-        document.getElementById("row7_not_activated_cc2").style.display = 'none';
-        document.getElementById("row7_no_offer_cl_from_cc_sorry").style.display = 'none';
-        document.getElementById("row7_offer_cl_to_recount").style.display = 'none';
-        document.getElementById("no6_rw7_1rsv_for_cl_and_cc").style.display = 'none';
-        document.getElementById("y6_ro7_attention_cc").style.display = 'none';
-        document.getElementById("row8_email_possible").style.display = 'none';
-        document.getElementById("y7_r8_attention_cc2").style.display = 'none';
-        document.getElementById("no7_r8_different_offer").style.display = 'none';
-        document.getElementById("y7_r8_unactivated_cc2").style.display = 'none';
-        document.getElementById("n7_r8_offer_cl_tp_recount").style.display = 'none';
-        document.getElementById("y7_row8_offer_cl_tp_recount").style.display = 'none';
-        document.getElementById("row9_choose_cl_offer").style.display = 'none';
-        document.getElementById("row9_email_no").style.display = 'none';
-        document.getElementById("row9_cl_count_rsv").style.display = 'none';
-        document.getElementById("r8next_r9_can_get_on_email").style.display = 'none';
-        document.getElementById("n8_r9_can_use_email").style.display = 'none';
-        document.getElementById("y8_r9_attention_cc2").style.display = 'none';
-        document.getElementById("no8_row9_no_offer").style.display = 'none';
-        document.getElementById("y8_r9_second_offer").style.display = 'none';
-        document.getElementById("y8_ro9_is_email_correct").style.display = 'none';
-        document.getElementById("row10_goodbye_no_offer").style.display = 'none';
-        document.getElementById("row10_unactivated_cc3").style.display = 'none';
-        document.getElementById("n9_r10_choose_offer_cl").style.display = 'none';
-        document.getElementById("y9_r10_is_email_correct").style.display = 'none';
-        document.getElementById("next9_r10_can_use_email").style.display = 'none';
-        document.getElementById("n9_r10_is_email_correct").style.display = 'none';
-        document.getElementById("row11_may_get_on_email").style.display = 'none';
-        document.getElementById("n10_r11_requst_change_data").style.display = 'none';
-        document.getElementById("y10_r11_confirm_condition_for_cl").style.display = 'none';
-        document.getElementById("y10_r11_say_email_better").style.display = 'none';
-        document.getElementById("row12_choose_offer_cl").style.display = 'none';
-        document.getElementById("yes11_row12_offer_cl_email_is_correct").style.display = 'none';
-        document.getElementById("y11_r12_can_activate_now").style.display = 'none';
-        document.getElementById("n11_r12_2rsv_cc_cl").style.display = 'none';
-        document.getElementById("yes12_row13_offer_cl_can_send_on_email").style.display = 'none';
-        document.getElementById("y12_r13_activation_on_formation").style.display = 'none';
-        document.getElementById("n12_r13_activation_with_employee").style.display = 'none';
-        document.getElementById("no13_row14_choose_offer_cl").style.display = 'none';
-    }
-};
 
-function function_row5_tp_spereschetom_next() {
-    if (document.getElementById("row5_tp_spereschetom_next").checked) {
-        document.getElementById("next5_row6_count_for_cl").style.display = 'table-row';
-    }
-};
 
-function function_row6_raschety_cl_yes() {
-    if (document.getElementById("row6_raschety_cl_yes").checked) {
-        document.getElementById("row7_not_activated_cc2").style.display = 'table-row';
-        document.getElementById("no6_rw7_1rsv_for_cl_and_cc").style.display = 'none';
 
-    }
-};
 
-function function_row7_y_klienta_est_neact_cc_no() {
-    if (document.getElementById("row7_y_klienta_est_neact_cc_no").checked) {
-        document.getElementById("row8_email_possible").style.display = 'table-row';
-        document.getElementById("y7_r8_attention_cc2").style.display = 'none';
-        document.getElementById("r8next_r9_can_get_on_email").style.display = 'none';
-        document.getElementById("y9_r10_is_email_correct").style.display = 'none';
-    }
-};
-
-function function_row8_email_no() {
-    if (document.getElementById("row8_email_no").checked) {
-        document.getElementById("row9_email_no").style.display = 'table-row';
-        document.getElementById("y8_ro9_is_email_correct").style.display = 'none';
-    }
-};
-
-function function_row3_znakomy_no() {
-    if (document.getElementById("row3_znakomy_no").checked) {
-        document.getElementById("row4_otkaz_3lico").style.display = 'table-row';
-        document.getElementById("row3_znakomy_yes").style.display = 'none';
-        document.getElementById("row5_rsv_for_cc").style.display = 'none';
-        document.getElementById("row4_cc").style.display = 'none';
-        document.getElementById("row5_cc_advantages").style.display = 'none';
-    }
-};
-
-function function_row3_znakomy_yes() {
-    if (document.getElementById("row3button_znakomy_yes").checked) {
-        document.getElementById("row3_znakomy_yes").style.display = 'table-row';
-        document.getElementById("row4_otkaz_3lico").style.display = 'none';
-    }
-};
-
-
-function function_cc_advantages() {
-    if (document.getElementById("row4_cc_advantages").checked) {
-        document.getElementById("row5_cc_advantages").style.display = 'table-row';
-        document.getElementById("row5_tp_spereschetom").style.display = 'none';
-        document.getElementById("row5_cc_yes_neakt_cc").style.display = 'none';
-        document.getElementById("row5_rsv_for_cc").style.display = 'none';
-    }
-};
-
-function function_offer_cc_yes() {
-    if (document.getElementById("row4_cc_yes").checked) {
-        document.getElementById("row5_cc_yes_neakt_cc").style.display = 'table-row';
-        document.getElementById("row5_cc_advantages").style.display = 'none';
-        document.getElementById("row5_rsv_for_cc").style.display = 'none';
-        document.getElementById("row7_offer_cl_to_recount").style.display = 'none';
-        document.getElementById("row9_cl_count_rsv").style.display = 'none';
-        document.getElementById("row10_unactivated_cc3").style.display = 'none';
-        document.getElementById("row11_may_get_on_email").style.display = 'none';
-        document.getElementById("row12_choose_offer_cl").style.display = 'none';
-        document.getElementById("row10_goodbye_no_offer").style.display = 'none';
-        document.getElementById("row7_no_offer_cl_from_cc_sorry").style.display = 'none';
-        document.getElementById("row6_cc_to_offer_cl_yes_no").style.display = 'none';
-        document.getElementById("no5_row6_choose_product_cc").style.display = 'none';
-    }
-};
-
-function function_offer_cc_no() {
-    if (document.getElementById("row4_cc_no").checked) {
-        document.getElementById("row5_rsv_for_cc").style.display = 'table-row';
-        document.getElementById("row5_cc_advantages").style.display = 'none';
-        document.getElementById("row5_cc_yes_neakt_cc").style.display = 'none';
-        document.getElementById("no5_row6_choose_product_cc").style.display = 'none';
-        document.getElementById("y5_r6_attention_cc").style.display = 'none';
-        document.getElementById("next_r7_choose_product_cc").style.display = 'none';
-
-    }
-};
-
-function function_row5_rsv_for_cc_no() {
-    if (document.getElementById("row5_cc_no_rsv_no").checked) {
-        document.getElementById("row6_cc_to_offer_cl_yes_no").style.display = 'table-row';
-        document.getElementById("row10_unactivated_cc3").style.display = 'none';
-    }
-};
-
-function function_row6_cc_to_offer_cl_no() {
-    if (document.getElementById("row6_cc_to_offer_cl_no").checked) {
-        document.getElementById("row7_no_offer_cl_from_cc_sorry").style.display = 'table-row';
-        document.getElementById("row7_offer_cl_to_recount").style.display = 'none';
-    }
-};
-
-function function_row6_cc_to_offer_cl_yes() {
-    if (document.getElementById("row6_cc_to_offer_cl_yes").checked) {
-        document.getElementById("row7_offer_cl_to_recount").style.display = 'table-row';
-        document.getElementById("row7_no_offer_cl_from_cc_sorry").style.display = 'none';
-    }
-};
-
-function function_row7_offer_cl_to_recount_to_accept_offer() {
-    if (document.getElementById("row7_offer_cl_to_recount_to_accept_offer").checked) {
-        document.getElementById("y7_row8_offer_cl_tp_recount").style.display = 'table-row';
-
-        document.getElementById("n7_r8_offer_cl_tp_recount").style.display = 'none';
-        document.getElementById("row9_cl_count_rsv").style.display = 'none';
-        document.getElementById("row10_unactivated_cc3").style.display = 'none';
-        document.getElementById("row11_may_get_on_email").style.display = 'none';
-        document.getElementById("row10_goodbye_no_offer").style.display = 'none';
-    }
-};
-
-function function_row8_offer_cl_tp_recount_dalee() {
-    if (document.getElementById("row8_offer_cl_tp_recount_dalee").checked) {
-        document.getElementById("row9_cl_count_rsv").style.display = 'table-row';
-    }
-};
-
-function function_row9_cl_count_rsv_no() {
-    if (document.getElementById("row9_cl_count_rsv_no").checked) {
-        document.getElementById("row10_goodbye_no_offer").style.display = 'table-row';
-    }
-};
-
-function function_row9_cl_count_rsv_yes() {
-    if (document.getElementById("row9_cl_count_rsv_yes").checked) {
-        document.getElementById("row10_unactivated_cc3").style.display = 'table-row';
-        document.getElementById("row10_goodbye_no_offer").style.display = 'none';
-    }
-};
-
-function function_row10_unactivated_cc3_no() {
-    if (document.getElementById("row10_unactivated_cc3_no").checked) {
-        document.getElementById("row11_may_get_on_email").style.display = 'table-row';
-        document.getElementById("y6_ro7_attention_cc").style.display = 'none';
-    }
-};
-
-function function_row11_may_get_on_email_no() {
-    if (document.getElementById("row11_may_get_on_email_no").checked) {
-        document.getElementById("row12_choose_offer_cl").style.display = 'table-row';
-
-        document.getElementById("yes11_row12_offer_cl_email_is_correct").style.display = 'none';
-    }
-};
-
-function function_neakt_cc_no() {
-    if (document.getElementById("row5_neakt_cc_no").checked) {
-        document.getElementById("no5_row6_choose_product_cc").style.display = 'table-row';
-        document.getElementById("row10_unactivated_cc3").style.display = 'none';
-        document.getElementById("y5_r6_attention_cc").style.display = 'none';
-        document.getElementById("next_r7_choose_product_cc").style.display = 'none';
-    }
-};
-
-function function_neakt_cc_yes() {
-    if (document.getElementById("row5_neakt_cc_yes").checked) {
-        document.getElementById("y5_r6_attention_cc").style.display = 'table-row';
-        document.getElementById("no5_row6_choose_product_cc").style.display = 'none';
-    }
-};
-
-function function_r6_attention_cc_next() {
-    if (document.getElementById("r6_attention_cc_next").checked) {
-        document.getElementById("next_r7_choose_product_cc").style.display = 'table-row';
-    }
-};
-
-function function_row5_rsv_for_cc_yes() {
-    if (document.getElementById("row5_cc_no_rsv_yes").checked) {
-        document.getElementById("row10_unactivated_cc3").style.display = 'table-row';
-        document.getElementById("row6_cc_to_offer_cl_yes_no").style.display = 'none';
-
-        document.getElementById("row7_offer_cl_to_recount").style.display = 'none';
-        document.getElementById("n7_r8_offer_cl_tp_recount").style.display = 'none';
-        document.getElementById("row9_cl_count_rsv").style.display = 'none';
-    }
-};
-
-
-function function_row4_tp_s_pereschetom_no() {
-    if (document.getElementById("row4_tp_s_pereschetom_no").checked) {
-        document.getElementById("no4_row5_predlojenie_cl").style.display = 'table-row';
-        document.getElementById("row5_tp_spereschetom").style.display = 'none';
-        document.getElementById("no6_rw7_1rsv_for_cl_and_cc").style.display = 'none';
-        document.getElementById("row7_not_activated_cc2").style.display = 'none';
-        document.getElementById("no8_row9_no_offer").style.display = 'none';
-        document.getElementById("y8_r9_second_offer").style.display = 'none';
-        document.getElementById("no7_r8_different_offer").style.display = 'none';
-        document.getElementById("next5_row6_count_for_cl").style.display = 'none';
-        document.getElementById("no5_row6_choose_product_cc").style.display = 'none';
-    }
-};
-
-function function_row5_predlojenie_cl_next() {
-    if (document.getElementById("row5_predlojenie_cl_next").checked) {
-        document.getElementById("next5_row6_count_for_cl").style.display = 'table-row';
-        document.getElementById("row5_tp_spereschetom").style.display = 'none';
-    }
-};
-
-function function_row6_raschety_cl_no() {
-    if (document.getElementById("row6_raschety_cl_no").checked) {
-        document.getElementById("no6_rw7_1rsv_for_cl_and_cc").style.display = 'table-row';
-        document.getElementById("row7_not_activated_cc2").style.display = 'none';
-    }
-};
-
-function function_row7_y_klienta_est_neact_cc_yes() {
-    if (document.getElementById("row7_y_klienta_est_neact_cc_yes").checked) {
-        document.getElementById("y7_r8_attention_cc2").style.display = 'table-row';
-        document.getElementById("row8_email_possible").style.display = 'none';
-    }
-};
-
-function function_r8_attention_cc2() {
-    if (document.getElementById("r8_attention_cc2_next").checked) {
-        document.getElementById("r8next_r9_can_get_on_email").style.display = 'table-row';
-    }
-};
-
-
-function function_r9_email_no() {
-    if (document.getElementById("r9_email_no").checked) {
-        document.getElementById("n9_r10_choose_offer_cl").style.display = 'table-row';
-        document.getElementById("y9_r10_is_email_correct").style.display = 'none';
-    }
-};
-
-
-
-function function_r9_email_yes() {
-    if (document.getElementById("r9_email_yes").checked) {
-        document.getElementById("y9_r10_is_email_correct").style.display = 'table-row';
-        document.getElementById("n9_r10_choose_offer_cl").style.display = 'none';
-    }
-};
-
-
-function function_r10_is_email_correct_no() {
-    if (document.getElementById("r10_is_email_correct_no").checked) {
-        document.getElementById("n10_r11_requst_change_data").style.display = 'table-row';
-    }
-};
-
-
-function function_r11_requst_change_data_next() {
-    if (document.getElementById("r11_requst_change_data_next").checked) {
-        document.getElementById("n9_r10_choose_offer_cl").style.display = 'table-row';
-    }
-};
-
-
-function function_count_for_cl_no() {
-    if (document.getElementById("count_for_cl_no").checked) {
-        document.getElementById("no6_rw7_1rsv_for_cl_and_cc").style.display = 'table-row';
-        document.getElementById("row7_not_activated_cc2").style.display = 'none';
-        document.getElementById("row8_email_possible").style.display = 'none';
-        document.getElementById("y7_r8_attention_cc2").style.display = 'none';
-        document.getElementById("y11_r12_can_activate_now").style.display = 'none';
-        document.getElementById("row12_choose_offer_cl").style.display = 'none';
-        document.getElementById("y10_r11_say_email_better").style.display = 'none';
-        document.getElementById("y8_ro9_is_email_correct").style.display = 'none';
-    }
-};
-
-function function_row7_rsv_no() {
-    if (document.getElementById("row7_rsv_no").checked) {
-        document.getElementById("no7_r8_different_offer").style.display = 'table-row';
-        document.getElementById("n8_r9_can_use_email").style.display = 'none';
-    }
-};
-
-function function_row7_rsv_yes() {
-    if (document.getElementById("row7_rsv_yes").checked) {
-        document.getElementById("n8_r9_can_use_email").style.display = 'table-row';
-        document.getElementById("no7_r8_different_offer").style.display = 'none';
-    }
-};
-
-function function_r8_unactivated_cc2_no() {
-    if (document.getElementById("r8_unactivated_cc2_no").checked) {
-        document.getElementById("n8_r9_can_use_email").style.display = 'table-row';
-        document.getElementById("y8_r9_attention_cc2").style.display = 'none';
-    }
-};
-
-function function_r8_unactivated_cc2_yes() {
-    if (document.getElementById("r8_unactivated_cc2_yes").checked) {
-        document.getElementById("y8_r9_attention_cc2").style.display = 'table-row';
-        document.getElementById("n8_r9_can_use_email").style.display = 'none';
-    }
-};
-
-function function_r9_attention_cc2_next() {
-    if (document.getElementById("r9_attention_cc2_next").checked) {
-        document.getElementById("next9_r10_can_use_email").style.display = 'table-row';
-    }
-};
-
-function function_r8_different_offer_no() {
-    if (document.getElementById("r8_different_offer_no").checked) {
-        document.getElementById("no8_row9_no_offer").style.display = 'table-row';
-        document.getElementById("y8_r9_second_offer").style.display = 'none';
-    }
-};
-
-function function_r8_different_offer_yes() {
-    if (document.getElementById("r8_different_offer_yes").checked) {
-        document.getElementById("y8_r9_second_offer").style.display = 'table-row';
-        document.getElementById("no8_row9_no_offer").style.display = 'none';
-    }
-};
-
-function function_r9_second_offer_no() {
-    if (document.getElementById("r9_second_offer_no").checked) {
-        document.getElementById("no8_row9_no_offer").style.display = 'table-row';
-        document.getElementById("no5_row6_choose_product_cc").style.display = 'none';
-        document.getElementById("row5_cc_advantages").style.display = 'none';
-    }
-};
-
-function function_r9_second_offer_yes() {
-    if (document.getElementById("r9_second_offer_yes").checked) {
-        document.getElementById("no5_row6_choose_product_cc").style.display = 'table-row';
-        document.getElementById("no8_row9_no_offer").style.display = 'none';
-        document.getElementById("row5_cc_advantages").style.display = 'none';
-    }
-};
-
-function function_r9_second_offer_advantages() {
-    if (document.getElementById("r9_second_offer_advantages").checked) {
-        document.getElementById("row5_cc_advantages").style.display = 'table-row';
-        document.getElementById("no8_row9_no_offer").style.display = 'none';
-        document.getElementById("no5_row6_choose_product_cc").style.display = 'none';
-    }
-};
-
-function function_row10_unactivated_cc3_yes() {
-    if (document.getElementById("row10_unactivated_cc3_yes").checked) {
-        document.getElementById("y6_ro7_attention_cc").style.display = 'table-row';
-        document.getElementById("row11_may_get_on_email").style.display = 'none';
-    }
-};
-
-function function_ro7_attention_cc_next() {
-    if (document.getElementById("ro7_attention_cc_next").checked) {
-        document.getElementById("row11_may_get_on_email").style.display = 'table-row';
-    }
-};
-
-function function_row8_email_yes() {
-    if (document.getElementById("row8_email_yes").checked) {
-        document.getElementById("y8_ro9_is_email_correct").style.display = 'table-row';
-        document.getElementById("row9_email_no").style.display = 'none';
-    }
-};
-
-function function_ro9_is_email_correct_no() {
-    if (document.getElementById("ro9_is_email_correct_no").checked) {
-        document.getElementById("n9_r10_is_email_correct").style.display = 'table-row';
-        document.getElementById("row12_choose_offer_cl").style.display = 'none';
-        document.getElementById("y10_r11_confirm_condition_for_cl").style.display = 'none';
-        document.getElementById("y10_r11_say_email_better").style.display = 'none';
-
-    }
-};
-
-function function_r10_is_email_correct_next() {
-    if (document.getElementById("r10_is_email_correct_next").checked) {
-        document.getElementById("no13_row14_choose_offer_cl").style.display = 'table-row';
-    }
-};
-
-function function_ro9_is_email_correct_yes() {
-    if (document.getElementById("ro9_is_email_correct_yes").checked) {
-        document.getElementById("y10_r11_say_email_better").style.display = 'table-row';
-        document.getElementById("n9_r10_is_email_correct").style.display = 'none';
-    }
-};
-
-function function_r11_say_email_better_no() {
-    if (document.getElementById("r11_say_email_better_no").checked) {
-        document.getElementById("row12_choose_offer_cl").style.display = 'table-row';
-        document.getElementById("y11_r12_can_activate_now").style.display = 'table-row';
-        document.getElementById("y10_r11_confirm_condition_for_cl").style.display = 'none';
-    }
-};
-
-function function_r11_say_email_better_yes() {
-    if (document.getElementById("r11_say_email_better_yes").checked) {
-        document.getElementById("y10_r11_confirm_condition_for_cl").style.display = 'table-row';
-        document.getElementById("row12_choose_offer_cl").style.display = 'none';
-    }
-};
-
-function function_r11_confirm_condition_for_cl_yes() {
-    if (document.getElementById("r11_confirm_condition_for_cl_yes").checked) {
-        document.getElementById("y11_r12_can_activate_now").style.display = 'table-row';
-    }
-};
-
-function function_r11_confirm_condition_for_cl_no() {
-    if (document.getElementById("r11_confirm_condition_for_cl_no").checked) {
-        document.getElementById("n11_r12_2rsv_cc_cl").style.display = 'table-row';
-    }
-};
-
-
-function function_row7_offer_cl_to_recount_to_offer_cl_to_recount() {
-    if (document.getElementById("row7_offer_cl_to_recount_to_offer_cl_to_recount").checked) {
-        document.getElementById("n7_r8_offer_cl_tp_recount").style.display = 'table-row';
-        document.getElementById("y7_row8_offer_cl_tp_recount").style.display = 'none';
-        document.getElementById("row9_cl_count_rsv").style.display = 'none';
-        document.getElementById("row10_unactivated_cc3").style.display = 'none';
-        document.getElementById("row10_goodbye_no_offer").style.display = 'none';
-    }
-};
-
-
-function function_r8_offer_cl_tp_recount_dalee() {
-    if (document.getElementById("r8_offer_cl_tp_recount_dalee").checked) {
-        document.getElementById("row9_cl_count_rsv").style.display = 'table-row';
-    }
-};
-
-function function_row11_may_get_on_email_yes() {
-    if (document.getElementById("row11_may_get_on_email_yes").checked) {
-        document.getElementById("yes11_row12_offer_cl_email_is_correct").style.display = 'table-row';
-        document.getElementById("row12_choose_offer_cl").style.display = 'none';
-    }
-};
-
-function function_yes11_row12_offer_cl_email_is_correct_yes() {
-    if (document.getElementById("yes11_row12_offer_cl_email_is_correct_yes").checked) {
-        document.getElementById("yes12_row13_offer_cl_can_send_on_email").style.display = 'table-row';
-        document.getElementById("n10_r11_requst_change_data").style.display = 'none';
-        document.getElementById("n9_r10_choose_offer_cl").style.display = 'none';
-    }
-};
-
-
-function function_yes11_row12_offer_cl_email_is_correct_no() {
-    if (document.getElementById("yes11_row12_offer_cl_email_is_correct_no").checked) {
-        document.getElementById("n10_r11_requst_change_data").style.display = 'table-row';
-        document.getElementById("yes12_row13_offer_cl_can_send_on_email").style.display = 'none';
-    }
-};
-
-function function_yes12_row13_offer_cl_can_send_on_email_no() {
-    if (document.getElementById("yes12_row13_offer_cl_can_send_on_email_no").checked) {
-        document.getElementById("no13_row14_choose_offer_cl").style.display = 'table-row';
-        document.getElementById("y10_r11_confirm_condition_for_cl").style.display = 'none';
-    }
-};
-
-function function_yes12_row13_offer_cl_can_send_on_email_yes() {
-    if (document.getElementById("yes12_row13_offer_cl_can_send_on_email_yes").checked) {
-        document.getElementById("y10_r11_confirm_condition_for_cl").style.display = 'table-row';
-        document.getElementById("no13_row14_choose_offer_cl").style.display = 'none';
-    }
-};
-
-function function_r12_can_activate_now_yes() {
-    if (document.getElementById("r12_can_activate_now_yes").checked) {
-        document.getElementById("y12_r13_activation_on_formation").style.display = 'table-row';
-        document.getElementById("n12_r13_activation_with_employee").style.display = 'none';
-    }
-};
-
-function function_r12_can_activate_now_no() {
-    if (document.getElementById("r12_can_activate_now_no").checked) {
-        document.getElementById("n12_r13_activation_with_employee").style.display = 'table-row';
-        document.getElementById("y12_r13_activation_on_formation").style.display = 'none';
-    }
-};
-
-
-function function_r10_is_email_correct_yes() {
-    if (document.getElementById("r10_is_email_correct_yes").checked) {
-        document.getElementById("yes12_row13_offer_cl_can_send_on_email").style.display = 'table-row';
-    }
-};
