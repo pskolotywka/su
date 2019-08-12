@@ -72,6 +72,31 @@
     width: 100%;
 }
 
+.span-grey {
+    color: grey;
+}
+
+.span-red {
+    color: #B22222;
+    background-color: transparent;
+}
+
+.span-blue {
+    color: rgb(0, 0, 255);
+    background-color: transparent;
+}
+
+.span-green {
+    color: #3c763d;
+    background-color: transparent;
+}
+
+.span-bold {
+    font-weight: bold;
+    background-color: transparent;
+}
+
+
 .tooltip-pin {
     color: white;
     display: inline-block;
@@ -625,6 +650,57 @@
 
 
 
+.dialog__string {
+    display: grid;
+    grid-template-columns: 200px 1fr 200px;
+    grid-gap: 1px;
+    background-color: black;
+    border: 1px black solid;
+    margin: -1px 0 0 0;
+}
+
+.dialog__cell {
+    background-color: white;
+    padding: 8px;
+}
+
+.dialog__buttons {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px 0;
+}
+
+.dialog__label {
+    padding: 0 0 0 20px;
+}
+
+.dialog__negative {
+    color: #b94a48;
+}
+
+.dialog__positive {
+    color: #3c763d;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -858,23 +934,6 @@ th {
 
 
 
-.span-grey {
-    color: grey;
-}
-
-.span-red {
-    color: #B22222;
-    background-color: transparent;
-}
-
-.span-blue {
-    color: rgb(0, 0, 255);
-}
-
-.span-green {
-    color: #3c763d;
-    background-color: #fff;
-}
 
 
 #row3_y,
