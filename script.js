@@ -152,7 +152,7 @@ function showCredit(changedElement) {
             showElements('#make_meeting_start');
             break;
         case 'Кредит наличными':
-            showElements('#credit-cash');
+            showElements('.credit-cash');
             break;
     };
 };
@@ -463,7 +463,8 @@ function m_a__more_actions1() {
 
 function m_a__map() {
     if (document.getElementById("m_a__map").click) {
-        document.getElementById("map__open").style.display = 'block';
+        document.getElementById("map").style.display = 'block';
+        ymaps.ready(init);
         document.getElementById("m_a__map1").style.display = 'block';
         document.getElementById("m_a__map").style.display = 'none';
     }
@@ -471,7 +472,7 @@ function m_a__map() {
 
 function m_a__map1() {
     if (document.getElementById("m_a__map1").click) {
-        document.getElementById("map__open").style.display = 'none';
+        document.getElementById("map").style.display = 'none';
         document.getElementById("m_a__map1").style.display = 'none';
         document.getElementById("m_a__map").style.display = 'block';
     }
@@ -501,12 +502,197 @@ function change_data() {
     };
 }
 
+function updateDate() {
+    const dateField = document.getElementById('date');
+    const dateText = document.querySelector('.modal__message__date');
+    dateField .addEventListener('change', e => {
+        dateText.innerHTML = dateField.value;
+    })
+}
+
+updateDate();
+
+function loanCalculation(){
+    const link = document.querySelectorAll('.credit-cash__link');
+    const linkBlock = document.querySelectorAll('.credit-cash__item');
+    const calcBlock = document.querySelector('.own-calc-credit');
+
+    link.forEach(item => {
+        item.addEventListener('click', e =>{
+            linkBlock.forEach(item => {
+                item.classList.add('hidden');
+            });
+            calcBlock.classList.remove('hidden');
+        })
+    })
+}
+
+loanCalculation();
+
+
+function calculate(){
+    const btn = document.querySelector('[data-click="calculate_credit"]');
+    const approved = document.getElementById('count_result');
+    const notApproved = document.getElementById('count_result_fail');
+
+    const sum = document.getElementById('sumCredit');
+    const period = document.getElementById('periodCredit');
+    const insurance = document.getElementById('credit-insurance');
+    const holidays = document.getElementById('credit-holydays');
+
+    const price = document.querySelectorAll('.price');
+    const time = document.querySelectorAll('.time');
+    const priceMonth = document.querySelectorAll('.price-per-month');
+    const creditInsurance = document.querySelectorAll('.insurance');
+    const creditHolidays = document.querySelectorAll('.credit-holidays');
+
+    btn.addEventListener('click', e => {
+        const random = Math.floor(Math.random() * 2);
+
+        if(random === 0){
+            approved.classList.add('hidden');
+            notApproved.classList.remove('hidden');
+        }else{
+            approved.classList.remove('hidden');
+            notApproved.classList.add('hidden');
+        }
+
+        price.forEach(item => {
+            item.innerHTML = sum.value;
+        });
+        time.forEach(item => {
+            item.innerHTML = period.value;
+        });
+        priceMonth.forEach(item => {
+            const percent =  14.9 / 12 / 100;
+            const percentPlus = 1 + percent;
+            const per = Number(period.value);
+            const coefficient = percent * Math.pow(percentPlus, per)/ (Math.pow(percentPlus,per) - 1);
+            item.innerHTML = Math.round(Number(sum.value) * coefficient);
+        });
+        creditInsurance.forEach(item => {
+            if(insurance.checked){
+                item.innerHTML = 'присутствует';
+            }else{
+                item.innerHTML = 'отсутсвует';
+            }
+        });
+        creditHolidays.forEach(item => {
+            if(holidays.checked){
+                item.innerHTML = 'присутствуют';
+            }else{
+                item.innerHTML = 'отсутсвуют';
+            }
+        })
+    })
+}
+
+calculate();
+
+// function card(){
+//     const btn = document.getElementById('m_a__map1');
+//     btn.addEventListener('click', e => {
+//         ymaps.ready(init);
+//     })
+// }
+// card();
 
 
 
 
+function init () {
+    var myMap = new ymaps.Map("map", {
+            center: [55.761832, 37.595279],
+            zoom: 5
+        }, {
+            searchControlProvider: 'yandex#search'
+        }),
+        myPlacemark = new ymaps.Placemark([59.936839, 30.312668], {
+            // Чтобы балун и хинт открывались на метке, необходимо задать ей определенные свойства.
+            balloonContentHeader: "Невский проспект, 3",
+            balloonContentBody: "Санкт-Петербург, Россия",
+            balloonContentFooter: "191186",
+            hintContent: "Невский проспект, 3"
+        });
+    myMap.geoObjects.add(myPlacemark);
+
+        myPlacemark = new ymaps.Placemark([59.913495, 30.317253], {
+            // Чтобы балун и хинт открывались на метке, необходимо задать ей определенные свойства.
+            balloonContentHeader: "5-я Красноармейская улица, 1",
+            balloonContentBody: "Санкт-Петербург, Россия",
+            balloonContentFooter: "190005",
+            hintContent: "5-я Красноармейская улица, 1"
+        });
+
+    myMap.geoObjects.add(myPlacemark);
+
+        myPlacemark = new ymaps.Placemark([59.944885, 30.365564], {
+            // Чтобы балун и хинт открывались на метке, необходимо задать ей определенные свойства.
+            balloonContentHeader: "Фурштатская улица, 41",
+            balloonContentBody: "Санкт-Петербург, Россия",
+            balloonContentFooter: "191123",
+            hintContent: "Фурштатская улица, 41"
+        });
+
+    myMap.geoObjects.add(myPlacemark);
+
+        myPlacemark = new ymaps.Placemark([55.761832, 37.595279], {
+            // Чтобы балун и хинт открывались на метке, необходимо задать ей определенные свойства.
+            balloonContentHeader: "Малая Бронная улица, 17",
+            balloonContentBody: "Москва, Россия",
+            balloonContentFooter: "123104",
+            hintContent: "Малая Бронная улица, 17"
+        });
+
+    myMap.geoObjects.add(myPlacemark);
+
+        myPlacemark = new ymaps.Placemark([55.734511, 37.618112], {
+            // Чтобы балун и хинт открывались на метке, необходимо задать ей определенные свойства.
+            balloonContentHeader: "1-й Хвостов переулок, 3Ас2",
+            balloonContentBody: "Москва, Россия",
+            balloonContentFooter: "119180",
+            hintContent: "Ф-й Хвостов переулок, 3Ас2"
+        });
+
+    myMap.geoObjects.add(myPlacemark);
+
+        myPlacemark = new ymaps.Placemark([55.766202, 37.649296], {
+            // Чтобы балун и хинт открывались на метке, необходимо задать ей определенные свойства.
+            balloonContentHeader: "Большой Харитоньевский переулок, 21с4",
+            balloonContentBody: "Москва, Россия",
+            balloonContentFooter: "107078",
+            hintContent: "Большой Харитоньевский переулок, 21с4"
+        });
+
+    myMap.geoObjects.add(myPlacemark);
+
+        myPlacemark = new ymaps.Placemark([56.311010, 43.941732], {
+            // Чтобы балун и хинт открывались на метке, необходимо задать ей определенные свойства.
+            balloonContentHeader: "улица Анатолия Григорьева, 16",
+            balloonContentBody: "Нижний Новгород, Россия",
+            balloonContentFooter: "603059",
+            hintContent: "улица Анатолия Григорьева, 16"
+        });
+
+    myMap.geoObjects.add(myPlacemark);
+
+        myPlacemark = new ymaps.Placemark([54.616576, 39.724085], {
+            // Чтобы балун и хинт открывались на метке, необходимо задать ей определенные свойства.
+            balloonContentHeader: "улица Пушкина, 18",
+            balloonContentBody: "Рязань, Россия",
+            balloonContentFooter: "390005",
+            hintContent: "улица Пушкина, 18"
+        });
+
+    myMap.geoObjects.add(myPlacemark);
 
 
 
+    // // Открываем балун на карте (без привязки к геообъекту).
+    // myMap.balloon.open([59.936839, 30.312668], "Санкт-Петербург", {
+    //     // Опция: не показываем кнопку закрытия.
+    //     closeButton: false
+    // });
 
 
+}

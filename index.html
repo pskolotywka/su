@@ -12,12 +12,13 @@
 	<div class="wrapper">
 		<div class="main">
 			<div id="f5">
-				Нажмите F5 (обновить страницу), чтобы вернуться к началу
+				<div class="f5">Нажмите F5 (обновить страницу), чтобы вернуться к началу</div>
+				<div class="f5">Для работы с тренажером выбери «позвонить» во вкладке «История по заданию»</div>
 			</div>
 			<div class="client-card">
 				<div class="client-card__heder">
 					<p class="client-card__heder-text">
-						ФИО клиента: <b>Буторин Росислав</b>
+						ФИО клиента: <b>Иванов Иван Иванович</b>
 					</p>
 					<p class="client-card__heder-text">
 						Локальное время клиента: <b>17:00</b>
@@ -39,6 +40,7 @@
 					<ul class="client-card__section client-card__task-info">
 						<li><b>Тип задания:</b> согласование условий</li>
 						<li><b>Группа очередей:</b> согласование условий</li>
+						<li><b>Очередь:</b> X-Sell Неакт. Кредитчики</li>
 						<li><b>Баллов за успешно выполненное задание:</b> 1,6</li>
 						<li><b>Описание:</b> Совершается обзвон клиентов банка с целью согласования условий на КК
 							Tinkoff Platinum/Кредит наличными</li>
@@ -167,27 +169,38 @@
 							</label>
 						</div>
 
-						<form id="credit-cash" class="conditions__click-string-wrap conditions__step hidden">
-							<label class="actions__click-string">
-								<input id="credit_3" type="radio" name="credit-cash" data-click="credit-cash"
-									data-aim="#own_calc_credit">
-								Кредит наличными с пересчетом ставки: 86 000 на 36 месяцев (4 500 в месяц, присутствует
-								страховка, кредитные каникулы отсутствуют)
-							</label>
-							<label class="actions__click-string">
-								<input id="credit_4" type="radio" name="credit-cash" data-click="credit-cash"
-									data-aim="#own_calc_credit">
-								Кредит наличными: 92 000 на 36 месяцев (4 500 в месяц, присутствует страховка, кредитные
-								каникулы отсутсвуют)
-							</label>
-						</form>
+						<div class="credit-cash conditions__click-string-wrap conditions__step hidden">
+							<div class="credit-cash__item">
+								<a href="#" class="credit-cash__link">Кредит наличными с пересчетом ставки: 86 000 на 36 месяцев</a>
+								<p class="credit-cash__text">4 500 в месяц, присутствует страховка, кредитные каникулы отсутствуют</p>
+							</div>
+							<div class="credit-cash__item">
+								<a href="#" class="credit-cash__link">Кредит наличными: 92 000 на 36 месяцев</a>
+								<p class="credit-cash__text">4 500 в месяц, присутствует страховка, кредитные каникулы отсутсвуют</p>
+							</div>
+						</div>
+
+<!--						<form id="credit-cash" class="conditions__click-string-wrap conditions__step hidden">-->
+<!--							<label class="actions__click-string">-->
+<!--								<input id="credit_3" type="radio" name="credit-cash" data-click="credit-cash"-->
+<!--									data-aim="#own_calc_credit">-->
+<!--								Кредит наличными с пересчетом ставки: 86 000 на 36 месяцев (4 500 в месяц, присутствует-->
+<!--								страховка, кредитные каникулы отсутствуют)-->
+<!--							</label>-->
+<!--							<label class="actions__click-string">-->
+<!--								<input id="credit_4" type="radio" name="credit-cash" data-click="credit-cash"-->
+<!--									data-aim="#own_calc_credit">-->
+<!--								Кредит наличными: 92 000 на 36 месяцев (4 500 в месяц, присутствует страховка, кредитные-->
+<!--								каникулы отсутсвуют)-->
+<!--							</label>-->
+<!--						</form>-->
 
 						<div id='own_calc_credit' class="conditions__step hidden own-calc-credit">
-							<label class="own-calc-credit__radio-button">
-								<input id='own_calc_credit_input' data-click="own_calc_credit_input" type="radio">
-								Собственный расчет
-							</label>
-							<div class="own-calc-credit__dashboard hidden">
+<!--							<label class="own-calc-credit__radio-button hidden">-->
+<!--								<input id='own_calc_credit_input' data-click="own_calc_credit_input" type="radio">-->
+<!--								Собственный расчет-->
+<!--							</label>-->
+							<div class="own-calc-credit__dashboard">
 								<h2>
 									Собственный расчет кредита
 								</h2>
@@ -223,13 +236,13 @@
 									</p>
 									<p id='insurance' class="own-calc-credit__add-condition">
 										<label>
-											<input type="checkbox" name="ggt2" checked>
+											<input id="credit-insurance" type="checkbox" name="ggt2" checked>
 											Страховка
 										</label>
 									</p>
 									<p id='holydays' class="own-calc-credit__add-condition">
 										<label>
-											<input type="checkbox" name="ggt2">
+											<input id="credit-holydays" type="checkbox" name="ggt2">
 											Кредитные каникулы
 										</label>
 									</p>
@@ -241,9 +254,10 @@
 
 								<div id="count_result_fail" class="own-calc-credit__count-result hidden">
 									<div class="own-calc-credit__approval">
-										<mark class="span-red">Не одобрен:</mark> Кредит наличными на *сумма* рублей на
-										срок N месяцев (N рублей в месяц, присутствует страховка, кредитные каникулы
-										отсутсвуют)
+										<mark class="span-red">Не одобрен:</mark> Кредит наличными на <span class="price">*сумма*</span> рублей на
+										<span class="time">срок N</span> месяцев (<span class="price-per-month">N</span> рублей в месяц,
+										<span class="insurance">присутствует</span> страховка, кредитные каникулы
+										<span class="credit-holidays">отсутсвуют</span>)
 									</div>
 									<h2>
 										Альтернативное предложение
@@ -259,9 +273,10 @@
 
 								<div id="count_result" class="own-calc-credit__count-result hidden">
 									<div class="own-calc-credit__approval">
-										<mark class="span-green">Одобрен: </mark>Кредит наличными на *сумма* рублей на
-										срок N месяцев (N рублей в месяц, присутствует страховка, кредитные каникулы
-										отсутсвуют)
+										<mark class="span-green">Одобрен: </mark>Кредит наличными на <span class="price">*сумма*</span> рублей на
+										срок <span class="time">срок N</span> месяцев (<span class="price-per-month">N</span> рублей в месяц,
+										<span class="insurance">присутствует</span> страховка, кредитные каникулы
+										<span class="credit-holidays">отсутсвуют</span>)
 										<span class="tooltip-pin" data-click='tooltip'>
 											?
 										</span>
@@ -336,8 +351,7 @@
 							</p>
 							<br>
 							<p class="appointment__string">
-								<b>Удобный адрес для встречи</b><br>Костромская обл., Кострома, Васильковая ул., д. 12.
-								кв. 1432
+								<b>Удобный адрес для встречи</b><br>111000 г.Москва, ул. Василия Петушкова, д. 210
 							</p>
 							<p class="appointment__date appointment__string">
 								<b>Дата:</b> 10 08 2019
@@ -415,7 +429,7 @@
 									<p>
 										<b>Дата</b><mark class="span-red">*</mark>
 									</p>
-									<input class="text-input" type="date" name="date" placeholder="Дата" required>
+									<input class="text-input" type="date" id="date" name="date" placeholder="Дата" required>
 
 									<p>
 										<b>Временной интервал</b><mark class="span-red">*</mark>
@@ -436,7 +450,7 @@
 						<div class="modal conditions__step hidden">
 							<div class="modal__dialog">
 								<p class="modal__message">
-									Мы назначили встречу на 01.07.2019 в период 10:00 – 15:00.
+									Мы назначили встречу на <span class="modal__message__date">01.07.2019</span> в период 10:00 – 15:00.
 									В день встречи отправим смс с телефоном представителя.
 									Примерно за час до встречи он вам позвонит.
 									На встрече потребуется подписать документы и передать их представителю.
@@ -699,20 +713,20 @@
 			<div id="m_a__map" onclick="m_a__map()">
 				<p class="ma_paragraph">&#9658; Карта</p>
 			</div>
-			<div id="map__open">
-				<p>
-					Чтобы проверить возможность доставки и перейти к карте <br>
-					скопируйте ссылку ниже в новую вкладку и перейдите по ней.
-				</p>
-				<br><br>
-				<p>https://weboffice.tinkoff.ru/rest/user-guide-files/7804</p>
+			<div id="map">
+<!--				<p>-->
+<!--					Чтобы проверить возможность доставки и перейти к карте <br>-->
+<!--					скопируйте ссылку ниже в новую вкладку и перейдите по ней.-->
+<!--				</p>-->
+<!--				<br><br>-->
+<!--				<p>https://weboffice.tinkoff.ru/rest/user-guide-files/7804</p>-->
 			</div>
 
 		</aside>
 	</div>
 
 
-
+	<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
 	<script src="dialog.js"></script>
 	<script src="script.js"></script>
 </body>
