@@ -123,18 +123,7 @@ function showScript(clickedElement) {
     showElements('#more_actions');
 };
 
-function toggleTooltip() {
-    let tooltipForToggleId = '';
-    switch (checkedCreditId) {
-        case 'credit_3':
-            tooltipForToggleId = 'tooltip_credit_3';
-            break;
-        case 'credit_4':
-            tooltipForToggleId = 'tooltip_credit_4';
-            break;
-    }
-    document.getElementById(tooltipForToggleId).classList.toggle('hidden');
-};
+
 
 function catchChange(event) {
     const changedElement = event.target;
@@ -166,13 +155,20 @@ function showConditionsCreditCash(event) {
 };
 
 function showOwnCalcCredit() {
-    const listRadiobuttonCreditCash = document.querySelectorAll('[name="credit-cash"]');
-
-    [...listRadiobuttonCreditCash].some((input) => {
-        if (input.checked) {
-            checkedCreditId = input.id;
-        };
-        return input.checked;
+    // const listRadiobuttonCreditCash = document.querySelectorAll('[name="credit-cash"]');
+    //
+    // [...listRadiobuttonCreditCash].some((link) => {
+    //     console.log(link);
+    //     if (link.classList.contains('active')) {
+    //         checkedCreditId = link.id;
+    //     };
+    //     return link.classList.contains('active');
+    // });
+    const btn = document.querySelectorAll('[name="credit-cash"]');
+    btn.forEach(item => {
+        item.addEventListener('click', e => {
+            checkedCreditId = item.id;
+        })
     });
     hideElements('#get_credit');
     hideElements('.own-calc-credit__add-condition');
@@ -201,6 +197,23 @@ function showOwnCalcCredit() {
             break;
     }
     showElements('.own-calc-credit__dashboard');
+
+    return checkedCreditId;
+};
+
+function toggleTooltip() {
+    showOwnCalcCredit();
+    let tooltipForToggleId = '';
+    console.log(checkedCreditId);
+    switch (checkedCreditId) {
+        case 'credit_3':
+            tooltipForToggleId = 'tooltip_credit_3';
+            break;
+        case 'credit_4':
+            tooltipForToggleId = 'tooltip_credit_4';
+            break;
+    }
+    document.getElementById(tooltipForToggleId).classList.toggle('hidden');
 };
 
 function calculateCredit() {
@@ -512,6 +525,15 @@ function updateDate() {
 
 updateDate();
 
+function updatePeriod(){
+    const periodField = document.querySelector('.period');
+    const periodText = document.querySelector('.modal__message__period');
+    periodField.addEventListener('change', e => {
+        periodText.innerHTML = periodField.value;
+    })
+}
+updatePeriod();
+
 function loanCalculation(){
     const link = document.querySelectorAll('.credit-cash__link');
     const linkBlock = document.querySelectorAll('.credit-cash__item');
@@ -588,16 +610,6 @@ function calculate(){
 }
 
 calculate();
-
-// function card(){
-//     const btn = document.getElementById('m_a__map1');
-//     btn.addEventListener('click', e => {
-//         ymaps.ready(init);
-//     })
-// }
-// card();
-
-
 
 
 function init () {
@@ -686,13 +698,61 @@ function init () {
 
     myMap.geoObjects.add(myPlacemark);
 
+}
+
+const element = document.getElementById('id');
+const options = {
+    limit: document.querySelector('.area'),
+};
+const drag = new Draggable (element, options);
+
+drag.set(window.innerWidth - 200,window.innerHeight - 200);
 
 
-    // // Открываем балун на карте (без привязки к геообъекту).
-    // myMap.balloon.open([59.936839, 30.312668], "Санкт-Петербург", {
-    //     // Опция: не показываем кнопку закрытия.
-    //     closeButton: false
-    // });
-
+function more(){
+    const btn = document.querySelectorAll('[name="credit-cash"]');
+    btn.forEach(item => {
+        item.addEventListener('click', e => {
+            item.classList.add('active');
+        })
+    })
 
 }
+
+
+more();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -171,11 +171,11 @@
 
 						<div class="credit-cash conditions__click-string-wrap conditions__step hidden">
 							<div class="credit-cash__item">
-								<a href="#" class="credit-cash__link">Кредит наличными с пересчетом ставки: 86 000 на 36 месяцев</a>
+								<a href="#" class="credit-cash__link" id="credit_3" name="credit-cash">Кредит наличными с пересчетом ставки: 86 000 на 36 месяцев</a>
 								<p class="credit-cash__text">4 500 в месяц, присутствует страховка, кредитные каникулы отсутствуют</p>
 							</div>
 							<div class="credit-cash__item">
-								<a href="#" class="credit-cash__link">Кредит наличными: 92 000 на 36 месяцев</a>
+								<a href="#" class="credit-cash__link" id="credit_4" name="credit-cash">Кредит наличными: 92 000 на 36 месяцев</a>
 								<p class="credit-cash__text">4 500 в месяц, присутствует страховка, кредитные каникулы отсутсвуют</p>
 							</div>
 						</div>
@@ -280,8 +280,7 @@
 										<span class="tooltip-pin" data-click='tooltip'>
 											?
 										</span>
-										<div id="tooltip_credit_3"
-											class="hidden tooltip-box own-calc-credit__tooltip-count">
+										<div id="tooltip_credit_3" class="hidden tooltip-box own-calc-credit__tooltip-count">
 											<div>
 												<b>Полная стоимость кредита: </b>28,9 % <br>
 												<b>Переплата общая: </b>145 076 руб.<br>
@@ -296,8 +295,7 @@
 											</div>
 										</div>
 
-										<div id="tooltip_credit_4"
-											class="hidden tooltip-box own-calc-credit__tooltip-count">
+										<div id="tooltip_credit_4" class="hidden tooltip-box own-calc-credit__tooltip-count">
 											<div>
 												<b>Полная стоимость кредита: </b>24,9 % <br>
 												<b>Переплата общая: </b>167 800 руб. <br>
@@ -434,7 +432,21 @@
 									<p>
 										<b>Временной интервал</b><mark class="span-red">*</mark>
 									</p>
-									<input class="text-input" size="40" placeholder="15:00 - 17:00">
+<!--									<input class="text-input" size="40" placeholder="15:00 - 17:00">-->
+									<select class="period text-input">
+										<option value="00:00 - 2:00">00:00 - 2:00</option>
+										<option value="2:00 - 4:00">2:00 - 4:00</option>
+										<option value="4:00 - 6:00">4:00 - 6:00</option>
+										<option value="6:00 - 8:00">6:00 - 8:00</option>
+										<option value="8:00 - 10:00">8:00 - 10:00</option>
+										<option value="10:00 - 12:00">10:00 - 12:00</option>
+										<option value="12:00 - 14:00">12:00 - 14:00</option>
+										<option value="14:00 - 16:00" selected>14:00 - 16:00</option>
+										<option value="16:00 - 18:00">16:00 - 18:00</option>
+										<option value="18:00 - 20:00">18:00 - 20:00</option>
+										<option value="20:00 - 22:00">20:00 - 22:00</option>
+										<option value="22:00 - 24:00">22:00 - 24:00</option>
+									</select>
 
 									<p>
 										<b>Комментарий <br>для представителя</b>
@@ -450,7 +462,7 @@
 						<div class="modal conditions__step hidden">
 							<div class="modal__dialog">
 								<p class="modal__message">
-									Мы назначили встречу на <span class="modal__message__date">01.07.2019</span> в период 10:00 – 15:00.
+									Мы назначили встречу на <span class="modal__message__date">01.07.2019</span> в период <span class="modal__message__period">14:00 - 16:00</span>.
 									В день встречи отправим смс с телефоном представителя.
 									Примерно за час до встречи он вам позвонит.
 									На встрече потребуется подписать документы и передать их представителю.
@@ -713,19 +725,20 @@
 			<div id="m_a__map" onclick="m_a__map()">
 				<p class="ma_paragraph">&#9658; Карта</p>
 			</div>
-			<div id="map">
-<!--				<p>-->
-<!--					Чтобы проверить возможность доставки и перейти к карте <br>-->
-<!--					скопируйте ссылку ниже в новую вкладку и перейдите по ней.-->
-<!--				</p>-->
-<!--				<br><br>-->
-<!--				<p>https://weboffice.tinkoff.ru/rest/user-guide-files/7804</p>-->
+			<div class="map-wrap">
+				<div id="map"></div>
 			</div>
 
 		</aside>
 	</div>
-
-
+	<div class="area">
+		<div class="wrap" id="id">
+			<img src="img/clip.jpg" alt="clip" class="wrap__img">
+			<div class="wrap__cross"></div>
+			<div class="wrap__help hidden">тут будет подсказка</div>
+		</div>
+	</div>
+	<script src="draggable.js"></script>
 	<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
 	<script src="dialog.js"></script>
 	<script src="script.js"></script>
