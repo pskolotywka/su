@@ -1066,11 +1066,10 @@ th {
 }
 
 .wrap__help{
-    max-width: 300px;
-    width: max-content;
+    width: 400px;
     position: absolute;
-    top: -55px;
-    left: -50px;
+    top: -100px;
+    left: -100px;
     padding: 15px;
     background-color: #eeeeee;
     border-radius: 10px;
@@ -1080,7 +1079,7 @@ th {
 .wrap__help:after, .wrap__help:before{
     content:'';
     position: absolute;
-    left: calc(50% - 16px);
+    left: 50%;
     bottom: -18px;
     border: 8px solid transparent;
     border-top: 10px solid #000;
@@ -1095,4 +1094,27 @@ th {
 .period{
     height: 31px;
     background-color: white;
+}
+
+.tip{
+    width: 12px;
+    height: 12px;
+    border: 1px solid #C0C0C0;
+    color: #C0C0C0;
+    display: inline-block;
+    font-size: 10px;
+    font-weight: bold;
+    line-height: 11px;
+    margin: 0 0 2px 5px;
+    border-radius: 50%;
+    text-align: center;
+    cursor: pointer;
+}
+
+.block{
+    pointer-events: none;
+}
+
+.red-border{
+    border: 1px solid red;
 }

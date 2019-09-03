@@ -13,7 +13,6 @@
 		<div class="main">
 			<div id="f5">
 				<div class="f5">Нажмите F5 (обновить страницу), чтобы вернуться к началу</div>
-				<div class="f5">Для работы с тренажером выбери «позвонить» во вкладке «История по заданию»</div>
 			</div>
 			<div class="client-card">
 				<div class="client-card__heder">
@@ -42,8 +41,7 @@
 						<li><b>Группа очередей:</b> согласование условий</li>
 						<li><b>Очередь:</b> X-Sell Неакт. Кредитчики</li>
 						<li><b>Баллов за успешно выполненное задание:</b> 1,6</li>
-						<li><b>Описание:</b> Совершается обзвон клиентов банка с целью согласования условий на КК
-							Tinkoff Platinum/Кредит наличными</li>
+						<li><b>Описание:</b> Совершается обзвон клиентов банка с целью согласования кредита наличными</li>
 					</ul>
 					<div class="client-card__section hidden client-card__history history">
 						<div class="history__title"> <b>Дата создания:</b> 01.07.2019 16:59:19 мск</div>
@@ -92,7 +90,7 @@
 					<div class="actions__bookmark actions__bookmark_active">
 						Представление
 					</div>
-					<div class="actions__bookmark">
+					<div class="actions__bookmark conditions">
 						Согласование условий
 					</div>
 					<div class="actions__bookmark">
@@ -112,6 +110,7 @@
 				<div class="actions__section-wrap">
 					
 					<div class="actions__section actions__presentation">
+						<div class="actions__presentation-text">Для работы с тренажером выбери «позвонить» во вкладке «История по заданию»</div>
 						<div class="predstavlenie__table hidden">
 							<div class="dialog">
 								<div class="dialog__string">
@@ -134,11 +133,11 @@
 								<li>Место работы: КГТООИР КАЛИНИНГРАДСКОЕ ОБЩЕСТВО ОХОТНИКОВ И РЫБОЛОВОВ, Нерук.
 									сотрудник</li>
 								<li>Дата истечения действия предложения: 2019 9 10</li>
-								<li>У клиента есть неактивированная кредитная карта, которая будет заблокирована:</li>
+								<li>У клиента есть неактивированная кредитная карта, которая будет заблокирована: <span class="tip">?</span></li>
 								<li>УКБО подписано: При отправке почтой клиенту ничего не нужно отправлять обратно,
-									картой можно пользоваться сразу.</li>
-								<li>Очерёдность предложений: Предложите клиенту кредитную карту/кредит наличными</li>
-								<li>Дебетовый клиент: Да</li>
+									картой можно пользоваться сразу.<span class="tip">?</span></li>
+								<li>Очерёдность предложений: Предложите клиенту кредит наличными, при отказе Кредитную карту</li>
+								<li>Дебетовый клиент: Да <span class="tip">?</span></li>
 							</ul>
 						</div>
 
@@ -348,7 +347,7 @@
 <!--								Костромская обл., Кострома, Васильковая ул., д. 4321.-->
 <!--							</p>-->
 <!--							<br>-->
-							<p class="appointment__string">
+							<p class="appointment__string appointment__address">
 								<b>Удобный адрес для встречи</b><br>111000 г.Москва, ул. Василия Петушкова, д. 210
 							</p>
 							<p class="appointment__date appointment__string">
@@ -358,10 +357,10 @@
 								<b>Время:</b> 10:00 - 12:00
 							</p>
 							<br>
-							<p>
+							<p class="comment">
 								<b>Комментарий для представителя</b>
 							</p>
-							<textarea class="text-input" name="comment" cols="50" rows="10"></textarea>
+							<textarea class="text-input comment-text-input" name="comment" cols="50" rows="10"></textarea>
 							<div class="appointment__buttons">
 								<input class="btn btn_blue" type="button" value="Назначить встречу"	data-click="make_meeting_final">
 								<input class="btn btn_gray" type="button" value="Другое место/время" data-click="show_adress">
@@ -370,7 +369,7 @@
 
 						<div id="adress" class="conditions__step hidden adress">
 							<div>
-								<h2>
+								<h2 class="adress__title">
 									Адрес
 								</h2>
 								<hr class="actions__split">
