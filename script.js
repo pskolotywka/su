@@ -1,4 +1,4 @@
-let checkedCreditId = '';
+// let checkedCreditId = '';
 document.addEventListener('click', (event) => catchClick(event));
 document.addEventListener('change', (event) => catchChange(event));
 
@@ -15,21 +15,21 @@ function catchClick(event) {
         case 'call':
             showScript(clickedElement);
             break;
-        case 'tooltip':
-            toggleTooltip();
-            break;
+        // case 'tooltip':
+        //     toggleTooltip();
+        //     break;
         case 'checkbox':
             catchClickCheckbox(event);
             break;
         case 'credit-cash':
             showConditionsCreditCash(event);
             break;
-        case 'own_calc_credit_input':
-            showOwnCalcCredit();
-            break;
-        case 'calculate_credit':
-            calculateCredit();
-            break;
+        // case 'own_calc_credit_input':
+        //     showOwnCalcCredit();
+        //     break;
+        // case 'calculate_credit':
+        //     calculateCredit();
+        //     break;
         case 'calculate_credit_1':
             calculateCredit1();
             break;
@@ -144,6 +144,7 @@ function showCredit(changedElement) {
             showElements('.credit-cash');
             break;
     };
+    clipTips();
 };
 
 function showConditionsCreditCash(event) {
@@ -154,78 +155,67 @@ function showConditionsCreditCash(event) {
     catchClickCheckbox(event);
 };
 
-function showOwnCalcCredit() {
-    // const listRadiobuttonCreditCash = document.querySelectorAll('[name="credit-cash"]');
-    //
-    // [...listRadiobuttonCreditCash].some((link) => {
-    //     console.log(link);
-    //     if (link.classList.contains('active')) {
-    //         checkedCreditId = link.id;
-    //     };
-    //     return link.classList.contains('active');
-    // });
-    const btn = document.querySelectorAll('[name="credit-cash"]');
-    btn.forEach(item => {
-        item.addEventListener('click', e => {
-            checkedCreditId = item.id;
-        })
-    });
-    hideElements('#get_credit');
-    hideElements('.own-calc-credit__add-condition');
-    hideElements('.own-calc-credit__count-result');
-    hideElements('.tooltip');
-    hideElements('.own-calc-credit__tooltip-count');
+// function showOwnCalcCredit() {
+//     const listRadiobuttonCreditCash = document.querySelectorAll('[name="credit-cash"]');
+//
+//     [...listRadiobuttonCreditCash].some((input) => {
+//         if (input.checked) {
+//             checkedCreditId = input.id;
+//         };
+//     });
+//
+//     hideElements('#get_credit');
+//     hideElements('.own-calc-credit__add-condition');
+//     hideElements('.own-calc-credit__count-result');
+//     hideElements('.tooltip');
+//     hideElements('.own-calc-credit__tooltip-count');
+//
+//     const title = document.querySelector('#conditions_title');
+//     const sumCredit = document.querySelector('#sumCredit');
+//     const periodCredit = document.querySelector('#periodCredit');
+//
+//     switch (checkedCreditId) {
+//         case 'credit_3':
+//             title.innerText = 'От 50 000 до 86 000 на сроки от 3 до 36 месяцев';
+//             sumCredit.value = '86000';
+//             periodCredit.value = '36';
+//             showElements('#recount');
+//             showElements('#insurance');
+//             showElements('#holydays');
+//             break;
+//         case 'credit_4':
+//             title.innerText = 'От 50 000 до 92 000 на сроки от 12 до 36 месяцев';
+//             sumCredit.value = '92000';
+//             periodCredit.value = '36';
+//             showElements('#insurance');
+//             break;
+//     }
+//     showElements('.own-calc-credit__dashboard');
+// };
 
-    const title = document.querySelector('#conditions_title');
-    const sumCredit = document.querySelector('#sumCredit');
-    const periodCredit = document.querySelector('#periodCredit');
-
-    switch (checkedCreditId) {
-        case 'credit_3':
-            title.innerText = 'От 50 000 до 86 000 на сроки от 3 до 36 месяцев';
-            sumCredit.value = '86000';
-            periodCredit.value = '36';
-            showElements('#recount');
-            showElements('#insurance');
-            showElements('#holydays');
-            break;
-        case 'credit_4':
-            title.innerText = 'От 50 000 до 92 000 на сроки от 12 до 36 месяцев';
-            sumCredit.value = '92000';
-            periodCredit.value = '36';
-            showElements('#insurance');
-            break;
-    }
-    showElements('.own-calc-credit__dashboard');
-
-    return checkedCreditId;
-};
-
-function toggleTooltip() {
-    showOwnCalcCredit();
-    let tooltipForToggleId = '';
-    console.log(checkedCreditId);
-    switch (checkedCreditId) {
-        case 'credit_3':
-            tooltipForToggleId = 'tooltip_credit_3';
-            break;
-        case 'credit_4':
-            tooltipForToggleId = 'tooltip_credit_4';
-            break;
-    }
-    document.getElementById(tooltipForToggleId).classList.toggle('hidden');
-};
-
-function calculateCredit() {
-    switch (checkedCreditId) {
-        case 'credit_3':
-            showElements('#count_result');
-            break;
-        case 'credit_4':
-            showElements('#count_result_fail');
-            break;
-    }
-};
+// function toggleTooltip() {
+//     let tooltipForToggleId = '';
+//     switch (checkedCreditId) {
+//         case 'credit_3':
+//             tooltipForToggleId = 'tooltip_credit_3';
+//             break;
+//         case 'credit_4':
+//             tooltipForToggleId = 'tooltip_credit_4';
+//             break;
+//     }
+//     document.getElementById(tooltipForToggleId).classList.toggle('hidden');
+// };
+//
+// function calculateCredit() {
+//     switch (checkedCreditId) {
+//         case 'credit_3':
+//             showElements('#count_result');
+//             break;
+//         case 'credit_4':
+//             showElements('#count_result_fail');
+//             break;
+//     }
+// };
 
 function calculateCredit1() {
     showElements('#count_result');
@@ -439,13 +429,22 @@ function createDiv() {
 
 
 
-
+const doc = document.querySelector('body');
 
 function m_a__claim_register() {
     if (document.getElementById("m_a__claim_register").click) {
+
         document.getElementById("comliance__open").style.display = 'block';
         document.getElementById("m_a__claim_register1").style.display = 'block';
         document.getElementById("m_a__claim_register").style.display = 'none';
+        //при клике на body
+        doc.addEventListener('click', e => {
+            const blockMore = e.target.closest('#comliance__open') || e.target.closest('#m_a__claim_register') || e.target.closest('#id');
+            //если изменненный эл НЕ #comliance__open и не #m_a__claim_register
+            if(blockMore === null ){
+                m_a__claim_register1();
+            }
+        })
     }
 }
 
@@ -455,6 +454,7 @@ function m_a__claim_register1() {
         document.getElementById("comliance__open").style.display = 'none';
         document.getElementById("m_a__claim_register1").style.display = 'none';
         document.getElementById("m_a__claim_register").style.display = 'block';
+
     }
 }
 
@@ -463,6 +463,15 @@ function m_a__more_actions() {
         document.getElementById("m_a__more_actions_open").style.display = 'block';
         document.getElementById("m_a__more_actions1").style.display = 'block';
         document.getElementById("m_a__more_actions").style.display = 'none';
+        //при клике на body
+        doc.addEventListener('click', e => {
+            const blockMore = e.target.closest('#m_a__more_actions_open') || e.target.closest('#m_a__more_actions') || e.target.closest('#id');
+            //если изменненный эл НЕ #m_a__more_actions_open и не #m_a__more_actions
+            if(blockMore === null ){
+                m_a__more_actions1();
+            }
+        })
+
     }
 }
 
@@ -480,6 +489,14 @@ function m_a__map() {
         ymaps.ready(init);
         document.getElementById("m_a__map1").style.display = 'block';
         document.getElementById("m_a__map").style.display = 'none';
+        //при клике на body
+        doc.addEventListener('click', e => {
+            const blockMore = e.target.closest('#map') || e.target.closest('#m_a__map') || e.target.closest('#id');
+            //если изменненный эл НЕ #map и не #m_a__map
+            if(blockMore === null ){
+                m_a__map1();
+            }
+        })
     }
 }
 
@@ -490,6 +507,20 @@ function m_a__map1() {
         document.getElementById("m_a__map").style.display = 'block';
     }
 }
+
+
+
+function globalClick(){
+    if(document.getElementById("m_a__more_actions_open").style.display === 'block'){
+        console.log(document.getElementById("m_a__more_actions_open").style.display);
+
+    }
+
+}
+globalClick();
+
+
+
 
 function ch_comliance() {
     {
@@ -534,23 +565,173 @@ function updatePeriod(){
 }
 updatePeriod();
 
-function loanCalculation(){
-    const link = document.querySelectorAll('.credit-cash__link');
-    const linkBlock = document.querySelectorAll('.credit-cash__item');
-    const calcBlock = document.querySelector('.own-calc-credit');
+// function loanCalculation(){
+//     const link = document.querySelectorAll('.credit-cash__link');
+//     const linkBlock = document.querySelectorAll('.credit-cash__item');
+//     const calcBlock = document.querySelector('.own-calc-credit');
+//
+//     link.forEach(item => {
+//         item.addEventListener('click', e =>{
+//             linkBlock.forEach(item => {
+//                 item.classList.add('hidden');
+//             });
+//             calcBlock.classList.remove('hidden');
+//         })
+//     })
+// }
+//
+// loanCalculation();
 
-    link.forEach(item => {
-        item.addEventListener('click', e =>{
+
+
+const tip = document.querySelector('.wrap__help');
+
+function optionsCredit(){
+    let checkedCreditId = '';
+    const btnCalculate = document.querySelector('[data-click="calculate_credit"]');
+    const title = document.querySelector('#conditions_title');
+    const sumCredit = document.querySelector('#sumCredit');
+    const periodCredit = document.querySelector('#periodCredit');
+    const questionMark = document.querySelector('.tooltip-pin');
+    const linkBlock = document.querySelectorAll('.credit-cash__item');
+    const btn = document.querySelectorAll('[name="credit-cash"]');
+    btn.forEach(item => {
+        //при клике на одну из ссылок в "кредит наличными"
+        item.addEventListener('click', e => {
+            //добавляем подсказку
             linkBlock.forEach(item => {
                 item.classList.add('hidden');
             });
-            calcBlock.classList.remove('hidden');
-        })
-    })
+            checkedCreditId = item.id;
+            showElements('.own-calc-credit');
+
+            switch (checkedCreditId) {
+                case 'credit_3':
+                    title.innerText = 'От 50 000 до 86 000 на сроки от 3 до 36 месяцев';
+                    sumCredit.value = '86000';
+                    periodCredit.value = '36';
+                    showElements('#recount');
+                    showElements('#insurance');
+                    showElements('#holydays');
+                    break;
+                case 'credit_4':
+                    title.innerText = 'От 50 000 до 92 000 на сроки от 12 до 36 месяцев';
+                    sumCredit.value = '92000';
+                    periodCredit.value = '36';
+                    showElements('#insurance');
+                    break;
+            }
+
+
+            switch (checkedCreditId) {
+
+                case 'credit_3':
+                    sumCredit.addEventListener('blur', e => {
+                        const sum = Number(sumCredit.value);
+                        if(sum < 50000 || sum > 86000){
+                            sumCredit.classList.add('red-border');
+                            btnCalculate.classList.add('block');
+                        }else{
+                            sumCredit.classList.remove('red-border');
+                            btnCalculate.classList.remove('block');
+                        }
+                    });
+                    periodCredit.addEventListener('blur', e => {
+                        const period = Number(periodCredit.value);
+                        if(period < 3 || period > 36){
+                            periodCredit.classList.add('red-border');
+                        }else{
+                            periodCredit.classList.remove('red-border');
+                        }
+                    });
+                    break;
+                case 'credit_4':
+                    sumCredit.addEventListener('blur', e => {
+                        const sum = Number(sumCredit.value);
+                        if(sum < 50000 || sum > 92000){
+                            sumCredit.classList.add('red-border');
+                        }else{
+                            sumCredit.classList.remove('red-border');
+                        }
+                    });
+                    periodCredit.addEventListener('blur', e => {
+                        const period = Number(periodCredit.value);
+                        if(period < 12|| period > 36){
+                            periodCredit.classList.add('red-border');
+                        }else{
+                            periodCredit.classList.remove('red-border');
+                        }
+                    });
+                    break;
+            }
+
+            btnCalculate.onmousedown = function(){
+                const sum = Number(sumCredit.value);
+                const period = Number(periodCredit.value);
+                switch (checkedCreditId) {
+                    case 'credit_3':
+                        if((sum < 50000 || sum > 86000) && (period < 3 || period > 36)){
+                            btnCalculate.classList.add('block');
+                        }else if(sum < 50000 || sum > 86000){
+                            btnCalculate.classList.add('block');
+                        }else if(period < 3 || period > 36){
+                            btnCalculate.classList.add('block');
+                        }else{
+                            btnCalculate.classList.remove('block');
+                            calculate();
+                        }
+                        break;
+                    case 'credit_4':
+                        showElements('#insurance');
+                        if((sum < 50000 || sum > 92000)  && (period < 12|| period > 36)){
+                            btnCalculate.classList.add('block');
+                        }else if(sum < 50000 || sum > 92000){
+                            btnCalculate.classList.add('block');
+                        }else if(period < 12 || period > 36){
+                            btnCalculate.classList.add('block');
+                        }else{
+                            btnCalculate.classList.remove('block');
+                            calculate();
+                        }
+                        break;
+                }
+            };
+
+            let tooltipForToggleId = '';
+            switch (checkedCreditId) {
+                case 'credit_3':
+                    tooltipForToggleId = 'tooltip_credit_3';
+                    break;
+                case 'credit_4':
+                    tooltipForToggleId = 'tooltip_credit_4';
+                    break;
+            }
+            questionMark.addEventListener('click', e => {
+                document.getElementById(tooltipForToggleId).classList.toggle('hidden');
+                switch (checkedCreditId) {
+                    case 'credit_3':
+                        tip.innerHTML = 'Подсказка: При консультации клиента следуй инструкции «Согласование условий ' +
+                            '– общее описание функционала – согласование условий - Собственный расчет (для кредита наличными) ' +
+                            '– порядок для тарифа с пересчетом ставки в синим блоке»';
+                        break;
+                    case 'credit_4':
+                        tip.innerHTML = 'Подсказка: При консультации клиента следуй инструкции «Согласование условий' +
+                            ' – общее описание функционала – согласование условий - Собственный расчет (для кредита наличными)' +
+                            ' – Клиент интересуется процентной ставкой или не уточняет конкретно, о каком проценте (годовой или общий) идёт речь';
+                        break;
+                }
+            })
+
+        });
+    });
 }
 
-loanCalculation();
+optionsCredit();
 
+function testSumPeriod(){
+
+}
+testSumPeriod();
 
 function calculate(){
     const btn = document.querySelector('[data-click="calculate_credit"]');
@@ -609,10 +790,16 @@ function calculate(){
     })
 }
 
-calculate();
+
+
+
+
+
+
 
 
 function init () {
+
     var myMap = new ymaps.Map("map", {
             center: [55.761832, 37.595279],
             zoom: 5
@@ -696,7 +883,148 @@ function init () {
             hintContent: "улица Пушкина, 18"
         });
 
+
     myMap.geoObjects.add(myPlacemark);
+
+    // Создаем многоугольник, используя вспомогательный класс Polygon.
+    var myPolygon = new ymaps.Polygon([
+        // Указываем координаты вершин многоугольника.
+        // Координаты вершин внешнего контура.
+        [
+            [60.057553, 30.148310],
+            [60.080199, 30.189800],
+            [60.098035, 30.264414],
+            [60.091731, 30.367832],
+            [60.041739, 30.437748],
+            [59.990454, 30.482903],
+            [59.968279, 30.551028],
+            [59.901102, 30.526281],
+            [59.869743, 30.531189],
+            [59.854582, 30.503847],
+            [59.851408, 30.467391],
+            [59.825297, 30.433038],
+            [59.809762, 30.328578],
+            [59.834826, 30.279503],
+            [59.877498, 30.294226],
+            [59.907793, 30.205891],
+            [59.944364, 30.204042]
+        ],
+        [
+            [55.881895, 37.444080],
+            [55.883391, 37.470701],
+            [55.906328, 37.524832],
+            [55.911811, 37.569201],
+            [55.909817, 37.588724],
+            [55.896856, 37.641080],
+            [55.895360, 37.699647],
+            [55.827988, 37.831868],
+            [55.779507, 37.841630],
+            [55.720950, 37.839855],
+            [55.698404, 37.828319],
+            [55.688380, 37.829206],
+            [55.664311, 37.838967],
+            [55.654278, 37.837193],
+            [55.616630, 37.780400],
+            [55.575930, 37.686337],
+            [55.571521, 37.666139],
+            [55.574861, 37.597164],
+            [55.596293, 37.509852],
+            [55.613412, 37.489031],
+            [55.638682, 37.458547],
+            [55.663069, 37.431034],
+            [55.712976, 37.384822],
+            [55.746072, 37.369057],
+            [55.784641, 37.368809],
+            [55.806299, 37.386755],
+            [55.836864, 37.396077],
+            [55.846567, 37.391176],
+            [55.861008, 37.398208],
+            [55.867690, 37.405103],
+            [55.873115, 37.416387]
+        ],
+        [
+            [56.424614, 43.811882],
+            [56.407867, 43.848961],
+            [56.372828, 43.884666],
+            [56.357202, 43.916252],
+            [56.340044, 43.987663],
+            [56.338137, 44.066627],
+            [56.334705, 44.083793],
+            [56.298834, 44.118126],
+            [56.241753, 44.034001],
+            [56.235070, 44.045296],
+            [56.227599, 44.020588],
+            [56.220520, 43.978231],
+            [56.197307, 43.935874],
+            [56.204390, 43.925990],
+            [56.218553, 43.933756],
+            [56.220126, 43.888575],
+            [56.189434, 43.809509],
+            [56.184710, 43.783389],
+            [56.193371, 43.707852],
+            [56.219340, 43.715617],
+            [56.263368, 43.762916],
+            [56.267297, 43.744561],
+            [56.278440, 43.757667],
+            [56.304254, 43.747834],
+            [56.388477, 43.724356]
+        ],
+        [
+            [54.584010, 39.772085],
+            [54.583597, 39.746139],
+            [54.600935, 39.645907],
+            [54.616177, 39.636443],
+            [54.636181, 39.632888],
+            [54.650404, 39.640708],
+            [54.667095, 39.595924],
+            [54.685551, 39.600487],
+            [54.692608, 39.591143],
+            [54.695592, 39.601446],
+            [54.701004, 39.614908],
+            [54.699430, 39.651542],
+            [54.697254, 39.652669],
+            [54.696182, 39.660633],
+            [54.698250, 39.669650],
+            [54.691612, 39.679230],
+            [54.687804, 39.675849],
+            [54.686171, 39.676976],
+            [54.673654, 39.708535],
+            [54.656014, 39.746855],
+            [54.652539, 39.771229],
+            [54.663522, 39.793434],
+            [54.653502, 39.808274],
+            [54.636093, 39.779492],
+            [54.625206, 39.795610],
+            [54.620083, 39.797113],
+            [54.613324, 39.826229],
+            [54.607822, 39.825785],
+            [54.604878, 39.836680],
+            [54.599207, 39.829542],
+            [54.604114, 39.818647],
+            [54.599970, 39.809255],
+            [54.583785, 39.817279],
+            [54.579180, 39.812350],
+            [54.570963, 39.805493],
+            [54.566799, 39.811336],
+            [54.533789, 39.784121],
+            [54.545377, 39.783478],
+            [54.568294, 39.781335]
+        ]
+
+    ], {
+        // Задаем опции геообъекта.
+        // Цвет заливки.
+        fillColor: '#D8F6CE',
+        // Цвет обводки.
+        strokeColor: '#A9F5A9',
+        // Общая прозрачность (как для заливки, так и для обводки).
+        opacity: 0.5,
+        // Ширина обводки.
+        strokeWidth: 5
+    });
+
+    // Добавляем многоугольник на карту.
+    myMap.geoObjects.add(myPolygon);
 
 }
 
@@ -709,21 +1037,149 @@ const drag = new Draggable (element, options);
 drag.set(window.innerWidth - 200,window.innerHeight - 200);
 
 
-function more(){
+function clipTips(){
+    //контейнер для подсказок
+
+
+    const blockConditions = document.querySelector('.conditions');
+    const tipConditions = 'Запомни информацию в Апплете «Дополнительная информация». После перехода к назначению встречи, информация исчезнет';
+    //при нажатии на 'Согласование условий'
+    blockConditions.addEventListener('click', e => {
+        tip.innerHTML = tipConditions;
+        tip.classList.remove('hidden');
+    });
+
+    //текст в дополнительной информации
+    const moreInfoContent = document.querySelectorAll('.tip');
+    const moreInfoTips = ['При согласии клиента на получение кредитной карты, действуй согласно инструкции «Согласование условий»' +
+    ' – общее описание функционала – Апплет Дополнительная информация».' +
+    'Если клиент сообщает, что уже активировал кредитную карту нашего Банка, действуй, согласно инструкции «Согласование условий»' +
+    ' – общее описание функционала – Нестандартные ситуации - Клиент сообщает, что он пользуется/ уже активировал КК».',
+    'При согласовании доставки кредитной карты Почтой России, обрати внимание на данный шаг и следуй инструкции «Согласование условий»' +
+    ' – общее описание функционала – Апплет Дополнительная информация».',
+    'При согласии клиента на получение кредита наличными – обязательно ознакомься со значением в поле «Дебетовый клиент».' +
+    ' Действуй согласно инструкции «Согласование условий – Входящие обращения/Исходящий обзвон (выбор зависит от твоего функционала)' +
+    ' – очередь – описание – красный блок»'];
+    for(let i = 0; i < moreInfoContent.length; i++){
+        //при наведении на вопросики
+        moreInfoContent[i].onmouseover = function(){
+            tip.innerHTML = moreInfoTips[i];
+        };
+        //если убираем мышь c вопросиков, то всплывает общая подсказка для бока 'Согласование условий'
+        moreInfoContent[i].onmouseout = function(){
+            tip.innerHTML = tipConditions;
+        }
+    }
+
+    const loanSelection = document.querySelector('.conditions__select-type-credit');
+    //при наведении на "выберите кредит"
+    loanSelection.onmouseover = function(){
+        tip.innerHTML = 'Изучи описание задания, в котором будет указан продукт, который нужно предлагать в первую очередь.' +
+            'Переходить к презентации второго продукта (при наличии) следует только после полной отработки всех имеющихся и' +
+            ' выявленных возражений клиента по приоритетному продукту, если клиент все равно отказывается от приоритетного продукта.';
+    };
+    //если убираем мышь c "выберите кредит", то всплывает общая подсказка для бока 'Согласование условий'
+    loanSelection.onmouseout = function(){
+        tip.innerHTML = tipConditions;
+    };
+
+    const tipCreditCard = 'Обрати внимание! Кредитный лимит озвучивай клиенту, строго согласно инструкции «Согласование условий» ' +
+        '– общее описание функционала-Особенности функционала – Как озвучивать одобренный лимит кредитной карты»';
+
+    const creditCard = document.getElementById('credit_1');
+    //если выбрали кредитную карту
+    if(!creditCard.classList.contains('hidden')){
+        tip.innerHTML = tipCreditCard;
+    }
+
+    //если наводим на кнопку "назначить встречу"
+    const makeAppointment = document.getElementById('make_meeting_start');
+    makeAppointment.onmouseover = function(){
+        tip.innerHTML = 'Сначала проверь Апплет «Дополнительная информация». Порядок действий ты найдешь в инструкции «Согласование условий' +
+            ' – общее описание функционала – Апплет Дополнительная информация»';
+    };
+
+    const tipCheckMap = 'Разверни Апплет «Карта» и проверь возможность доставки, следуя инструкции «Информационный портал – назначение встреч»';
+
+    const meetingAddress = document.querySelector('.appointment__address');
+    //при наведении на "Удобный адрес для встречи"
+    meetingAddress .onmouseover = function () {
+        tip.innerHTML = tipCheckMap;
+    };
+    meetingAddress .onmouseout = function () {
+        tip.innerHTML = tipCreditCard;
+    };
+
+    const address = document.querySelector('.adress__title');
+    //при наведении на "Удобный адрес для встречи"
+    address.onmouseover = function () {
+    tip.innerHTML = tipCheckMap;
+    };
+    address.onmouseout = function () {
+        tip.innerHTML = tipCreditCard;
+    };
+
+    const tipComment = 'Обязательно уточни у клиента дополнительный номер телефона и другие данные для представителя.' +
+        ' Внеси данные в Комментарий для представителя, следуя инструкции «Информационный портал – назначение встреч»';
+    const comment = document.querySelector('.comment');
+    //при наведении на текст 'Комментарий для представителя'
+    comment.onmouseover = function(){
+        tip.innerHTML = tipComment;
+    };
+    comment.onmouseout = function(){
+        tip.inner = tipCreditCard;
+    };
+
+    const commentInput = document.querySelector('.comment-text-input');
+    //при на ведении на поле для комментария для представителя
+    commentInput.onmouseover = function () {
+        tip.innerHTML = tipComment;
+    };
+    commentInput.onmouseout = function(){
+        tip.inner = tipCreditCard;
+    };
+
+
+    //если убираем мышь с кнопки "назначить встречу", то встпывает предыдущая подсказка
+    makeAppointment.onmouseout = function () {
+        tip.innerHTML = tipCreditCard;
+    };
+
+    const tipCreditCash = 'Проверь, что все параметры расчета указаны верно.';
     const btn = document.querySelectorAll('[name="credit-cash"]');
     btn.forEach(item => {
         item.addEventListener('click', e => {
-            item.classList.add('active');
+            tip.innerHTML = tipCreditCash;
         })
-    })
+    });
+    const insurance = document.getElementById('insurance');
+    //если наводим на страховку
+    insurance.onmouseover = function(){
+        tip.innerHTML = 'Снимать чек-бокс нужно только при желании клиента.' +
+            'Самостоятельно упоминать о факте подключенной страховки, стоимости услуги и ее условиях не требуется.' +
+            ' Исключение – уточняющие вопросы клиента касательно большого ежемесячного. платежа, дополнительных услуг/комиссий.' +
+            ' («Согласование условий – общее описание функционала – согласование условий - Собственный расчет (для кредита наличными)';
+    };
+    insurance.onmouseout= function(){
+        tip.innerHTML = tipCreditCash;
+    };
+
+    const holiday = document.getElementById('holydays');
+    //если наводим на кредитные каникулы
+    holiday.onmouseover = function () {
+        tip.innerHTML = 'Услуга может быть подключена по умолчанию.' +
+            'В этом случае, как и со Страховкой, без уточнений клиента сообщать об услуге или ее отключать (снимать чек-бокс) не требуется.' +
+            ' Если услуга по умолчанию отключена, то самостоятельно предлагать ее подключить также не требуется. ' +
+            '(«Согласование условий – общее описание функционала – согласование условий - Собственный расчет (для кредита наличными)';
+    };
+    holiday.onmouseout = function () {
+        tip.innerHTML = tipCreditCash;
+    }
+
 
 }
 
-
-more();
-
-
-
+clipTips();
 
 
 
