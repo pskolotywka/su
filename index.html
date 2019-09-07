@@ -671,16 +671,17 @@
 					<p><input type="checkbox" id="change_data" onclick="change_data()">Изменение данных</p>
 					<div id="change_data__wrap">
 						<div class="datetime">
-							<p><b>Дата обработки:</b><input type="datetime"></p>
+							<p class="data-change__date"><b>Дата обработки:</b><input type="datetime"></p>
 						</div>
-						<div>
+						<div class="data-change__comment">
 							<p><b>Комментарий: <span class="span-red"></span></b></p>
+							<div><textarea rows="3" cols="45" maxlength="300"></textarea></div>
 						</div>
-						<div><textarea rows="3" cols="45" maxlength="300"></textarea></div>
+
 					</div>
 				</div>
 				<div>
-					<p><input type="checkbox" id="ch_comliance" onclick="ch_comliance()">Претензия</p>
+					<p class="more-actions__claim"><input class="block" type="checkbox" id="ch_comliance" onclick="ch_comliance()">Претензия</p>
 					<div id="m_a_comliance">
 						<div class="datetime">
 							<p><b>Дата обработки:</b><input type="datetime"></p>

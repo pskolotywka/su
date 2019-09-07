@@ -427,22 +427,24 @@ function createDiv() {
 
 // appointment__ops form__SU3 
 
-
-
+const tip = document.querySelector('.wrap__help');
 const doc = document.querySelector('body');
 
 function m_a__claim_register() {
     if (document.getElementById("m_a__claim_register").click) {
-
         document.getElementById("comliance__open").style.display = 'block';
         document.getElementById("m_a__claim_register1").style.display = 'block';
         document.getElementById("m_a__claim_register").style.display = 'none';
+        tip.classList.remove('hidden');
+        tip.innerHTML = 'Когда клиент сообщает об ошибке оператора или сотрудника банка (например, некорректная консультация / грубая манера общения и т.п.),' +
+            ' зарегистрируй претензию, следуя инструкции «Информационный портал – Дополнительные действия – Зарегистрировать претензию»';
         //при клике на body
         doc.addEventListener('click', e => {
             const blockMore = e.target.closest('#comliance__open') || e.target.closest('#m_a__claim_register') || e.target.closest('#id');
             //если изменненный эл НЕ #comliance__open и не #m_a__claim_register
             if(blockMore === null ){
                 m_a__claim_register1();
+
             }
         })
     }
@@ -454,7 +456,6 @@ function m_a__claim_register1() {
         document.getElementById("comliance__open").style.display = 'none';
         document.getElementById("m_a__claim_register1").style.display = 'none';
         document.getElementById("m_a__claim_register").style.display = 'block';
-
     }
 }
 
@@ -463,6 +464,9 @@ function m_a__more_actions() {
         document.getElementById("m_a__more_actions_open").style.display = 'block';
         document.getElementById("m_a__more_actions1").style.display = 'block';
         document.getElementById("m_a__more_actions").style.display = 'none';
+        tip.classList.remove('hidden');
+        tip.innerHTML = 'При любых изменений данных клиента важно строго следовать инструкции «Информационный портал – Дополнительные действия ' +
+            '- Дополнительные действия – Изменение данных»';
         //при клике на body
         doc.addEventListener('click', e => {
             const blockMore = e.target.closest('#m_a__more_actions_open') || e.target.closest('#m_a__more_actions') || e.target.closest('#id');
@@ -489,6 +493,7 @@ function m_a__map() {
         ymaps.ready(init);
         document.getElementById("m_a__map1").style.display = 'block';
         document.getElementById("m_a__map").style.display = 'none';
+        tip.classList.remove('.hidden');
         //при клике на body
         doc.addEventListener('click', e => {
             const blockMore = e.target.closest('#map') || e.target.closest('#m_a__map') || e.target.closest('#id');
@@ -584,7 +589,6 @@ updatePeriod();
 
 
 
-const tip = document.querySelector('.wrap__help');
 
 function optionsCredit(){
     let checkedCreditId = '';
@@ -619,6 +623,7 @@ function optionsCredit(){
                     sumCredit.value = '92000';
                     periodCredit.value = '36';
                     showElements('#insurance');
+                    document.getElementById('recount').classList.add('hidden');
                     break;
             }
 
@@ -799,8 +804,13 @@ function calculate(){
 
 
 function init () {
+    //если уже открывали карту
+    if (window.myMap) {
+        //то удаляем ее
+        window.myMap.destroy()
+    }
 
-    var myMap = new ymaps.Map("map", {
+    window.myMap = new ymaps.Map("map", {
             center: [55.761832, 37.595279],
             zoom: 5
         }, {
@@ -1011,12 +1021,12 @@ function init () {
             [54.568294, 39.781335]
         ]
 
-    ], {
+    ],{}, {
         // Задаем опции геообъекта.
         // Цвет заливки.
-        fillColor: '#D8F6CE',
+        fill: false,
         // Цвет обводки.
-        strokeColor: '#A9F5A9',
+        strokeColor: '#ff0000',
         // Общая прозрачность (как для заливки, так и для обводки).
         opacity: 0.5,
         // Ширина обводки.
@@ -1028,18 +1038,9 @@ function init () {
 
 }
 
-const element = document.getElementById('id');
-const options = {
-    limit: document.querySelector('.area'),
-};
-const drag = new Draggable (element, options);
-
-drag.set(window.innerWidth - 200,window.innerHeight - 200);
-
 
 function clipTips(){
     //контейнер для подсказок
-
 
     const blockConditions = document.querySelector('.conditions');
     const tipConditions = 'Запомни информацию в Апплете «Дополнительная информация». После перехода к назначению встречи, информация исчезнет';
@@ -1047,6 +1048,16 @@ function clipTips(){
     blockConditions.addEventListener('click', e => {
         tip.innerHTML = tipConditions;
         tip.classList.remove('hidden');
+    });
+    //при клике на body
+    doc.addEventListener('click', e => {
+        const blockMore = e.target.closest('.conditions') || e.target.closest('#m_a__more_actions_open') || e.target.closest('#m_a__more_actions')
+            || e.target.closest('#id') || e.target.closest('#map') || e.target.closest('#m_a__map') ||e.target.closest('#comliance__open')
+            || e.target.closest('#m_a__claim_register');
+        //если изменненный эл НЕ conditions
+        if(blockMore === null ){
+            tip.classList.add('hidden');
+        }
     });
 
     //текст в дополнительной информации
@@ -1174,24 +1185,99 @@ function clipTips(){
     };
     holiday.onmouseout = function () {
         tip.innerHTML = tipCreditCash;
-    }
+    };
+
+    const textMoreAction = 'При любых изменений данных клиента важно строго следовать инструкции «Информационный портал – Дополнительные действия ' +
+        '- Дополнительные действия – Изменение данных»';
+
+    const dateProcessing = document.querySelector('.data-change__date');
+    //если наводим на "дата обработки"
+    dateProcessing.onmouseover = function(){
+        tip.innerHTML = 'Укажи дату и время обработки в формате "04.07.2019 17:00"';
+
+    };
+    dateProcessing.onmouseout = function(){
+        tip.innerHTML = textMoreAction
+    };
+
+    const dataChangeComment = document.querySelector('.data-change__comment');
+    //если наводим на комментарий в доп действиях
+    dataChangeComment.onmouseover = function(){
+        tip.innerHTML = 'Укажи комментарий, согласно инструкции «Информационный портал – Дополнительные действия - Дополнительные действия – Изменение данных»';
+
+    };
+    dataChangeComment.onmouseout = function(){
+        tip.innerHTML = textMoreAction
+    };
+
+    const moreActionsClaim = document.querySelector('.more-actions__claim');
+    //если наводим на претензию в доп действиях
+    moreActionsClaim.onmouseover = function(){
+        tip.innerHTML = 'Для регистрации претензии используй Апплет «Зарегистрировать претензию»';
+    };
+    moreActionsClaim.onmouseout = function(){
+        tip.innerHTML = textMoreAction
+    };
 
 
 }
 
 clipTips();
 
+function dataChangeDate() {
+    const block = document.querySelector('.data-change__date');
+    const date = block.querySelector('input');
+
+    date.onkeyup = function test(){
+        const value = date.value;
+
+        const pattern = /[()&^$?/%#\!@;+_*="'a-zA-Zа-яА-Я]/;
+
+        //делаем проверку с помощью метода test
+        //(выполняет поиск сопоставления)
+        if(pattern.test(value)){
+            //Метод replace() возвращает новую строку с сопоставлениями, заменёнными на заменитель
+            date.value = value.replace(pattern, '');
+        }
+    };
+
+    date.addEventListener('blur', e => {
+        const format = /^\d{2}.\d{2}.\d{4} \d{2}:\d{2}$/.test(date.value);
+        if(date.value.length > 0){
+            if(format !== true){
+                date.classList.add('red-border');
+                tip.innerHTML = 'Укажи дату и время обработки в формате "04.07.2019 17:00" ';
+            }else{
+                date.classList.remove('red-border');
+            }
+        }
+    })
+}
+
+dataChangeDate();
 
 
+const element = document.getElementById('id');
+const options = {
+    limit: document.querySelector('.area'),
+};
+
+function clipPosition(){
+    const btn = document.querySelector('.btn_call');
+    const wrapClip = document.querySelector('.area');
+    btn.addEventListener('click', e => {
+        wrapClip.classList.add('new-area');
+        window.drag.destroy();
+        window.drag = new Draggable (element, options);
+
+        drag.set(window.innerWidth - 570,window.innerHeight - 230);
+    })
+}
+
+clipPosition();
 
 
-
-
-
-
-
-
-
+window.drag = new Draggable (element, options);
 
 
 
