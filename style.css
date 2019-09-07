@@ -1014,11 +1014,18 @@ th {
 
 .area{
     position: fixed;
+    top: 410px;
+    right: 450px;
+    width: 120px;
+    height: 120px;
+    pointer-events: none;
+}
+
+.new-area{
     top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    pointer-events: none
+    right: 0;
+    width: 100%;
+    height: 100%;
 }
 
 
@@ -1029,6 +1036,7 @@ th {
 }
 
 .wrap__img{
+    display: block;
     width: 100%;
     height: 100%;
     position: relative;
@@ -1068,8 +1076,8 @@ th {
 .wrap__help{
     width: 400px;
     position: absolute;
-    top: -100px;
-    left: -100px;
+    bottom: calc(100% + 5px);
+    left: 0;
     padding: 15px;
     background-color: #eeeeee;
     border-radius: 10px;
@@ -1079,7 +1087,7 @@ th {
 .wrap__help:after, .wrap__help:before{
     content:'';
     position: absolute;
-    left: 50%;
+    left: 80px;
     bottom: -18px;
     border: 8px solid transparent;
     border-top: 10px solid #000;
@@ -1116,5 +1124,19 @@ th {
 }
 
 .red-border{
-    border: 1px solid red;
+    border: 1px solid red !important;
 }
+
+.actions__presentation-text{
+    background-color: #f8f8c8;
+    border-radius: 5px;
+    border: 1px solid #f4f4a4;
+    box-shadow: 0 0 5px #f4f4a4 inset;
+    padding: 10px;
+}
+
+
+
+
+
+
