@@ -1014,8 +1014,8 @@ th {
 
 .area{
     position: fixed;
-    top: 410px;
-    right: 450px;
+    top: 400px;
+    right: 350px;
     width: 120px;
     height: 120px;
     pointer-events: none;
