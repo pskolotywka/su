@@ -610,6 +610,7 @@ function optionsCredit(){
             showElements('.own-calc-credit');
 
             switch (checkedCreditId) {
+                //если id эл =
                 case 'credit_3':
                     title.innerText = 'От 50 000 до 86 000 на сроки от 3 до 36 месяцев';
                     sumCredit.value = '86000';
@@ -618,6 +619,7 @@ function optionsCredit(){
                     showElements('#insurance');
                     showElements('#holydays');
                     break;
+                //если id эл =
                 case 'credit_4':
                     title.innerText = 'От 50 000 до 92 000 на сроки от 12 до 36 месяцев';
                     sumCredit.value = '92000';
@@ -631,8 +633,10 @@ function optionsCredit(){
             switch (checkedCreditId) {
 
                 case 'credit_3':
+                    //на инпут суммы навешиваем событие
                     sumCredit.addEventListener('blur', e => {
                         const sum = Number(sumCredit.value);
+                        // если знаечение инпута не вписываается в интервал 
                         if(sum < 50000 || sum > 86000){
                             sumCredit.classList.add('red-border');
                             btnCalculate.classList.add('block');
@@ -1264,13 +1268,26 @@ const options = {
 
 function clipPosition(){
     const btn = document.querySelector('.btn_call');
+    const conditions = document.querySelector('.conditions');
     const wrapClip = document.querySelector('.area');
+    //при клике на кнопку позвонить в блоке история по заданию
     btn.addEventListener('click', e => {
+        //меняем класс, чтоб можно было перетаскивать скрепку
         wrapClip.classList.add('new-area');
         window.drag.destroy();
         window.drag = new Draggable (element, options);
+        //изначальные координаты
+        drag.set(window.innerWidth - 420,window.innerHeight - 230);
+    });
+    //при клике на согласование условий
+    conditions.addEventListener('click', e => {
+        //меняем класс, чтоб можно было перетаскивать скрепку
+        wrapClip.classList.add('new-area');
 
-        drag.set(window.innerWidth - 570,window.innerHeight - 230);
+        window.drag.destroy();
+        window.drag = new Draggable (element, options);
+        //изначальные координаты
+        drag.set(window.innerWidth - 420,window.innerHeight - 320);
     })
 }
 
