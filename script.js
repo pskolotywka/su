@@ -493,7 +493,7 @@ function m_a__map() {
         ymaps.ready(init);
         document.getElementById("m_a__map1").style.display = 'block';
         document.getElementById("m_a__map").style.display = 'none';
-        tip.classList.remove('.hidden');
+        tip.classList.add('hidden');
         //при клике на body
         doc.addEventListener('click', e => {
             const blockMore = e.target.closest('#map') || e.target.closest('#m_a__map') || e.target.closest('#id');
@@ -636,7 +636,7 @@ function optionsCredit(){
                     //на инпут суммы навешиваем событие
                     sumCredit.addEventListener('blur', e => {
                         const sum = Number(sumCredit.value);
-                        // если знаечение инпута не вписываается в интервал 
+                        // если знаечение инпута не вписываается в интервал
                         if(sum < 50000 || sum > 86000){
                             sumCredit.classList.add('red-border');
                             btnCalculate.classList.add('block');
@@ -1277,17 +1277,12 @@ function clipPosition(){
         window.drag.destroy();
         window.drag = new Draggable (element, options);
         //изначальные координаты
-        drag.set(window.innerWidth - 420,window.innerHeight - 230);
+        drag.set(window.innerWidth - 570,window.innerHeight - 340);
     });
     //при клике на согласование условий
     conditions.addEventListener('click', e => {
-        //меняем класс, чтоб можно было перетаскивать скрепку
-        wrapClip.classList.add('new-area');
+        wrapClip.classList.add('conditions-area');
 
-        window.drag.destroy();
-        window.drag = new Draggable (element, options);
-        //изначальные координаты
-        drag.set(window.innerWidth - 420,window.innerHeight - 320);
     })
 }
 
