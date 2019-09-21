@@ -409,6 +409,13 @@
     min-height: 20px;
     align-items: center;
 }
+.actions__click-income {
+    display: block;
+    padding: 15px 0;
+}
+.income-input {
+    margin-right: 30px;
+}
 
 .actions__click-input {
     margin: 0 7px 0 0;

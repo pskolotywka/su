@@ -27,9 +27,9 @@ function catchClick(event) {
         // case 'own_calc_credit_input':
         //     showOwnCalcCredit();
         //     break;
-        // case 'calculate_credit':
-        //     calculateCredit();
-        //     break;
+        /*  case 'calculate_credit':
+             calculateCredit();
+             break; */
         case 'calculate_credit_1':
             calculateCredit1();
             break;
@@ -206,24 +206,26 @@ function showConditionsCreditCash(event) {
 //     document.getElementById(tooltipForToggleId).classList.toggle('hidden');
 // };
 //
-// function calculateCredit() {
-//     switch (checkedCreditId) {
-//         case 'credit_3':
-//             showElements('#count_result');
-//             break;
-//         case 'credit_4':
-//             showElements('#count_result_fail');
-//             break;
-//     }
-// };
+/*  function calculateCredit() {
+     switch (checkedCreditId) {
+         case 'credit_3':
+             showElements('#count_result');
+             break;
+         case 'credit_4':
+             showElements('#count_result_fail');
+             break;
+     }
+ }; */
 
 function calculateCredit1() {
     showElements('#count_result');
+    showElements('#get_credit')
 };
 
 function make_meeting_start() {
     hideElements('.conditions__step');
     showElements('#meeting');
+    hideElements('#get_credit')
 };
 
 function showModal() {
@@ -608,7 +610,7 @@ function optionsCredit(){
             });
             checkedCreditId = item.id;
             showElements('.own-calc-credit');
-
+            
             switch (checkedCreditId) {
                 //если id эл =
                 case 'credit_3':
@@ -688,6 +690,7 @@ function optionsCredit(){
                         }else{
                             btnCalculate.classList.remove('block');
                             calculate();
+                            
                         }
                         break;
                     case 'credit_4':
@@ -764,9 +767,11 @@ function calculate(){
         if(random === 0){
             approved.classList.add('hidden');
             notApproved.classList.remove('hidden');
+            hideElements('#get_credit')
         }else{
             approved.classList.remove('hidden');
             notApproved.classList.add('hidden');
+            showElements('#get_credit')
         }
 
         price.forEach(item => {
