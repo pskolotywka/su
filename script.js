@@ -2,6 +2,8 @@
 document.addEventListener('click', (event) => catchClick(event));
 document.addEventListener('change', (event) => catchChange(event));
 
+let reloadFlag = false;
+
 function catchClick(event) {
     const clickedElement = event.target;
     if (clickedElement.classList.contains('client-card__bookmark')) {
@@ -14,6 +16,8 @@ function catchClick(event) {
     switch (clickedElement.dataset.click) {
         case 'call':
             showScript(clickedElement);
+            showTypeWorkClient(document.querySelector('.conditions__select-type-credit'))
+            reloadFlag = true;
             break;
         // case 'tooltip':
         //     toggleTooltip();
@@ -118,15 +122,15 @@ function toggleClientCardSection(sectionClassName, clickedElement) {
 function showScript(clickedElement) {
     clickedElement.classList.add('hidden');
     showElements('.history__work-status');
-    showElements('.predstavlenie__table');
-    insertNextStepDialog('step_1');
     showElements('#more_actions');
+    
 };
-
-
 
 function catchChange(event) {
     const changedElement = event.target;
+    if (changedElement.classList.contains('reload')) {
+        if (reloadFlag) window.location.reload(true);
+    }
     if (changedElement.classList.contains('conditions__select-type-credit')) {
         showCredit(changedElement);
     };
@@ -146,6 +150,21 @@ function showCredit(changedElement) {
     };
     clipTips();
 };
+
+function showTypeWorkClient(changedElement) {
+    switch(changedElement.value) {
+        case 'X-Sell Неактивные кредитчики / Неактивные клиенты. КК + КН':
+            showElements('.predstavlenie__table');
+            insertNextStepDialog('step_1');
+            break;
+        case 'X-Sell Отказы КВК':
+            // console.log('Здесь будет блок для X-Sell Отказы КВК')
+            break;
+        case 'КН от клиентов':
+            // console.log('Здесь будет блок для КН от клиентов')
+            break;  
+    }
+}
 
 function showConditionsCreditCash(event) {
     const ownCalcRadioButton = document.querySelector('#own_calc_credit_input');

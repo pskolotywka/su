@@ -493,7 +493,7 @@ const baseOfStep = {
         theme: 'КК: приветствие',
         text: `<mark class="span-red"><ИО>, <mark class="span-blue">ранее Вы оформляли кредитную карту нашего банка. Сейчас Банк одобрил Вам</mark> 
         кредитную карту Тинькофф Платинум, <mark class="span-blue">выпустим и доставим карту бесплатно.</mark>
-        Вам будет удобно получить карту <mark class="span-blue">по <адресу></mark>?</mark>
+        Вам будет удобно получить карту <mark class="span-blue">по <адресу></mark>?<mark class="span-red">Для назначения встречи нужно подтвердить Ваш доход.</mark></mark>
         <br>
         <br><mark class="span-bold">Клиент готов назначить встречу с представителем банка?</mark>`,
         buttons: [{
