@@ -3,9 +3,11 @@ document.addEventListener('click', (event) => catchClick(event));
 document.addEventListener('change', (event) => catchChange(event));
 
 let reloadFlag = false;
+const selectQueues = document.querySelector('.conditions__select-type-credit');
 
 function catchClick(event) {
     const clickedElement = event.target;
+    
     if (clickedElement.classList.contains('client-card__bookmark')) {
         catchClickBookmarkClientCard(clickedElement);
     };
@@ -16,7 +18,8 @@ function catchClick(event) {
     switch (clickedElement.dataset.click) {
         case 'call':
             showScript(clickedElement);
-            showTypeWorkClient(document.querySelector('.conditions__select-type-credit'))
+            showElements('.predstavlenie__table');
+            insertNextStepDialog('step_1');
             reloadFlag = true;
             break;
         // case 'tooltip':
@@ -69,6 +72,16 @@ function catchClick(event) {
             break;
         case 'choose_next_step':
             chooseNextStep(event);
+            if (selectQueues.value === 'X-Sell Отказы КВК') {
+                if (clickedElement.dataset.nextStep == '33') {
+                    const needBlock = document.querySelector('[data-step="step_33"]').children[1];
+                    needBlock.innerHTML = `<mark class="span-red"><ИО>,<mark class="span-blue">ранее Вы обращались к нашим партнерам, чтобы 
+                    получить кредит на покупку. Наш банк так же откликнулся и одобрил Вам </mark><mark class="span-red">кредитную карту Тинькофф 
+                    Платинум,</mark><mark class="span-blue">с которой можно покупать и не платить проценты, пользуясь рассрочкой до 12 месяцев в 
+                    магазинах-партнерах.</mark><mark class="span-red"><br><br>Для назначения встречи нужно подтвердить Ваш доход.
+                    </mark><br><br><mark class="span-red">Вам будет удобно получить карту по <адресу>?</mark>`
+                }
+            }  
             break;
     };
 };
@@ -123,7 +136,6 @@ function showScript(clickedElement) {
     clickedElement.classList.add('hidden');
     showElements('.history__work-status');
     showElements('#more_actions');
-    
 };
 
 function catchChange(event) {
@@ -151,20 +163,23 @@ function showCredit(changedElement) {
     clipTips();
 };
 
-function showTypeWorkClient(changedElement) {
+/* function showTypeWorkClient(changedElement) {
     switch(changedElement.value) {
         case 'X-Sell Неактивные кредитчики / Неактивные клиенты. КК + КН':
             showElements('.predstavlenie__table');
             insertNextStepDialog('step_1');
             break;
         case 'X-Sell Отказы КВК':
-            // console.log('Здесь будет блок для X-Sell Отказы КВК')
+            showElements('.predstavlenie__table');
+            insertNextStepDialog('step_1');
             break;
         case 'КН от клиентов':
-            // console.log('Здесь будет блок для КН от клиентов')
+            showElements('.predstavlenie__table');
+            insertNextStepDialog('step_1');
             break;  
     }
-}
+} */
+
 
 function showConditionsCreditCash(event) {
     const ownCalcRadioButton = document.querySelector('#own_calc_credit_input');
@@ -330,8 +345,17 @@ function showElements(selector) {
 //Вставка следующего шага диалогового скрипта.
 function insertNextStepDialog(step_number) {
     const dialog = document.querySelector('.dialog');//Это таблица.
-    const step = baseOfStep[step_number];//Берем из базы данные о шаге.
-    step.step_number = step_number;//Добавляем в объект номер шага, он нам пригодится.
+    /* const step = baseOfStep[step_number];//Берем из базы данные о шаге. */
+    let step;
+    /* Прозводим выбор диалога, в зависмости от выбора очереди работы с клиентами. */
+    if (selectQueues.value === 'X-Sell Неактивные кредитчики / Неактивные клиенты. КК + КН' || selectQueues.value === 'X-Sell Отказы КВК') {
+        step = baseOfStep[step_number];
+    }
+    if (selectQueues.value === 'КН от клиентов') {
+        step = baseKnDialog[step_number];
+    }
+    step.step_number = step_number;     //Добавляем в объект номер шага, он нам пригодится.
+    
    
     //Создаем контейнер-строку в таблице.
     const string = createDiv();
@@ -1297,18 +1321,19 @@ function clipPosition(){
     //при клике на кнопку позвонить в блоке история по заданию
     btn.addEventListener('click', e => {
         //меняем класс, чтоб можно было перетаскивать скрепку
+        let mainWidth = parseInt(getComputedStyle(document.querySelector('.main')).width) + 140;
+        let tipHeight = parseInt(document.querySelector('.actions__bookmark-wrap').offsetTop);
         wrapClip.classList.add('new-area');
         window.drag.destroy();
         window.drag = new Draggable (element, options);
         //изначальные координаты
-        drag.set(window.innerWidth - 570,window.innerHeight - 340);
+        drag.set(mainWidth, tipHeight);
     });
     //при клике на согласование условий
     conditions.addEventListener('click', e => {
         wrapClip.classList.add('conditions-area');
-
     })
-}
+};
 
 clipPosition();
 
@@ -1330,7 +1355,28 @@ window.drag = new Draggable (element, options);
 
 
 
-
+//function clipPosition(){
+//    const btn = document.querySelector('.btn_call');
+//    const conditions = document.querySelector('.conditions');
+//    const wrapClip = document.querySelector('.area');
+//    //при клике на кнопку позвонить в блоке история по заданию
+//    btn.addEventListener('click', e => {
+//        //меняем класс, чтоб можно было перетаскивать скрепку
+//        const mainWidth = parseInt(getComputedStyle(document.querySelector('.main')).width);
+//        console.log(mainWidth)
+//        wrapClip.classList.add('new-area');
+//        window.drag.destroy();
+//        window.drag = new Draggable (element, options);
+//        //изначальные координаты
+//        /* drag.set(window.innerWidth - 0,window.innerHeight - 0); */
+//        drag.set(mainWidth, 500);
+//    });
+//    //при клике на согласование условий
+//    conditions.addEventListener('click', e => {
+//        wrapClip.classList.add('conditions-area');
+//
+//    })
+//}
 
 
 

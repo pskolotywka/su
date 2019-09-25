@@ -85,6 +85,11 @@
     color: #B22222;
     background-color: transparent;
 }
+.span-green-bold {
+    color: green;
+    font-weight: 600;
+    background-color: transparent;
+}
 
 .span-blue {
     color: rgb(0, 0, 255);
@@ -1021,7 +1026,7 @@ th {
 
 .area{
     position: fixed;
-    top: 400px;
+    top: 550px;
     left: 830px;
     width: 120px;
     height: 120px;
