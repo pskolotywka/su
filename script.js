@@ -1344,39 +1344,3 @@ window.drag = new Draggable (element, options);
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-//function clipPosition(){
-//    const btn = document.querySelector('.btn_call');
-//    const conditions = document.querySelector('.conditions');
-//    const wrapClip = document.querySelector('.area');
-//    //при клике на кнопку позвонить в блоке история по заданию
-//    btn.addEventListener('click', e => {
-//        //меняем класс, чтоб можно было перетаскивать скрепку
-//        const mainWidth = parseInt(getComputedStyle(document.querySelector('.main')).width);
-//        console.log(mainWidth)
-//        wrapClip.classList.add('new-area');
-//        window.drag.destroy();
-//        window.drag = new Draggable (element, options);
-//        //изначальные координаты
-//        /* drag.set(window.innerWidth - 0,window.innerHeight - 0); */
-//        drag.set(mainWidth, 500);
-//    });
-//    //при клике на согласование условий
-//    conditions.addEventListener('click', e => {
-//        wrapClip.classList.add('conditions-area');
-//
-//    })
-//}
-
-
-
