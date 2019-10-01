@@ -81,7 +81,30 @@ function catchClick(event) {
                     магазинах-партнерах.</mark><mark class="span-red"><br><br>Для назначения встречи нужно подтвердить Ваш доход.
                     </mark><br><br><mark class="span-red">Вам будет удобно получить карту по <адресу>?</mark>`
                 }
-            }  
+                if (clickedElement.dataset.nextStep == '6') {
+                    const needBlock = document.querySelector('[data-step="step_6"]').children[1];
+                    needBlock.innerHTML = `<mark class="span-red"><ИО>, <mark class="span-blue">ранее Вы обращались к нашим партнерам, чтобы получить 
+                    кредит на покупку. Наш банк так же откликнулся и одобрил Вам кредит наличными с максимальной суммой </mark><mark class="span-red"><максимальная 
+                    сумма></mark><mark class="span-blue"> рублей на 36 месяцев. Регулярный платеж составит </mark><mark class="span-red"><Назвать платеж> 
+                    </mark><mark class="span-blue">рублей в месяц. Чтобы обсудить детали, давайте сделаем расчет. Какую сумму рассматриваете?</mark>`
+                }
+            }
+            if (selectQueues.value === 'КН от клиентов') {
+                if (clickedElement.dataset.nextStep == '6') {
+                    const needBlock = document.querySelector('[data-step="step_6"]').children[1];
+                    needBlock.innerHTML = `<mark class="span-red"><ИО>, <mark class="span-blue">банк одобрил Вам кредит наличными с максимальной суммой 
+                    </mark><mark class="span-red"><максимальная сумма></mark><mark class="span-blue"> рублей на 36 месяцев. Регулярный платеж составит 
+                    </mark><mark class="span-red"><Назвать платеж> </mark><mark class="span-blue">рублей в месяц. Воспользуетесь предложением?</mark>`
+                }
+                if (clickedElement.dataset.nextStep == '33') {
+                    const needBlock = document.querySelector('[data-step="step_33"]').children[1];
+                    needBlock.innerHTML = `<mark class="span-red"><ИО>, <mark class="span-blue">Банк одобрил Вам </mark><mark class="span-red">кредитную 
+                    карту Тинькофф Платинум</mark><mark class="span-blue"> с которой можно снимать наличные, а значит уже сейчас решить вопросы, на которые 
+                    требовались деньги. Лимит по карте составляет </mark><mark class="span-red"><лимит руб>, </mark><mark class="span-blue">выпустим и доставим 
+                    карту бесплатно.</mark>`
+                }
+                
+            }
             break;
     };
 };
@@ -90,12 +113,18 @@ function catchClickBookmarkClientCard(clickedElement) {
     switch (clickedElement.innerText) {
         case 'Информация по заданию':
             toggleClientCardSection('.client-card__task-info', clickedElement);
+            tip.classList.remove('hidden');
+            tip.innerHTML = 'Обрати внимание на очередь и Описание.';
             break;
         case 'История по заданию':
             toggleClientCardSection('.client-card__history', clickedElement);
+            tip.classList.remove('hidden');
+            tip.innerHTML = 'Изучи внимательно комментарий, если клиенту уже совершался ранее звонок.';
             break;
         case 'Детали кредита':
             toggleClientCardSection('.client-card__credit-details', clickedElement);
+            tip.classList.remove('hidden');
+            tip.innerHTML = 'При переходе к назначению встречи, в данном блоке ты увидишь продукт, который выбрал клиент.';
             break;
     };
 };
@@ -431,6 +460,7 @@ function chooseNextStep(event) {
     
     //Берем номер следющео шага из дата-аттрибута кнопки и вставляем его.
     const next_step = `step_${radio.dataset.nextStep}`;
+    console.log(next_step)
     insertNextStepDialog(next_step);
 };
 
@@ -635,18 +665,23 @@ updatePeriod();
 
 
 
+
+
+
 function optionsCredit(){
     let checkedCreditId = '';
     const btnCalculate = document.querySelector('[data-click="calculate_credit"]');
     const title = document.querySelector('#conditions_title');
     const sumCredit = document.querySelector('#sumCredit');
     const periodCredit = document.querySelector('#periodCredit');
-    const questionMark = document.querySelector('.tooltip-pin');
+    const questionMark = document.querySelectorAll('.tooltip-pin');
     const linkBlock = document.querySelectorAll('.credit-cash__item');
     const btn = document.querySelectorAll('[name="credit-cash"]');
     btn.forEach(item => {
         //при клике на одну из ссылок в "кредит наличными"
         item.addEventListener('click', e => {
+            tip.classList.remove('hidden');
+            tip.innerHTML = 'Клиент может изменить параметры расчета и выбрать «Сумма в рублях» от 50 000 рублей до максимально одобренной; значение «Срок в месяцах» от 3 до 36 месяцев.';
             //добавляем подсказку
             linkBlock.forEach(item => {
                 item.classList.add('hidden');
@@ -761,25 +796,55 @@ function optionsCredit(){
                     tooltipForToggleId = 'tooltip_credit_4';
                     break;
             }
-            questionMark.addEventListener('click', e => {
-                document.getElementById(tooltipForToggleId).classList.toggle('hidden');
-                switch (checkedCreditId) {
-                    case 'credit_3':
-                        tip.innerHTML = 'Подсказка: При консультации клиента следуй инструкции «Согласование условий ' +
-                            '– общее описание функционала – согласование условий - Собственный расчет (для кредита наличными) ' +
-                            '– порядок для тарифа с пересчетом ставки в синим блоке»';
-                        break;
-                    case 'credit_4':
-                        tip.innerHTML = 'Подсказка: При консультации клиента следуй инструкции «Согласование условий' +
-                            ' – общее описание функционала – согласование условий - Собственный расчет (для кредита наличными)' +
-                            ' – Клиент интересуется процентной ставкой или не уточняет конкретно, о каком проценте (годовой или общий) идёт речь';
-                        break;
-                }
-            })
+            for (const mark of questionMark) {
+                mark.addEventListener('click', e => {
+                    document.getElementById(tooltipForToggleId).classList.toggle('hidden');
+                    switch (checkedCreditId) {
+                        case 'credit_3':
+                            if (document.querySelector('.own-calc-credit__count-result').classList.contains('hidden')) {
+                                tip.innerHTML = 'Порядок консультации клиента по процентам тарифа с пересчетом ставки, ты найдешь в инструкции' +
+                                ' «Согласование условий» - Общее описание функционала – Согласование условий – Собственный расчет (для кредита' + 
+                                    'наличными) - У некоторых клиентов в предложении лучших условий может присутствует тариф с пересчетом ставки- ' +
+                                    'Какая у меня процентная ставка?';
+                            }
+                            
+                            break;
+                        case 'credit_4':
+                            tip.innerHTML = 'Подсказка: При консультации клиента следуй инструкции «Согласование условий' +
+                                ' – общее описание функционала – согласование условий - Собственный расчет (для кредита наличными)' +
+                                ' – Клиент интересуется процентной ставкой или не уточняет конкретно, о каком проценте (годовой или общий) идёт речь';
+                            break;
+                    } 
+                })
+            }
+            
 
         });
     });
 }
+
+function tooltipSiblingText() {
+    const tooltips = document.querySelectorAll('.tooltip-pin');
+    for (const tips of tooltips) {
+        tips.addEventListener('click', function() {
+            tipsSibl = tips.nextElementSibling;
+            let typeCredit = document.querySelector('.select-credit').value;
+            if (typeCredit === 'Кредитная карта') {
+                tipsSibl.classList.toggle('hidden')
+            }
+            if (typeCredit === 'Кредит наличными') {
+                if (!tips.closest('.own-calc-credit__count-result').classList.contains('hidden')) {
+                    tip.classList.remove('hidden');
+                    tip.innerHTML = ''
+                    tip.innerHTML = 'Порядок консультации клиента по процентам тарифа с пересчетом ставки, ты найдешь в инструкции «Согласование условий» - Общее описание функционала – Согласование условий – Собственный расчет (для кредита наличными) - Какая у меня процентная ставка?'
+                }
+            }
+            
+        })
+    }
+}
+
+tooltipSiblingText();
 
 optionsCredit();
 
@@ -846,13 +911,6 @@ function calculate(){
         })
     })
 }
-
-
-
-
-
-
-
 
 
 function init () {
@@ -1112,9 +1170,48 @@ function clipTips(){
         }
     });
 
+    const creditInputs = document.querySelectorAll('.own-calc-credit__option-input');
+
+    for (const input of creditInputs) {
+        input.addEventListener('focus', function() {
+            if (input.name === 'private-income') {
+                tip.classList.remove('hidden');
+                tip.innerHTML = `Если клиент отказался сообщать свой доход или озвучил доход менее 5000 рублей, сообщи: <span class="span-blue">«<ИО>, текущего дохода не достаточно, чтобы установить кредитный лимит. В дальнейшем можете самостоятельно оформить заявку на сайте tinkoff.ru или обратиться в Банк».</span> Заверши задание со статусом Отказ и причиной Другое.`
+            }
+        })
+    }
+    for (const input of creditInputs) {
+        input.addEventListener('blur', function() {
+            if (input.name === 'private-income') {
+                tip.classList.add('hidden');
+                tip.innerHTML = '';
+            }
+        })
+    }
+
+
+    function dateText() {
+        const now = new Date();
+        const year = now.getFullYear();
+        const month = now.getMonth();
+        let day = now.getDate() + 7;
+        if (day > 31) {
+            day = day - 31
+        }
+        const textBlocks = document.querySelectorAll('.appointmet__date-text');
+        for (let item of textBlocks) {
+            item.innerHTML = `${day}.${month}.${year}`;
+        }
+
+    }
+
+    dateText()
+    
+
+
     //текст в дополнительной информации
     const moreInfoContent = document.querySelectorAll('.tip');
-    const moreInfoTips = ['При согласии клиента на получение кредитной карты, действуй согласно инструкции «Согласование условий»' +
+    const moreInfoTips = ['Перезвон должен быть назначен не позднее чем за один день до этой даты.', 'При согласии клиента на получение кредитной карты, действуй согласно инструкции «Согласование условий»' +
     ' – общее описание функционала – Апплет Дополнительная информация».' +
     'Если клиент сообщает, что уже активировал кредитную карту нашего Банка, действуй, согласно инструкции «Согласование условий»' +
     ' – общее описание функционала – Нестандартные ситуации - Клиент сообщает, что он пользуется/ уже активировал КК».',
@@ -1210,9 +1307,10 @@ function clipTips(){
 
     const tipCreditCash = 'Проверь, что все параметры расчета указаны верно.';
     const btn = document.querySelectorAll('[name="credit-cash"]');
+    const textPersonal = 'Клиент может изменить параметры расчета и выбрать «Сумма в рублях» от 50 000 рублей до максимально одобренной; значение «Срок в месяцах» от 3 до 36 месяцев.'
     btn.forEach(item => {
         item.addEventListener('click', e => {
-            tip.innerHTML = tipCreditCash;
+            tip.innerHTML = textPersonal;
         })
     });
     const insurance = document.getElementById('insurance');
@@ -1224,7 +1322,7 @@ function clipTips(){
             ' («Согласование условий – общее описание функционала – согласование условий - Собственный расчет (для кредита наличными)';
     };
     insurance.onmouseout= function(){
-        tip.innerHTML = tipCreditCash;
+        tip.innerHTML = textPersonal;
     };
 
     const holiday = document.getElementById('holydays');
@@ -1236,7 +1334,7 @@ function clipTips(){
             '(«Согласование условий – общее описание функционала – согласование условий - Собственный расчет (для кредита наличными)';
     };
     holiday.onmouseout = function () {
-        tip.innerHTML = tipCreditCash;
+        tip.innerHTML = textPersonal;
     };
 
     const textMoreAction = 'При любых изменений данных клиента важно строго следовать инструкции «Информационный портал – Дополнительные действия ' +

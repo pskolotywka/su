@@ -147,12 +147,13 @@
 								<li>Возраст клиента: 50</li>
 								<li>Место работы: КГТООИР КАЛИНИНГРАДСКОЕ ОБЩЕСТВО ОХОТНИКОВ И РЫБОЛОВОВ, Нерук.
 									сотрудник</li>
-								<li>Дата истечения действия предложения: 2019 9 10</li>
+								<li>Дата истечения действия предложения: 2019 12 10 <span class="tip">?</span></li>
 								<li>У клиента есть неактивированная кредитная карта, которая будет заблокирована: <span class="tip">?</span></li>
 								<li>УКБО подписано: При отправке почтой клиенту ничего не нужно отправлять обратно,
 									картой можно пользоваться сразу.<span class="tip">?</span></li>
 								<li>Очерёдность предложений: Предложите клиенту кредит наличными, при отказе Кредитную карту</li>
 								<li>Дебетовый клиент: Да <span class="tip">?</span></li>
+								<li>При активации КН будет отключен овердрафт.</li>
 							</ul>
 						</div>
 
@@ -162,7 +163,7 @@
 							</h2>
 							<hr class="actions__split">
 
-							<select class="select conditions__select-type-credit">
+							<select class="select conditions__select-type-credit select-credit">
 								<option class="select select-credit-item" selected="selected" disabled>Выберите кредит
 								</option>
 								<option class="select select-credit-item" value="Кредитная карта">Кредитная карта
@@ -187,7 +188,15 @@
 								<span class="income-text" style="
 								margin-left: 270px;
 								margin-right: 30px;"
-								>Доход*</span> <input type="number" name="private-income" class="income-input own-calc-credit__option-input"><span class="tooltip-pin" data-click="tooltip">?</span>
+								>Доход<span class="span-red">*</span></span> <input type="number" name="private-income" class="income-input own-calc-credit__option-input">
+								<span class="tooltip-pin" data-click="tooltip">?</span>
+								<div id="incometool" class="tooltip-box hidden incomeprivate">
+									<div>
+										<b>1.</b> Согласовать условия кредита<br>
+										<b>2.</b> Уточнить текущий доход клиента: <span class="span-blue">«Подскажите Ваш совокупный доход со всеми подработками, премиями за месяц».</span><br>
+										<b>3.</b> Назначить встречу<br>
+									</div>
+								</div>
 							</label>
 						</div>
 
@@ -374,7 +383,7 @@
 								<b>Удобный адрес для встречи</b><br>111000 г.Москва, ул. Василия Петушкова, д. 210
 							</p>
 							<p class="appointment__date appointment__string">
-								<b>Дата:</b> 10 08 2019
+								<b>Дата:</b><span class="appointmet__date-text">10 08 2019</span> 
 							</p>
 							<p class="appointment__string">
 								<b>Время:</b> 10:00 - 12:00
@@ -484,7 +493,7 @@
 						<div class="modal conditions__step hidden">
 							<div class="modal__dialog">
 								<p class="modal__message">
-									Мы назначили встречу на <span class="modal__message__date">01.07.2019</span> в период <span class="modal__message__period">14:00 - 16:00</span>.
+									Мы назначили встречу на <span class="appointmet__date-text"></span> в период <span class="modal__message__period">10:00 - 12:00</span>.
 									В день встречи отправим смс с телефоном представителя.
 									Примерно за час до встречи он вам позвонит.
 									На встрече потребуется подписать документы и передать их представителю.
@@ -758,7 +767,7 @@
 		<div class="wrap" id="id">
 			<img src="img/clip.jpg" alt="clip" class="wrap__img">
 			<div class="wrap__cross"></div>
-			<div class="wrap__help hidden">тут будет подсказка</div>
+			<div class="wrap__help">Привет! Я помогу тебе в практике на тренажере. Следи за моими подсказками!</div>
 		</div>
 	</div>
 	<script src="draggable.js"></script>

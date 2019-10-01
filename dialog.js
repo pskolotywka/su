@@ -633,12 +633,12 @@ const baseKnDialog = {
             {
                 text: 'Кредитная карта',
                 type: 'positive',
-                next_step: '107'
+                next_step: '33'  // до изменения был 107 шаг
             }
         ]
     },
     step_107: {
-        theme: '',
+        theme: 'КК: Приветствие',
         text: `<mark class="span-red"><ИО>, <mark class="span-blue"> Банк одобрил Вам</mark> 
         <mark class="span-red">кредитную карту Тинькофф Платинум</mark>, <mark class="span-blue">С которой можно снимать наличные, а значит уже сейчас решить вопросы, на которые требовались деньги. Лимит по карте составляет <mark class="span-red"><лимит руб></mark>, выпустим и доставим карту бесплатно.<br><br>Проведи презентацию карты<br><br><mark class="span-red">Вам будет удобно получить карту <mark class="span-blue">по <адресу><mark class="span-blue">?<br><br><mark class="span-bold">Клиент готов назначить встречу с представителем банка?</mark>`,
         buttons: [{

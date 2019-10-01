@@ -19,6 +19,25 @@
     height: 19px;
 }
 
+.incomeprivate {
+    margin-left: 338px;
+    margin-top: 5px;
+}
+
+.incomeprivate:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-bottom: 13px solid lightblue;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    left: 222px;
+    top: -13px;
+}
+
+
+
 .time-input,
 .time-input[type="text"] {
     margin: 0;
