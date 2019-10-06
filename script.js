@@ -1193,10 +1193,11 @@ function clipTips(){
     function dateText() {
         const now = new Date();
         const year = now.getFullYear();
-        const month = now.getMonth();
+        const month = now.getMonth() + 1;
         let day = now.getDate() + 7;
         if (day > 31) {
             day = day - 31
+            month + 1
         }
         const textBlocks = document.querySelectorAll('.appointmet__date-text');
         for (let item of textBlocks) {
